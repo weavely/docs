@@ -16,8 +16,7 @@
           {
             "group": "Get Started",
             "pages": [
-              "get-started/index",
-              "get-started/publish"
+              "get-started/create-form"
             ]
           },
           {
