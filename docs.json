@@ -4,7 +4,7 @@
   "name": "Mint Starter Kit",
   "colors": {
     "primary": "#310080",
-    "light": "#310080",
+    "light": "#e0ccff",
     "dark": "#310080"
   },
   "favicon": "/weavely-logo.svg",
@@ -75,7 +75,7 @@
   },
   "footer": {
     "socials": {
-      "linkedin": "https://linkedin.com/company/mintlify",
+      "linkedin": "https://www.linkedin.com/company/weave-ly/",
       "reddit": "https://www.reddit.com/r/WeavelyForms/",
       "instagram": "https://www.instagram.com/weavely.ai/",
       "youtube": "https://www.youtube.com/@weavely"
