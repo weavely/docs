@@ -35,23 +35,9 @@
         ]
       },
       {
-        "tab": "API Reference",
-        "groups": [
-          {
-            "group": "API Documentation",
-            "pages": [
+        "tab": "Examples",
+        "pages": [
               "api-reference/introduction"
-            ]
-          },
-          {
-            "group": "Endpoint Examples",
-            "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete",
-              "api-reference/endpoint/webhook"
-            ]
-          }
         ]
       }
     ],
@@ -76,8 +62,8 @@
     }
   },
   "logo": {
-    "light": "/logo/weavely-white.svg",
-    "dark": "/logo/weavely-black.svg"
+    "light": "/logo/weavely-black.svg",
+    "dark": "/logo/weavely-white.svg"
   },
   "navbar": {
     "links": [
