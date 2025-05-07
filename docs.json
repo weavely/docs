@@ -32,7 +32,7 @@
             ],
             "group": "Integrations",
             "pages": [
-              
+              "integrations/custom-gpt"
             ]
           }
         ]
