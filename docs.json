@@ -22,14 +22,7 @@
           {
             "group": "Features",
             "pages": [
-              "features/embeddings",
-              {
-                "group": "Form Elements",
-                "icon": "block-brick",
-                "pages": [
-                  
-                ]
-              }
+              "features/embeddings"
             ],
             "group": "Integrations",
             "pages": [
