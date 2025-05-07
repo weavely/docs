@@ -23,7 +23,9 @@
             "group": "Features",
             "pages": [
               "features/embeddings"
-            ],
+            ]
+          },
+          {
             "group": "Integrations",
             "pages": [
               "integrations/custom-gpt"
