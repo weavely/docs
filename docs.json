@@ -1,7 +1,7 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "maple",
-  "name": "Mint Starter Kit",
+  "name": "Forms that build themselves",
   "colors": {
     "primary": "#310080",
     "light": "#e0ccff",
