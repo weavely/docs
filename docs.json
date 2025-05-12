@@ -12,21 +12,21 @@
     "tabs": [
       {
         "tab": "Help Center",
-        "groups": [
+        "anchors": [
           {
-            "group": "Get Started",
+            "anchor": "Get Started",
             "pages": [
               "get-started/the-basics"
             ]
           },
           {
-            "group": "Features",
+            "anchor": "Features",
             "pages": [
               "features/embeddings"
             ]
           },
           {
-            "group": "Integrations",
+            "anchor": "Integrations",
             "pages": [
               "integrations/aoverview",
               "integrations/custom-gpt",
