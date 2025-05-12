@@ -29,7 +29,8 @@
             "group": "Integrations",
             "pages": [
               "integrations/custom-gpt",
-              "integrations/email-notifications"
+              "integrations/email-notifications",
+              "integrations/google-sheets"
             ]
           }
         ]
