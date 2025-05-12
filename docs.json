@@ -85,5 +85,10 @@
       "instagram": "https://www.instagram.com/weavely.ai/",
       "youtube": "https://www.youtube.com/@weavely"
     }
+  },
+  "integrations": {
+    "gtm": {
+        "tagId": "GTM-W8WL7BK"
+    }
   }
 }
