@@ -28,7 +28,7 @@
           {
             "group": "Integrations",
             "pages": [
-              "integrations/overview",
+              "integrations/aoverview",
               "integrations/custom-gpt",
               "integrations/email-notifications",
               "integrations/google-sheets",
