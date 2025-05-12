@@ -30,7 +30,8 @@
             "pages": [
               "integrations/custom-gpt",
               "integrations/email-notifications",
-              "integrations/google-sheets"
+              "integrations/google-sheets",
+              "integrations/notion"
             ]
           }
         ]
