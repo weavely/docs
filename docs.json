@@ -9,6 +9,20 @@
   },
   "favicon": "/weavely-logo.svg",
   "navigation": {
+    "anchors": [
+    {
+      "anchor": "Documentation",
+      "icon": "book-open",
+      "pages": [
+        "integrations/aoverview",
+        "integrations/custom-gpt",
+        "integrations/email-notifications",
+        "integrations/google-sheets",
+        "integrations/notion",
+        "integrations/salesforce"
+      ]
+    }
+  ],
     "tabs": [
       {
         "tab": "Help Center",
