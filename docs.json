@@ -32,7 +32,8 @@
               "integrations/custom-gpt",
               "integrations/email-notifications",
               "integrations/google-sheets",
-              "integrations/notion"
+              "integrations/notion",
+              "integrations/salesforce"
             ]
           }
         ]
