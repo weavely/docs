@@ -27,6 +27,7 @@
           },
           {
             "anchor": "Integrations",
+            "href":"/integrations/notion",
             "pages": [
               "integrations/aoverview",
               "integrations/custom-gpt",
