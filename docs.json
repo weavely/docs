@@ -12,21 +12,21 @@
     "tabs": [
       {
         "tab": "Help Center",
-        "dropdowns": [
+        "groups": [
           {
-            "dropdown": "Get Started",
+            "group": "Get Started",
             "pages": [
               "get-started/the-basics"
             ]
           },
           {
-            "dropdown": "Features",
+            "group": "Features",
             "pages": [
               "features/embeddings"
             ]
           },
           {
-            "dropdown": "Integrations",
+            "group": "Integrations",
             "href":"/integrations/notion",
             "pages": [
               "integrations/aoverview",
