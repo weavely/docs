@@ -11,7 +11,7 @@
   "navigation": {
     "anchors": [
     {
-      "anchor": "Documentation",
+      "anchor": "Testing",
       "icon": "book-open",
       "pages": [
         "integrations/aoverview",
