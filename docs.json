@@ -34,7 +34,8 @@
               "integrations/email-notifications",
               "integrations/google-sheets",
               "integrations/notion",
-              "integrations/salesforce"
+              "integrations/salesforce",
+              "integrations/airtable"
             ]
           }
         ]
