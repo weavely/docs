@@ -35,7 +35,8 @@
               "integrations/google-sheets",
               "integrations/notion",
               "integrations/salesforce",
-              "integrations/airtable"
+              "integrations/airtable",
+              "integrations/hubspot"
             ]
           }
         ]
