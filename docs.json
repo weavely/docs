@@ -42,6 +42,7 @@
            {
             "group": "Developers",
             "pages": [
+              "developers/profile",
               "developers/webhooks"
             ]
           }
