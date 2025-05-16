@@ -38,12 +38,6 @@
               "integrations/airtable",
               "integrations/hubspot"
             ]
-          },
-          {
-            "group": "API",
-            "pages": [
-              "api/overview"
-            ]
           }
         ]
       },
