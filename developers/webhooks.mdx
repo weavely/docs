@@ -1,0 +1,70 @@
+---
+title: "Webhooks API"
+description: "Our Webhooks API instantly delivers each new submission to your specified endpoint URL or any compatible web application."
+---
+
+## Create webhook
+
+> POST https://api.weavely.ai/v1/{{formId}}/webhooks
+
+### Request
+
+#### Headers
+
+<ParamField header="Authorization" type="string" required>
+  `Bearer <token>`\
+  Your personal token.
+</ParamField>
+
+#### Parameters
+
+<ParamField path="formId" type="string" required>
+  The ID of the form to attach the webhook to.
+</ParamField>
+
+#### Body
+
+<ParamField body="url" type="string" required>
+  The destination URL that will receive POST payloads when a form is submitted.
+</ParamField>
+
+### Response
+
+<ResponseField name="id" type="string">
+  The ID for the newly created webhook.
+</ResponseField>
+
+<ResponseField name="url" type="string">
+  The URL you provided for receiving webhook events.
+</ResponseField>
+
+<ResponseField name="formId" type="string">
+  The form ID this webhook is associated with.
+</ResponseField>
+
+## Delete webhook
+
+> DELETE https://api.weavely.ai/v1/{{formId}}/webhooks/{{webhookId}}
+
+### Request
+
+#### Headers
+
+<ParamField header="Authorization" type="string" required>
+  `Bearer <token>`\
+  Your personal token.
+</ParamField>
+
+#### Parameters
+
+<ParamField path="formId" type="string" required>
+  The ID of the form where the webhook is registered.
+</ParamField>
+
+<ParamField path="webhookId" type="string" required>
+  The ID of the webhook to delete.
+</ParamField>
+
+### Response
+
+None
