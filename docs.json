@@ -38,6 +38,12 @@
               "integrations/airtable",
               "integrations/hubspot"
             ]
+          },
+           {
+            "group": "Developers",
+            "pages": [
+              "developers/webhooks"
+            ]
           }
         ]
       },
