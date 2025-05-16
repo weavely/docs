@@ -1,0 +1,38 @@
+---
+title: "Weavely API"
+description: "Looking to automate some Weavely functionality ? You've come to the right place!"
+---
+
+**GET /v1/me**
+
+**URL**
+
+/v1/me
+
+**Method**
+
+GET
+
+**Headers**
+
+Authorization: Bearer \<personal_token\>
+
+**Body**
+
+None
+
+**Return Value**
+
+```json
+{
+  "id": "string",
+  "name": "string",
+  "email": "string"
+}
+```
+
+**Error Codes**
+
+```json
+400 Bad Request – Missing or invalid token
+```
