@@ -1,0 +1,95 @@
+---
+title: "Identity API"
+description: "Endpoints for retrieving and managing the authenticated user's identity."
+---
+
+## Get profile
+
+> GET https://api.weavely.ai/v1/profile
+
+### Request
+
+#### Headers
+
+<ParamField header="Authorization" type="string" required>
+  `Bearer <token>`\
+  Your personal token.
+</ParamField>
+
+### Response
+
+<ResponseField name="id" type="string">
+  The user's unique identifier.
+</ResponseField>
+
+<ResponseField name="name" type="string">
+  The user's full name.
+</ResponseField>
+
+<ResponseField name="email" type="string">
+  The user's email address.
+</ResponseField>
+
+## List teams
+
+> GET https://api.weavely.ai/v1/teams
+
+### Request
+
+#### Headers
+
+<ParamField header="Authorization" type="string" required>
+  `Bearer <token>`  
+  Your personal token.
+</ParamField>
+
+### Response
+
+A JSON array of team objects.
+
+<ResponseField name="id" type="string">
+  The team's unique identifier.
+</ResponseField>
+
+<ResponseField name="name" type="string">
+  The team's name.
+</ResponseField>
+
+
+
+## List forms in a team
+
+> GET https://api.weavely.ai/v1/teams/:teamId/forms
+
+### Request
+
+#### Headers
+
+<ParamField header="Authorization" type="string" required>
+  `Bearer <token>`  
+  Your personal token.
+</ParamField>
+
+#### Path Parameters
+
+<ParamField path="teamId" type="string" required>
+  The unique identifier of the team.
+</ParamField>
+
+#### Query Parameters
+
+<ParamField query="published" type="boolean">
+  If `true`, only returns forms that have a published version.
+</ParamField>
+
+### Response
+
+A JSON array of form objects.
+
+<ResponseField name="id" type="string">
+  The form's unique identifier.
+</ResponseField>
+
+<ResponseField name="name" type="string">
+  The form's name.
+</ResponseField>

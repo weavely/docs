@@ -1,0 +1,50 @@
+---
+title: "Forms API"
+description: "Endpoints for retrieving and managing forms."
+---
+## Get form fields
+
+> GET https://api.weavely.ai/v1/forms/:formId/fields
+
+### Request
+
+#### Headers
+
+<ParamField header="Authorization" type="string" required>
+  `Bearer <token>`  
+  Your personal token.
+</ParamField>
+
+#### Path Parameters
+
+<ParamField path="formId" type="string" required>
+  The unique identifier of the form.
+</ParamField>
+
+### Response
+
+<ResponseField name="formId" type="string">
+  The form's unique identifier.
+</ResponseField>
+
+<ResponseField name="version" type="string|null">
+  The timestamp of the published version, or `null` if the form has no published version.
+</ResponseField>
+
+<ResponseField name="fields" type="array">
+  The list of fields in the form.
+</ResponseField>
+
+Each field object includes:
+
+<ResponseField name="id" type="string">
+  The field's unique identifier.
+</ResponseField>
+
+<ResponseField name="label" type="string">
+  The field's display label.
+</ResponseField>
+
+<ResponseField name="type" type="string">
+  The type of the field (e.g., `text`, `datetime`, etc.).
+</ResponseField>
