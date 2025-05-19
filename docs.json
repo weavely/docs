@@ -36,7 +36,8 @@
               "integrations/notion",
               "integrations/salesforce",
               "integrations/airtable",
-              "integrations/hubspot"
+              "integrations/hubspot",
+              "integrations/mcp"
             ]
           },
            {
