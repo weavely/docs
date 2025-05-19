@@ -37,7 +37,8 @@
               "integrations/salesforce",
               "integrations/airtable",
               "integrations/hubspot",
-              "integrations/mcp"
+              "integrations/mcp",
+              "integrations/claude"
             ]
           },
            {

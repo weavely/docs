@@ -10,7 +10,7 @@ title: "Building Forms and Surveys in Claude"
 The **Weavely MCP server** lets Claude (or any AI client that supports MCP) call a `create-form` tool to generate Weavely forms.
 
 <Warning>
-  At the time of writing this is only available within the Claude for desktop application
+  At the time of writing, this is only available within the Claude for desktop application
 </Warning>
 
 ## Step 1: Setting Up
@@ -19,12 +19,12 @@ There are two ways you can get started building forms and surveys in Claude. We'
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/fSQiIA5jW5E?si=8K_nLodZbpohOwy7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen />
 
-### For Free Claud Users
+### For Free Claude Users
 
 If you're a free user you'll need to manually add the Weavely MCP server using these three steps:
 
 1. Create or locate the _claude_desktop_config.json_ file under _"%APPDATA%\\Claude\\claude_desktop_config.json"_ for Windows or _"~/Library/Application Support/Claude/claude_desktop_config.json"_ for Mac.
-2. Add the json snippet given bellow.
+2. Add the JSON snippet given bellow.
 3. Restart the Claude for desktop app.
 
 ```json
@@ -41,9 +41,9 @@ If you're a free user you'll need to manually add the Weavely MCP server using t
 }
 ```
 
-### For Paying Claud Users
+### For Paying Claude Users
 
-Navigate to _Settings-\>Profile-\>Integrations _and press on _"Add More". _In the modal that appears you can then give the integration a name (e.g. _"Weavely"_) and paste the following url:
+Navigate to \_Settings-\>Profile-\>Integrations \_and press on \_"Add More". \_In the modal that appears you can then give the integration a name (e.g. _"Weavely"_) and paste the following url:
 
 ```
 https://mcp.weavely.ai/sse
