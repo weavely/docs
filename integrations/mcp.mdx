@@ -1,0 +1,73 @@
+---
+title: "Weavely.ai MCP Server"
+description: "Use our MCP server to connect Weavely to your favourite AI and LLM tools!"
+sidebarTitle: "Weavely MCP"
+---
+
+Weavely's MCP Server allows AI clients like **Claude**, **Cursor**, or others to integrate directly with Weavely’s form-generation API—using standard [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) tools.
+
+This guide walks you through what the Weavely MCP is, how it works, and how to configure it for any compatible AI agent.
+
+## What is an MCP Server?
+
+MCP (Model Context Protocol) is a standard that allows AI models to **call tools**—like APIs or custom functions—by passing structured arguments.
+
+Instead of hardcoding every integration, you provide a reference to an MCP server that **exposes tools dynamically**. The LLM then learns what tools are available and when to use them, all without manual plumbing.
+
+## What Can You Do with Weavely MCP?
+
+The **Weavely MCP server** currently exposes a `create-form` tool that lets your AI client instantly generate sophisticated, production-grade forms from a user prompt.
+
+For example:
+
+> “Create a post-purchase NPS survey for new customers using behavioral science principles.”
+
+Behind the scenes, the MCP tool calls:
+
+```
+POST https://api.weavely.ai/v1/forms/generate
+```
+
+and returns the url of the generated form.
+
+## Basic Setup
+
+Here’s a sample configuration you can drop into your `mcp.json` or equivalent config file for any compatible AI client:
+
+```json
+{
+  "mcpServers": {
+    "weavely-mcp-sse": {
+      "command": "npx",
+      "args": [
+        "mcp-remote",
+        "https://mcp.weavely.ai/sse"
+      ]
+    }
+  }
+}
+```
+
+This will load the tools served by `https://mcp.weavely.ai/sse` via the `mcp-remote` runner.
+
+**Note**: `npx` should be available in your terminal. If you're on Windows and using a local agent, you may need to prefix commands with `cmd /c`.
+
+## Tools
+
+`create-form`
+
+This MCP server currently exposes one tool:
+
+| Name          | Description                           | Inputs                                 |
+| ------------- | ------------------------------------- | -------------------------------------- |
+| `create-form` | Create a new Weavely form from prompt | `prompt` (required), `name` (optional) |
+
+## How It Works
+
+Once loaded, the LLM sees `create-form` as a callable action and can invoke it whenever relevant in conversation.
+
+**Example usage in Claude or Cursor**:
+
+> “Create a bug reporting form for engineering users with required fields for steps to reproduce.”
+
+The LLM will detect this intent, call the `create-form` tool, and return a full JSON definition of the form.
