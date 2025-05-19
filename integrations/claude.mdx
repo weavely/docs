@@ -1,4 +1,59 @@
 ---
-description: "Description of your new file."
+description: "Weavely's MCP integration allows Claude to instantly generate forms or surveys from natural-language prompts."
 title: "Building Forms and Surveys in Claude"
 ---
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/C1jZBrGV6jE?si=k8bsyzRkMIUfJJe2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen />
+
+## What is the Weavely MCP?
+
+The **Weavely MCP server** lets Claude (or any AI client that supports MCP) call a `create-form` tool to generate Weavely forms.
+
+<Warning>
+  At the time of writing this is only available within the Claude for desktop application
+</Warning>
+
+## Step 1: Setting Up
+
+There are two ways you can get started building forms and surveys in Claude. We'll walk you through the methods. Or you can just watch this video tutorial as well:
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/fSQiIA5jW5E?si=8K_nLodZbpohOwy7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen />
+
+### For Free Claud Users
+
+If you're a free user you'll need to manually add the Weavely MCP server using these three steps:
+
+1. Create or locate the _claude_desktop_config.json_ file under _"%APPDATA%\\Claude\\claude_desktop_config.json"_ for Windows or _"~/Library/Application Support/Claude/claude_desktop_config.json"_ for Mac.
+2. Add the json snippet given bellow.
+3. Restart the Claude for desktop app.
+
+```json
+{
+  "mcpServers": {
+    "weavely-mcp-sse": {
+      "command": "npx",
+      "args": [
+        "mcp-remote",
+        "https://mcp.weavely.ai/sse"
+      ]
+    }
+  }
+}
+```
+
+### For Paying Claud Users
+
+## Step 2: Chat and Iterate on Your Form or Survey
+
+This part probably needs the least explaining. Simply chat to Claude like you would normally. Brainstorm questions to ask, phrasing, types of questions to use, etc. You can essentially leverage the power of Claude to fine tune all content-related aspects of your form or survey\!
+
+![Screenshot 2025-05-19 at 17.24.10.png](/images/Screenshot2025-05-19at17.24.10.png)
+
+Once you are satisfied with the outline of your form you can ask Claude to go ahead and generate the Weavely form for you.
+
+![Screenshot 2025-05-19 at 17.24.49.png](/images/Screenshot2025-05-19at17.24.49.png)
+
+## Step 3: Fine-tuning your Form's Design and Publishing
+
+Clicking the link in the previous step will lead you straight to the [Weavely.ai](http://Weavely.ai) editor. You can use the editor to further refine the look and feel of your form, set up integrations, add conditional logic (e.g. skipping certain questions) or even change your form's social media preview and favicon. Whenever you're satisfied with the result you can go ahead and hit the "_Publish"_ button (top right). This step will require you to have a Weavely.ai account, but don't worry it's free to create one\!
+![Gpt6 Pn](/images/gpt6.png)
