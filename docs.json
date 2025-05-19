@@ -43,7 +43,8 @@
            {
             "group": "Developers",
             "pages": [
-              "developers/profile",
+              "developers/forms",
+              "developers/identity",
               "developers/webhooks"
             ]
           }
