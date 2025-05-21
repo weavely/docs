@@ -45,13 +45,19 @@ description: "Endpoints for retrieving and managing the authenticated user's ide
 
 ### Response
 
-A JSON array of team objects.
+<ResponseField name="totalItems" type="integer">
+  The total number of teams available.
+</ResponseField>
 
-<ResponseField name="id" type="string">
+<ResponseField name="items" type="array">
+  An array of team objects.
+</ResponseField>
+
+<ResponseField name="items[].id" type="string">
   The team's unique identifier.
 </ResponseField>
 
-<ResponseField name="name" type="string">
+<ResponseField name="items[].name" type="string">
   The team's name.
 </ResponseField>
 
@@ -84,12 +90,19 @@ A JSON array of team objects.
 
 ### Response
 
-A JSON array of form objects.
 
-<ResponseField name="id" type="string">
+<ResponseField name="totalItems" type="integer">
+  The total number of forms available.
+</ResponseField>
+
+<ResponseField name="items" type="array">
+  An array of form objects.
+</ResponseField>
+
+<ResponseField name="items[].id" type="string">
   The form's unique identifier.
 </ResponseField>
 
-<ResponseField name="name" type="string">
+<ResponseField name="items[].name" type="string">
   The form's name.
 </ResponseField>
