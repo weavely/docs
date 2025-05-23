@@ -28,46 +28,35 @@ Seperate categories in the document across diferent pages in the form.
 
 Weavely will scan the document, extract the questions (including types like multiple choice, rating scales, or open-ended and even file uploads), and generate a fully working form. No manual copy-pasting required\!
 
-## Review and Refine
-
-Once your form is generated, you can:
-
-- **Scroll through and review** the AI’s output
-- **Delete or edit questions** you don’t need
-- **Add new ones** with a mini prompt like:
-
-  ```
-  Add a Likert scale question about trust in the brand.
-  ```
-
-Everything stays editable—even after publishing.
-
-📸 **Screenshot Suggestion:**\
-_Scrolling through the auto-generated form with a question being deleted or edited._\
-**Caption:** “Tweak any question manually or with a quick prompt.”
-
 ## Instantly Match Your Brand
 
-You don’t need to know CSS or fiddle with color codes.
+You don’t need to know CSS or fiddle with color codes. You can also leverage our AI to automatically adapt your forms to the style you need. You can either provide stylistic instructions via a prompt, or upload an example image.
 
-Just:
+Weavely will auto-match:
 
-1. Take a screenshot of your existing website, pitch deck, or logo.
-2. Go to **Theme → From Screenshot**.
-3. Upload the image, and Weavely will auto-match:
-   - Your color palette
-   - Fonts (via Google Fonts)
-   - Button styles and layout spacing
+- Your color palette
+- Fonts (via Google Fonts)
 
-📸 **Screenshot Suggestion:**\
-_Theme tab with a screenshot uploaded and theme preview applied._\
-**Caption:** “Apply your brand look instantly using a screenshot.”
+![Coca Edited Gi](/images/coca-edited.gif)
+
+## Review and Refine Manually (Optional)
+
+We're not at the point where AI can do everything (yet). Sometimes you still want to add that human touch to your form or survey. Once AI has turned your pdf into a fillable form you can continue in our form editor to:
+
+- Add additional questions or pages.
+- Fine-tune the look and feel (e.g. roundings, accent colours, fonts, etc.).
+- Add answer piping or skip-page logic.
+- Create integrations (e.g. with Mailchimp, Google Sheets or others).
+
+![Editor Gi](/images/editor.gif)
+
+Everything stays editable, even after publishing\!
 
 ## Set Up Email Notifications
 
-Want to be notified when someone submits a response—or send them a receipt?
+Want to be notified when someone submits a response, or send them a receipt?
 
-In the **Integrations → Email Notifications** tab:
+In the **Integrations → Email ** tab:
 
 - Add your email (or use `{{email}}` to message the respondent)
 - Customize the subject and body with answer piping like:
@@ -77,36 +66,25 @@ In the **Integrations → Email Notifications** tab:
   Body: They rated brand trust as {{brand_trust}} out of 5.
   ```
 
-📸 **Screenshot Suggestion:**\
-_The email notification setup panel with dynamic fields being added._\
-**Caption:** “Personalize your email notifications with answers from the form.”
-
-## Pipe Responses into Google Sheets
+## Send Responses to Google Sheets
 
 For better analysis or collaboration, you can connect your form to Google Sheets.
 
 - Go to **Integrations → Google Sheets**
 - Connect your Google account
-- Select or create a sheet
 - Map each form question to a column
 
-Every new submission will show up as a new row—automatically.
-
-📸 **Screenshot Suggestion:**\
-_The field mapping screen with matched questions and sheet columns._\
-**Caption:** “Send responses straight to Google Sheets in real time.”
+Every new submission will show up as a new row, automatically.
 
 ## Share Your Form
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/95JoC34l_Q8?si=L_H5pvAA5gG_zXqq" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen />
+
 When you're ready:
 
-- Hit **Open Preview** to test the full experience
-- Press **Share** to get a public link or embed code
-- Optionally, set up the form as a **popup** on your site or a **standalone page**
-
-📸 **Screenshot Suggestion:**\
-_The form preview screen with the live shareable URL shown._\
-**Caption:** “Preview and share your form instantly.”
+- Hit **Preview** to test the full experience.
+- Go to the **Share **tab to get a link to your form (don't forget to hit the publish button first).
+- Optionally, set up the form as a **popup** on your site or a **standalone page **(see tutorial video).
 
 ## Why This Flow Works
 
@@ -120,11 +98,11 @@ Turning PDFs into fillable forms used to mean:
 With Weavely, you:
 
 - Reuse existing content
-- Let AI handle structure
+- Let AI handle conversion to a fillable form
 - Match your look instantly
 - Automate everything post-submit
 
-Whether you’re a researcher, a startup, or a policy team—this workflow gets your form live, on-brand, and connected to your stack in minutes.
+Whether you’re a researcher, a startup, or a policy team, this workflow gets your form live, on-brand, and connected to your stack in minutes.
 
 Want to try it with your own PDF?\
 Head to [weavely.ai](https://weavely.ai) and upload your first file.
