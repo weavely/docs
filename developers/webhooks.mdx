@@ -68,3 +68,24 @@ description: "Our Webhooks API instantly delivers each new submission to your sp
 ### Response
 
 None
+
+## Webhook payload
+
+> Example of the JSON payload delivered to your webhook endpoint when a form is submitted:
+
+```json
+{
+  "formId": "01234567-89ab-cdef-0123-456789abcdef",
+  "responseId": "fedcba98-7654-3210-fedc-ba9876543210",
+  "dateCreated": "2025-05-23T14:28:00Z",
+  "answers": [
+    {
+      "id": "a1b2c3d4-5678-90ab-cdef-1234567890ab",
+      "value": "Sample text answer"
+    },
+    {
+      "id": "0f1e2d3c-4b5a-6978-01fe-dcba98765432",
+      "value": "Option A, Option C"
+    }
+  ]
+}
