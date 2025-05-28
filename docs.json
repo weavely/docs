@@ -53,14 +53,13 @@
       },
       {
         "tab": "Guides",
-        "pages": [
-              "guides/examples-cover"
-        ],
         "groups": [
           {
             "group": "Use Cases",
             "pages": [
-              "guides/pdf-to-form"
+              "guides/examples-cover",
+              "guides/pdf-to-form",
+              "guides/hubspot-lead-gen"
             ]
           }
         ]
