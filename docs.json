@@ -33,6 +33,7 @@
               "integrations/aoverview",
               {
                 "group": "Building Forms & Surveys",
+                "icon": "wrench",
                 "pages": [
                   "integrations/custom-gpt",
                   "integrations/mcp",
