@@ -31,15 +31,31 @@
             "href":"/integrations/notion",
             "pages": [
               "integrations/aoverview",
-              "integrations/custom-gpt",
-              "integrations/email-notifications",
-              "integrations/google-sheets",
-              "integrations/notion",
-              "integrations/salesforce",
-              "integrations/airtable",
-              "integrations/hubspot",
-              "integrations/mcp",
-              "integrations/claude"
+              {
+                "group": "Building Forms & Surveys",
+                "pages": [
+                  "integrations/custom-gpt",
+                  "integrations/mcp",
+                  "integrations/claude"
+                ]
+              },
+              {
+                "group": "Collecting Data and Responses",
+                "pages": [
+                  "integrations/email-notifications",
+                  "integrations/google-sheets",
+                  "integrations/notion",
+                  "integrations/salesforce",
+                  "integrations/airtable",
+                  "integrations/hubspot"
+                ]
+              },
+              {
+                "group": "Automation Tools",
+                "pages": [
+                  "integrations/zapier"
+                ]
+              }
             ]
           },
            {
