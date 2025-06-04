@@ -9,7 +9,7 @@ Here's how to seamlessly embed a form into your Figma site using a Weavely form 
 
 <Steps>
   <Step title="Create your Form">
-    Figma doesn't have a built-in form builder (yet), so you'll  need to build your form in an external tool in order to add it to your Figma Site. We might be biased here, but we think Weavely is a great tool to build forms 😉 For this tutorial we'll keep things simpel. We built this contact form:
+    Figma doesn't have a built-in form builder (yet), so you'll  need to build your form in an external tool in order to add it to your Figma Site. We might be biased here, but we think Weavely is a great tool to build forms 😉 For this tutorial we'll keep things simple. We built this contact form:
 
     ![Screenshot 2025-06-04 at 14.16.08.png](/images/Screenshot2025-06-04at14.16.08.png)
 
@@ -18,7 +18,7 @@ Here's how to seamlessly embed a form into your Figma site using a Weavely form 
     ![Screenshot 2025-06-04 at 14.16.48.png](/images/Screenshot2025-06-04at14.16.48.png)
   </Step>
   <Step title="Add an Embed Layer in Figma">
-    Select whichever page you want to add your form to, and drag an _"Embed"_ layer from the tool bar into the page as shown below.
+    Select whichever page you want to add your form to, and drag an _"Embed"_ layer from the toolbar into the page as shown below.
 
     ![Drag Embed Gi](/images/drag-embed.gif)
 
@@ -27,8 +27,32 @@ Here's how to seamlessly embed a form into your Figma site using a Weavely form 
     - _fill_ the width of the parent frame
     - fill the height of the parent frame
     - have a _minimum height_ of 700 to make sure that it completely renders the form to be embedded
+
+    ![Embed Layout(1) Gi](/images/embed-layout\(1\).gif)
   </Step>
-  <Step title="Set the Embed Source">
-    
+  <Step title="Set the Embed Source" stepNumber={3}>
+    Once you've added the embed layer and set its layout you can add the source data. Or in other words, add the form data to the embed layer. You can do this in two ways.
+
+    First, by setting the embed's _URL_ to contain the form's URL (see [this tutorial](/get-started/sharing) to get your Weavely forms' URL).
+
+    ![Screenshot2025 06 04at15 58 00 Pn](/images/Screenshot2025-06-04at15.58.00.png)
+
+    The downside of this approach is that by default this will make the form scrollable inside your website. Especially on mobile this negatively impacts user experience.
+
+    A second method is to insert the HTML code below in the embed's _HTML_ field. 
+
+    ```javascript
+    <iframe
+      src="https://forms.weavely.ai/fa735bfb-e1b8-4404-8126-323bbe3f6f60"
+      style="width: 100%; height: 100%; border: none; overflow: hidden;"
+      scrolling="no"
+      allowfullscreen
+      loading="lazy">
+    </iframe>
+    ```
+
+    This ensures that the form isn't scrollable. You will need to make sure that the minimum height is sufficient for the form to completely render inside the iframe though.
+
+    ![Screenshot2025 06 04at15 59 05 Pn](/images/Screenshot2025-06-04at15.59.05.png)
   </Step>
 </Steps>
