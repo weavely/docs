@@ -30,7 +30,7 @@
             "group": "Integrations",
             "href":"/integrations/notion",
             "pages": [
-              "integrations/aoverview",
+              "integrations/overview",
               {
                 "group": "Building Forms & Surveys",
                 "icon": "wrench",
