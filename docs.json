@@ -57,7 +57,8 @@
                 "group": "Automation Tools",
                 "icon": "robot",
                 "pages": [
-                  "integrations/zapier"
+                  "integrations/zapier",
+                  "integrations/make"
                 ]
               }
             ]
