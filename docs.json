@@ -50,7 +50,8 @@
                   "integrations/salesforce",
                   "integrations/airtable",
                   "integrations/hubspot",
-                  "integrations/zoho"
+                  "integrations/zoho",
+                  "integrations/mailchimp"
                 ]
               },
               {
