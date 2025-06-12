@@ -1,0 +1,69 @@
+---
+title: "Connect Your Weavely Form to Make for Workflow Automation"
+description: "Make (formerly Integromat) is a powerful automation platform that lets you connect your Weavely form to hundreds of other apps like Slack, Gmail, Airtable, and more. With this integration, you can trigger automations whenever someone submits a form."
+sidebarTitle: "Make"
+---
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/mYY2mP3SXbA?si=TMzqe9ROFeNtqWA8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen />
+
+Here’s how to connect your Weavely form to Make in just a few minutes.
+
+<Steps>
+  <Step title="Generate a Personal Token in Weavely">
+    You'll need something called a _"personal token"_ to connect you Weavely account to Make. To create this token, navigate to _Settings-\>Personal Tokens_ in the dashboard. Once created you'll be able to copy and paste this token (i.e. a string of text) to Make in step x.
+  </Step>
+</Steps>
+
+## Step 1: Generate a Personal Token in Weavely
+
+To connect Weavely to Make, you'll need a **personal token**:
+
+1. In Weavely, go to your **Account Settings → Personal Tokens**.
+2. Click **Create Token**, name it (e.g. `Make`), and save.
+3. Copy the token—you’ll use it in Make to authenticate the connection.
+
+> 💡 Tip: You can reuse a token across multiple integrations, and access it anytime later.
+
+## Step 2: Add the Make Integration to Your Form
+
+1. Open the Weavely form you want to automate.
+2. Go to the **Integrations** tab.
+3. Click **Make** and press **Add**.
+4. This opens a Make template pre-configured to trigger when your form receives a new submission.
+
+## Step 3: Set Up the Webhook in Make
+
+1. Inside Make, you’ll be prompted to **install the Weavely connection**.
+2. Select your organization and finish the wizard.
+3. Create a new scenario.
+4. Add the **Weavely module** and choose the **Watch Form Submission** trigger.
+5. Create a new connection:
+   - Paste your personal token from Step 1.
+   - Select your **Weavely team** and the specific **form** to watch.
+
+Now your Make scenario will listen for new form submissions.
+
+## Step 4: Add Actions to Your Scenario (Example: Send a Slack Message)
+
+Now that Make is listening for new form data, you can add any actions you want:
+
+- Add a **Slack** module to send a DM when a form is submitted.
+- Use dynamic values (like the respondent’s name or message) by referencing form fields.
+- You can access form fields by clicking the `+` button or typing `/` in text fields.
+
+Example:
+
+```
+Hello from {{first_name}} via Weavely form.
+```
+
+You can do the same for Gmail, Google Sheets, or any of Make’s hundreds of integrations.
+
+## Step 5: Test and Activate Your Scenario
+
+1. Submit your form through Weavely.
+2. Watch Make receive the data and trigger your scenario.
+3. Confirm your automation works as expected (e.g., a Slack message appears).
+4. Set the scenario to **run instantly** when new data arrives (not just once).
+
+And that’s it\! You’ve successfully connected Weavely to Make and automated your first workflow. 🎉
