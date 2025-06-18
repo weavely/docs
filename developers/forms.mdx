@@ -3,6 +3,35 @@ title: "Forms API"
 description: "Endpoints for retrieving and managing forms."
 ---
 
+## Generate form
+
+> POST&nbsp;https://api.weavely.ai/v1/forms/generate
+
+### Request
+
+_No authentication header is required for this endpoint._
+
+#### Body
+
+<ParamField body="name" type="string">
+  A friendly name for the form (optional).
+</ParamField>
+
+<ParamField body="prompt" type="string" required>
+  A natural-language description of the form to generate  
+  &nbsp;&nbsp;e.g. `"A simple contact form in Flemish"`.
+</ParamField>
+
+<ParamField body="files" type="array[base64]">
+  Optional list of base-64-encoded PDF files that provide extra context for the generator.
+</ParamField>
+
+### Response
+
+<ResponseField name="url" type="string">
+  The URL that opens the generated form in the Weavely editor.
+</ResponseField>
+
 ## Get form fields
 
 > GET https://api.weavely.ai/v1/forms/{{formId}}/fields
