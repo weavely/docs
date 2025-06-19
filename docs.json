@@ -41,6 +41,13 @@
                 ]
               },
               {
+                "group": "Importing Existing Forms",
+                "icon": "file-import",
+                "pages": [
+                  "integrations/google-forms"
+                ]
+              },
+              {
                 "group": "Collecting Data and Responses",
                 "icon": "database",
                 "pages": [
