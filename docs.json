@@ -25,6 +25,7 @@
             "group": "Features",
             "pages": [
               "features/skip-logic",
+              "features/event-trigger",
               "features/embeddings"
             ]
           },

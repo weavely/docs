@@ -1,0 +1,52 @@
+---
+title: "Event Triggers: Reload or Redirect a Form After Submission"
+description: "Learn how to automatically reload your form or redirect respondents to a custom URL after submission in Weavely. Perfect for kiosks, landing pages, and post-survey workflows."
+---
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Ll9nYwJspsA?si=1cYKnKPWfGF3VoXi" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen />
+
+Weavely makes it easy to define what happens after someone submits your form. Whether you want the form to reset for the next respondent (like in a kiosk setup) or redirect users to a specific URL (such as a thank-you page or your website), you can configure this using **Event Triggers** in the Logic tab.
+
+This guide walks you through both options.
+
+## Reloading the Form After Submission
+
+This is useful for public kiosks, feedback stations, or in-person setups where the form should reset automatically for the next user.
+
+### Steps:
+
+1. Open your form in the editor.
+2. Navigate to the **Logic** tab at the top.
+3. Scroll down to **Event Triggers** and click **\+ Create Event Trigger**.
+4. In the first dropdown ("When..."), select `Form is submitted`.
+5. In the second dropdown ("Then..."), choose `Restart form`.
+6. Click **Create Event Trigger** and **Publish**.
+
+![Restart Gi](/images/restart.gif)
+
+Now, when someone submits the form, it will reload to its initial state immediately.
+
+## Redirecting to a URL After Submission
+
+You can also send respondents to another page—perfect for thank-you messages, next steps, or even special offers.
+
+### Steps:
+
+1. Head to the **Logic** tab of your form.
+2. Under **Event Triggers**, create a new trigger.
+3. Set the trigger condition to `Form is submitted`.
+4. Choose the action `Open URL`.
+5. Enter the destination URL (e.g. `https://yourdomain.com/thank-you`).
+6. Select whether the redirect should happen in the same tab or a new one.
+7. Click **Create Event Trigger** and **Publish**.
+
+![Redirect Gi](/images/redirect.gif)
+
+When users complete the form, they'll be redirected automatically to the URL you provided.
+
+## Other Events
+
+Any of the two aforementioned actions can also be triggered whenever:
+
+- The form is loaded
+- A specific page in the form is shown
