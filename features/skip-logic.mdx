@@ -1,0 +1,65 @@
+---
+title: "Skip-Page Logic"
+description: "Learn how to use conditional logic in Weavely to skip pages, hide or show form elements based on responses, and create dynamic, personalized surveys and forms."
+sidebarTitle: "Skip-page Logic"
+---
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/4kK37SBw8Wg?si=vxZPDHI0Dh4LsBA2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen />
+
+Weavely's powerful logic engine lets you dynamically control the flow of your forms and surveys. Whether you want to **skip pages**, **hide irrelevant questions**, or **only show certain elements based on previous answers**, Weavely makes it easy to build intelligent, responsive forms without writing code.
+
+In this guide, we’ll walk through the basics of using **logic rules** in Weavely to create smarter form flows.
+
+## Accessing the Logic Tab
+
+Start by opening the form or survey you want to enhance. Once you're in the form editor, click on the **Logic** tab. This is where you’ll define all your conditional behavior.
+
+![Screenshot2025 07 11at15 05 33 Pn](/images/Screenshot2025-07-11at15.05.33.png)
+
+Click **“Create Logic Rule”** to begin. Each logic rule follows an **IF → THEN** structure:
+
+> _If certain conditions are met, then take a specific action._
+
+## Example: Skip to Page
+
+Let’s say you want to route a respondent to a different page based on how they answered a question.
+
+For example:
+
+- **Question:** How easy did you find it to navigate with the AI?
+- **Condition:** If the answer is **“Very difficult”**
+- **Action:** Skip directly to **Page 2**
+
+![Screenshot2025 07 11at15 07 17 Pn](/images/Screenshot2025-07-11at15.07.17.png)
+
+## Hiding Pages
+
+If you don’t want to just skip ahead but want to **completely remove a page from the flow**, use the **“Hide Page”** action instead.
+
+This is useful when a specific set of questions becomes irrelevant based on earlier answers.
+
+## Showing or Hiding Specific Elements
+
+Logic rules aren’t limited to full pages, you can also show or hide **individual questions**.
+
+For example:
+
+- You might want to hide the question **“How intuitive was the interface?”** if a user answered negatively to a previous question.
+- Or only show a follow-up question if the user answered **“Very easy.”**
+
+Simply:
+
+- Create a new logic rule.
+- Choose **“Show Element”** or **“Hide Element”** as the action.
+- Set your condition (e.g., a specific response to a previous question).
+
+![Screenshot2025 07 11at15 09 25 Pn](/images/Screenshot2025-07-11at15.09.25.png)
+
+## Advanced Logic (Multiple Conditions and Actions)
+
+Each logic rule can have:
+
+- **Multiple conditions** (use “ANY” or “ALL” logic)
+- **Multiple actions** (hide multiple questions, skip pages, etc.)
+
+You can name your logic rules for clarity, and create **as many rules as needed** for one form. All active logic rules will work together to create a tailored, responsive experience for your respondents.
