@@ -1,0 +1,39 @@
+---
+title: "How to Share Weavely Forms on a Custom Domain"
+description: "Learn how to setup custom domains for your AI-generated forms in Weavely.ai"
+sidebarTitle: "Custom Domains"
+---
+
+Weavely allows Pro users to share forms under their own custom domain, making it easy to create a branded and personalized form-sharing experience. Instead of sending out a generic `forms.weavely.ai` link, you can use a domain you own. For example, `feedback.yourcompany.com`.
+
+## Step 1: Set Up Your CNAME Record
+
+You'll first need to configure your DNS provider (e.g. GoDaddy, Namecheap, etc.) to point your subdomain to Weavely.
+
+Create a **CNAME record** with the following settings:
+
+- **Name:** `feedback` (or whatever subdomain you chose)
+- **Target:** `proxy.weavely.ai`
+
+This will route traffic from your subdomain to Weavely’s servers.
+
+Once that’s done, you'll need to finalise the setup inside of Weavely.
+
+## Step 2: Add Your Custom Domain in Weavely
+
+To get started, go to **Settings → Team Settings** in your Weavely dashboard. Scroll to the **Custom Domain** section.
+
+Enter the domain or subdomain you'd like to use (e.g. `feedback.mycompany.com`) and press **Add Custom Domain**. Weavely will then check whether your DNS settings are correctly configured.
+
+## Step 3: Share Forms Using Your Custom Domain
+
+Once your custom domain is connected, you can begin using it to share your forms.
+
+Just replace the default domain (`forms.weavely.ai`) with your custom one, keeping the form ID the same.
+
+For example:
+
+- Default: `https://forms.weavely.ai/abc123`
+- Custom: `https://feedback.mycompany.com/abc123`
+
+This gives your users a more seamless, branded experience.

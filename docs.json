@@ -24,6 +24,7 @@
           {
             "group": "Features",
             "pages": [
+              "features/custom-domain",
               "features/skip-logic",
               "features/event-trigger",
               "features/embeddings"
