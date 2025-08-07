@@ -30,12 +30,7 @@
               "features/embeddings"
             ]
           },
-          {
-            "group": "Account Management",
-            "pages": [
-              "accounts/invoices"
-            ]
-          },
+          
           {
             "group": "Integrations",
             "href":"/integrations/notion",
@@ -79,6 +74,12 @@
                   "integrations/make"
                 ]
               }
+            ]
+          },
+          {
+            "group": "Account Management",
+            "pages": [
+              "accounts/invoices"
             ]
           },
            {
