@@ -5,7 +5,7 @@ description: "Endpoints for retrieving and managing forms."
 
 ## Generate form
 
-> POST&nbsp;https://api.weavely.ai/v1/forms/generate
+> POST https://api.weavely.ai/v1/forms/generate
 
 ### Request
 
@@ -18,12 +18,19 @@ _No authentication header is required for this endpoint._
 </ParamField>
 
 <ParamField body="prompt" type="string" required>
-  A natural-language description of the form to generate  
-  &nbsp;&nbsp;e.g. `"A simple contact form in Flemish"`.
+  A natural-language description of the form to generate\
+    e.g. `"A simple contact form in Flemish"`.
 </ParamField>
 
-<ParamField body="files" type="array[base64]">
-  Optional list of base-64-encoded PDF files that provide extra context for the generator.
+<ParamField body="files" type="array[object]">
+  Optional array of the following objects:
+
+  ```json
+  {
+  mimeType: file.mimeType,  // e.g., "image/png", "application/pdf"
+  data: file.data // file encoded as base64
+  }
+  ```
 </ParamField>
 
 ### Response
