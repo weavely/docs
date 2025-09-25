@@ -42,7 +42,8 @@
                 "pages": [
                   "integrations/custom-gpt",
                   "integrations/mcp",
-                  "integrations/claude"
+                  "integrations/claude",
+                  "integrations/figma-to-web-form"
                 ]
               },
               {
