@@ -1,0 +1,122 @@
+---
+title: "Add a Popup Form to Your Figma Site"
+description: "Learn how to embed a functional popup form into your Figma site using Weavely"
+sidebarTitle: "How to Add a Popup Form to Figma Sites "
+---
+
+# Add a Pop-Up Form to Your Figma Site
+
+Figma’s new Sites feature lets you publish websites directly from your designs, but it currently lacks native form functionality. With Weavely, you can bridge that gap and embed functional, styled pop-up forms into any Figma site using just a few lines of code.
+
+This guide walks you through how to integrate a Weavely pop-up form without modifying your site’s layout or structure.
+
+<iframe src="https://www.youtube.com/embed/Ml5EkwuJNBw" title="YouTube video player" frameborder="0" className="w-full aspect-video rounded-xl" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen />
+
+<Steps>
+  <Step title="Build Your Form in Weavely" icon="hammer">
+    Start by creating a form in [Weavely.ai](https://weavely.ai). You can use AI to generate the questions, theme the form to match your Figma design, and preview how it looks. We have a [dedicated "getting started"](https://help.weavely.ai/get-started/the-basics) guide on that, although to be honest it's pretty self-explanatory.
+
+    Once you're happy with your form go ahead and hit _"Publish"._
+
+    ![Screenshot2025 10 03at15 42 36 Pn](/images/Screenshot2025-10-03at15.42.36.png)
+
+    Once your form is published you'll need to copy the code in the _"Embed Form"_ section of the _Share_ tab.
+
+    ![Screenshot2025 10 03at15 57 21 Pn](/images/Screenshot2025-10-03at15.57.21.png)
+
+    <Warning>
+      Ignore the code in the Popup form section, as this will only render full-screen popups for now. Unless that's what you're looking for obviously!
+    </Warning>
+  </Step>
+  <Step title="Embed the Code in Figma Sites" icon="gear-code">
+    In Figma Sites, go to your _"Site settings"_.
+
+    ![Screenshot2025 10 03at16 03 14 Pn](/images/Screenshot2025-10-03at16.03.14.png)
+
+    You'll want to paste code in two seperate sections of your site's settings. First, paste the _Weavely embed script_ into the _\<head\>_ part of the settings.
+
+    ![Screenshot2025 10 03at16 08 11 Pn](/images/Screenshot2025-10-03at16.08.11.png)
+
+    Second, you'll need to take form \<div\> element from Weavely and wrap it in popup logic. For example, if this is your form link: \_https://forms.weavely.ai/8f8b93dd-94cf-4dff-8a21-cccbef407f44. \_Then the following will create a popup which appears after a second on the bottom right of your site:
+
+    ```html
+    <div id="popup">
+      <button id="close">&times;</button>
+      <div data-weavely-form="8f8b93dd-94cf-4dff-8a21-cccbef407f44" data-weavely-mode="embed" style="height:100%;width:100%"></div>
+    </div>
+    
+    <script>
+      setTimeout(() => {
+        document.getElementById('popup').style.display = 'block';
+      }, 1000);
+    
+      document.getElementById('close').onclick = () => {
+        document.getElementById('popup').style.display = 'none';
+      };
+    </script>
+    
+    <style>
+      #popup {
+        display: none;
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 400px;
+        height: 500px;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        z-index: 1000;
+      }
+      #close {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: none;
+        border: none;
+        font-size: 24px;
+        cursor: pointer;
+        color: #666;
+      }
+      @media (max-width: 768px) {
+          #popup {
+            width: 90%;
+            height: 70%;
+            bottom: 50%;
+            right: 50%;
+            transform: translate(50%, 50%);
+          }
+          #close {
+            font-size: 32px;
+            padding: 10px;
+          }
+        }
+    </style>
+    ```
+
+    You'll need to paste this code into the _\<body\>_ section of your site's settings.
+
+     
+
+    ![Screenshot2025 10 03at16 18 26 Pn](/images/Screenshot2025-10-03at16.18.26.png)
+  </Step>
+</Steps>
+
+## Design-Friendly Integration
+
+You don’t need to modify your actual Figma site design. The popup sits on top of your published site and opens after a short delay (or any custom trigger you define). It can match your site’s color scheme, font, and layout with styling from Weavely (which also supports custom CSS).
+
+You can also:
+
+- Match the popup form's colors to your Figma theme
+- Trigger the popup on scroll, after inactivity, or on button click
+- Set mobile-specific full-screen modes
+
+## What Happens with Responses?
+
+All submissions go straight into your Weavely dashboard. From there, you can:
+
+- View form results in real time
+- Trigger automations via Zapier or Make
+- Setup [webhooks with our API](/developers/webhooks) for custom backends
+- Send data to Google Sheets, Airtable, Mailchimp, and more
