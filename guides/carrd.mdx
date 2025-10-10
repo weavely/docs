@@ -1,0 +1,80 @@
+---
+title: "How to Embed Advanced AI Forms into Carrd with Weavely.ai"
+description: "Learn how to embed custom AI forms in Carrd with Google Sheets integration, conditional logic, and full styling control."
+sidebarTitle: "Embedding in Carrd"
+---
+
+<iframe src="https://www.youtube.com/embed/YpYn065RIhk" title="YouTube video player" frameborder="0" className="w-full aspect-video rounded-xl" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen />
+
+If you're building a site with **Carrd**, you might’ve noticed that its built-in form options are great for basic needs, but they fall short when it comes to more advanced features like **Google Sheets integrations** or **conditional logic**. This guide shows you how to overcome those limitations by using **Weavely.ai**, a free AI-powered form builder that integrates smoothly with Carrd.
+
+## Why Use Weavely with Carrd?
+
+- **AI-generated forms**: Describe what you need, and Weavely builds the form for you.
+- **Powerful integrations**: Google Sheets, Airtable, Slack, email alerts, and more.
+- **Conditional logic**: Show or hide questions based on previous answers.
+- **Fully customizable themes**: Match your Carrd site's colors, fonts, and layout.
+- **Free to use**: All core features are free. Only branding removal requires a paid plan.
+
+## Step 1: Generate Your AI Form in Weavely
+
+Head to [Weavely.ai](https://weavely.ai) and describe your form. For example:
+
+> "I need a witty contact form for my landing page. Make it single page."
+
+You can also upload documents or screenshots to guide the AI. Weavely will generate the form automatically. You can tweak questions, styling, and layout as needed inside the editor. We've dedicated [an entire article](https://help.weavely.ai/get-started/the-basics) on how to get started.
+
+## Step 2: Match the Form to Your Carrd Design
+
+Once your form is ready, click the **“Generate Theme”** button and upload a screenshot of your Carrd site. Weavely will extract fonts and colors to visually align with your site.
+
+Optionally:
+
+- Remove the form header image if it's redundant.
+- Adjust borders, radius, or background opacity for seamless embedding.
+
+![Screenshot(6) Web](/images/Screenshot\(6\).webp)
+
+## Step 3: Embed the Form in Carrd
+
+<Warning>
+  Important: Carrd’s embed element is only available on Pro Standard plans.
+</Warning>
+
+In Weavely, navigate to the **Share **tab and look at the **Embed** section. You'll need to copy both:
+
+- The **script** tag (loads the Weavely library).
+- The **form embed** container (the actual form). 
+
+![Screenshot(7) Web](/images/Screenshot\(7\).webp)
+
+In Carrd you'll need to paste both pieces of code into an **Embed** element, after which you publish your Carrd site (as you do)
+
+![Screenshot(8) Web](/images/Screenshot\(8\).webp)
+
+You’ll now see your live, fully functional Weavely form right on your Carrd page.
+
+## Step 4: Send Responses to Google Sheets (Optional)
+
+1. Open your form in Weavely and go to the **Integrations** tab.
+2. Click **Add** next to Google Sheets.
+3. Connect your Google account (you only need to do this once).
+4. Select the fields you want to export.
+5. Hit **Create Integration**.
+
+Weavely will automatically create a Google Sheet with a column for each question, and new responses will appear in real time. Check out [this article](https://help.weavely.ai/integrations/google-sheets) for an in-depth (video) tutorial.
+
+## Step 5: Add Conditional Logic (Optional)
+
+Want certain questions to appear only if previous ones are answered?
+
+1. Head to the **Logic** tab in Weavely.
+2. Click **Create Logic Rule**.
+3. Define the condition (e.g., "if email is filled in").
+4. Set the action (e.g., "show subject field").
+
+These logic rules allow you to tailor your form for better user experience and higher completion rates. Again, check out [this article](https://help.weavely.ai/features/skip-logic) for an in-depth tutorial.
+
+![Screenshot(9) Web](/images/Screenshot\(9\).webp)
+
+Changes you make are **automatically live **after you hit **Publish** in Weavely. Just refresh your Carrd site, and you'll see the updated behavior immediately.
