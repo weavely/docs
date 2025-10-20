@@ -9,7 +9,7 @@ Weavely.ai makes it easy to create AI-generated quizzes that score user response
 <iframe src="https://www.youtube.com/embed/k5rT2mUfvwM" title="YouTube video player" frameborder="0" className="w-full aspect-video rounded-xl" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen />
 
 <Steps>
-  <Step title="Generate a Quiz with AI" icon="wand-magic-sparkles">
+  <Step title="Generate a Quiz with AI" icon="wand-magic-sparkles" titleSize="h2">
     To get started, head to [Weavely.ai](https://weavely.ai) and enter a prompt describing the quiz you need. For example:
 
     > "I need a quiz on European geography. Make it single page and just ask 4 questions."
@@ -22,54 +22,45 @@ Weavely.ai makes it easy to create AI-generated quizzes that score user response
 
     ![Screenshot2025 10 20at21 31 43 Web](/images/Screenshot2025-10-20at21.31.43.webp)
   </Step>
-  <Step title="Enable Quiz Mode" icon="toggle-large-on">
-    TNext you'll need to finalise the settings of your quiz. First, go to the **Settings** tab and **enable quiz mode.** 
+  <Step title="Enable Quiz Mode" icon="toggle-large-on" titleSize="h2">
+    TNext you'll need to finalise the settings of your quiz. First, go to the **Settings** tab and **enable quiz mode.**
 
     ![Screenshot2025 10 20at21 34 29 Web](/images/Screenshot2025-10-20at21.34.29.webp)
 
     Second, for each question which requires it you need to **assign a score** and specify **which answer is correct**. Without assigning a score, you won't be able to set correct answers.
   </Step>
+  <Step title="Collect and View Results" icon="database" titleSize="h2">
+    The results tab will contain all individual responses given by your respondents as well as their  scores and number of correct answers. Furthermore you can also setup integrations with third-party tools to automatically transfer your data. Read our [Google Sheets integration tutorial](/integrations/google-sheets) as an example.
+  </Step>
+  <Step title="Publish and Share" icon="share-nodes" titleSize="h2">
+    When you're ready, hit **Publish** and share your quiz as:
+
+    - A standalone form (hosted on Weavely)
+    - An embedded quiz on your site
+    - A popup form on landing pages
+
+    You can customize the domain and preview settings if needed. We have a dedicated tutorial on sharing which you can read [here](https://help.weavely.ai/get-started/sharing).
+  </Step>
 </Steps>
 
-## 4. Preview the Quiz Experience
+## 💡 Tip 1: Dynamically Show Quiz Scores
 
-Once quiz mode is active:
+You can show the respondents their scores (for example on the ending screen) using Weavely's variable system. Concretely, any textual component in Weavely (e.g. a paragraph or a heading) can show variables. By typing "@" you're given a dropdown menu with variables to choose from.
 
-- Respondents will receive a **final score** and see how many questions they answered correctly.
-- You can also dynamically show this score on the **ending screen** using Weavely's variables:
+![Screenshot2025 10 20at21 56 49 Web](/images/Screenshot2025-10-20at21.56.49.webp)
 
-  ```
-  Your score: @{score} / @{max_score}  
-  You got @{correct_answers} out of @{total_questions} correct.
-  ```
+## 💡 Tip 2: Show Immediate Feedback
 
-## 5. Show Immediate Feedback (Optional)
+Do you want respondents to see if their answers were correct _after each page? _In **Settings**, enable **Show correct answers after each page**. This is especially useful for learning assessments or interactive quizzes.
 
-If you want respondents to see if their answers were correct _after each page_:
-
-- In **Settings**, enable **Show correct answers after each page**.
-- This is especially useful for learning assessments or interactive quizzes.
-
-## 6. Publish and Share
-
-When you're ready, hit **Publish** and share your quiz as:
-
-- A standalone form (hosted on Weavely)
-- An embedded quiz on your site
-- A popup form on landing pages
-
-You can customize the domain and preview settings if needed.
-
-## 7. Collect & Export Results
-
-You can access full quiz results in the Weavely dashboard:
-
-- View individual submissions, scores, and correct/incorrect answers.
-- Export results as CSV for analysis.
-- Or set up integrations with tools like **Google Sheets**, **Slack**, **Airtable**, and more.
+![Screenshot2025 10 20at22 06 17 Web](/images/Screenshot2025-10-20at22.06.17.webp)
 
 ## Example Use Cases
+
+Typical use cases for our interactive quizzes include the following:
 
 - Education and e-learning assessments
 - Internal knowledge checks
 - Trivia and gamified marketing content
+
+Don't let that limit your imagination though 😉
