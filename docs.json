@@ -27,7 +27,8 @@
               "features/custom-domain",
               "features/skip-logic",
               "features/event-trigger",
-              "features/embeddings"
+              "features/embeddings",
+              "features/quizzes"
             ]
           },
           
