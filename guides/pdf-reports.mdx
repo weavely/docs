@@ -1,0 +1,110 @@
+---
+title: "How to Generate PDF Reports from Form Responses with AI"
+description: "Generate dynamic PDF reports from AI‑powered form responses. Turn survey submissions into professional PDF reports automatically with Weavely."
+sidebarTitle: "PDF reports"
+---
+
+Weavely lets you create powerful AI-generated forms. In this guide, we’ll show you how to take your form submissions, turn them into a beautifully formatted PDF, and automatically email that PDF either to the respondent or to yourself, all for free using [Make](https://www.make.com/).
+
+<iframe src="https://www.youtube.com/embed/Q-ASaEU3htg" title="YouTube video player" frameborder="0" className="w-full aspect-video rounded-xl" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen />
+
+## 🛠 Tools You’ll Need
+
+- [**Weavely**](https://weavely.ai/) – Our AI-native form builder.
+- [**Make**](https://make.com) – A no-code automation platform with a generous free tier.
+- **Google Docs & Drive** – To create the PDF template and store documents.
+- **Gmail** – Or any email service connected via Make.
+
+<Steps>
+  <Step title="Create Your Form in Weavely" icon="wand-magic-sparkles" titleSize="h2">
+    Build your form using Weavely. You can use the AI prompt or build manually.
+
+    > Example: A contact form collecting name, email, phone number, and company.
+
+    Make sure your form includes an email field if you want to email the response to the user. For a quick overview of how Weavely works, check out our ["getting started" tutorial](https://help.weavely.ai/get-started/the-basics).
+  </Step>
+  <Step title="Create a Google Docs Template" icon="file-doc" titleSize="h2">
+    In Google Docs, create a template for the PDF. Use **double curly braces** to define placeholders for dynamic values, as follows:
+
+    ```
+    Date: {{date}}
+    Name: {{full_name}}
+    Email: {{email}}
+    Company: {{company}}
+    ```
+
+    For example, here's the template we created for our video tutorial.
+
+    ![Screenshot2025 10 21at11 18 17 Web](/images/Screenshot2025-10-21at11.18.17.webp)
+  </Step>
+  <Step title="Set Up Your Scenario in Make" icon="gear" titleSize="h2">
+    Create a new scenario in Make. You'll need four modules in this scenario.
+
+    ### Module 1: Watch Weavely Form Submissions
+
+    This module will trigger the automation when a new form response is submitted.
+
+    - Add: `Weavely > Watch Form Submission`
+    - Connect your Weavely account (follow the wizard).
+    - Select the correct **team** and **form**.
+
+    You can read our [dedicated tutorial](/integrations/make) if you need help setting up the Weavely module in Make.
+
+    ![Screenshot2025 10 21at11 27 23 Web](/images/Screenshot2025-10-21at11.27.23.webp)
+
+    ### Module 2: Create Document from Template
+
+    - Add: `Google Docs > Create Document from Template`
+    - Connect your Google account.
+    - Choose your template document from Drive.
+    - Map the template placeholders to your form values:
+      - `{{date}}` → `Submission Date`
+      - `{{full_name}}` → `Full Name`
+      - `{{email}}` → `Email`
+      - `{{company}}` → `Company`
+    - Set a document name (e.g., `"Contact Form Submission"`).
+    - Choose the folder where the document will be saved.
+
+    ![Screenshot2025 10 21at11 28 57 Web](/images/Screenshot2025-10-21at11.28.57.webp)
+
+    ### Module 3: Download a File
+
+    To convert the Google doc you created with module 2 into a PDF you'll need the Google Drive "Download a File" module.
+
+    - Add: `Google Drive > Download a File`
+    - Use the document ID from the previous module.
+    - Enable: `Convert Google Document to format → PDF`.
+
+    ![Screenshot2025 10 21at11 32 07(1) Web](/images/Screenshot2025-10-21at11.32.07\(1\).webp)
+
+    ### Module 4: Send Email with Attachment
+
+    Finally, you'll need to send the report to someone. This could be yourself, or a respondent.
+
+    - Add: `Gmail > Send Email` (or another mail service).
+    - To: Use the respondent’s email address (from the Weavely response) or your own.
+    - Subject: `"Your Weavely Report"`
+    - Body: Optional – you can leave this blank or customize it.
+    - Attachment: The PDF file from the previous module.
+
+    ![Screenshot2025 10 21at11 34 44 Web](/images/Screenshot2025-10-21at11.34.44.webp)
+  </Step>
+  <Step title="Test the Flow" icon="vial" titleSize="h2">
+    1. Run your scenario.
+    2. Submit the form.
+    3. Check your email inbox – you (or the respondent) should receive a PDF.
+
+    The PDF will contain the form data, and any missing fields will be left blank.
+  </Step>
+</Steps>
+
+## Summary
+
+With Weavely and Make, you can:
+
+- Generate a form with AI to capture data
+- Use that data to populate dynamic templates
+- Generate branded PDF reports
+- Automatically email those reports to users or teammates
+
+Perfect for reports, confirmations, receipts, onboarding forms, and more!
