@@ -24,6 +24,7 @@
           {
             "group": "Features",
             "pages": [
+              "integrations/email-notifications",
               "features/custom-domain",
               "features/skip-logic",
               "features/event-trigger",
