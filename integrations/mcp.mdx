@@ -37,18 +37,18 @@ Here’s a sample configuration you can drop into your `mcp.json` or equivalent 
 ```json
 {
   "mcpServers": {
-    "weavely-mcp-sse": {
+    "weavely-mcp-http": {
       "command": "npx",
       "args": [
-        "mcp-remote",
-        "https://mcp.weavely.ai/sse"
+        "mcp-remote-http",
+        "https://mcp.weavely.ai/mcp"
       ]
     }
   }
 }
 ```
 
-This will load the tools served by `https://mcp.weavely.ai/sse` via the `mcp-remote` runner.
+This will load the tools served by `https://mcp.weavely.ai/mcp` via the `mcp-remote-http` runner.
 
 **Note**: `npx` should be available in your terminal. If you're on Windows and using a local agent, you may need to prefix commands with `cmd /c`.
 
