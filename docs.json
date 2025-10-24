@@ -27,6 +27,7 @@
               "integrations/email-notifications",
               "features/custom-domain",
               "features/skip-logic",
+              "features/answer-piping",
               "features/event-trigger",
               "features/embeddings",
               "features/quizzes"

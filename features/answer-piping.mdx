@@ -1,0 +1,54 @@
+---
+title: "Using Answer Piping in Weavely"
+description: "Learn how to use answer piping in AI forms and surveys with Weavely. Create dynamic fields for personalized, custom user experiences."
+sidebarTitle: "Answer piping"
+---
+
+Answer piping, also known as dynamic fields or response piping, lets you reuse answers from earlier questions in your form. This makes your surveys feel more personal and dynamic, and it works seamlessly across both standard forms and quiz mode in Weavely. Here's how to use this feature in your forms.
+
+<iframe src="https://www.youtube.com/embed/ZT33SfJvvNk" title="YouTube video player" frameborder="0" className="w-full aspect-video rounded-xl" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen />
+
+## What Is Answer Piping?
+
+Answer piping allows you to insert a previous answer into another question or block of text. For example, if your form asks a user for their name, you can reference that name in later questions or confirmation messages like:
+
+> “How are you doing, _[Name]_?”
+
+![Screenshot2025 10 24at09 58 26 Web](/images/Screenshot2025-10-24at09.58.26.webp)
+
+In quiz mode, you can also pipe dynamic quiz scores into your final screen or custom messages.
+
+## How to Set It Up
+
+1. **Add your questions** to the form as usual.
+2. In any subsequent question or text block where you want to reuse an answer, type the `@` symbol.
+3. A dropdown will appear with all previous questions and (if quiz mode is enabled) quiz score variables.
+4. Select the field you want to reference.
+
+![Answer Piping Helpdesk Gi](/images/answer-piping-helpdesk.gif)
+
+That’s it! Weavely will automatically update the placeholder with the actual response provided by the user.
+
+## Real-Time Behavior
+
+- If the referenced answer is on the **same screen**, an underscore placeholder (`_`) is shown initially and is updated in real-time as the user types.
+- If the referenced answer is on a **previous screen**, users will immediately see the filled-in response.
+
+## Quiz Mode Compatibility
+
+In [**quiz mode**](/features/quizzes), you can also pipe dynamic quiz scores into later messages or questions. After enabling quiz mode in the form settings, additional variables like `@QuizScore` will appear in the dropdown.
+
+## Example
+
+- **Question 1**: “What’s your name?”
+- **Question 2**: “How are you doing, `@What’s your name?`?”
+
+If the respondent types “Alex” in Q1, Q2 will display: “How are you doing, Alex?”
+
+## Final Notes
+
+Answer piping works in:
+
+- Questions
+- Descriptive text blocks
+- [Email notifications](/integrations/email-notifications)
