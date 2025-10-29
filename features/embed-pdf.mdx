@@ -1,0 +1,47 @@
+---
+title: "How to Embed a PDF in a Weavely Form"
+description: "Learn how to embed a PDF in your forms with Weavely AI. Perfect for surveys, feedback forms, or custom data collection with embedded content."
+sidebarTitle: "Embed PDF"
+---
+
+You can embed a PDF directly into your Weavely form, allowing users to view documents like product specs, guides, or legal disclaimers without leaving the form experience. This tutorial walks you through embedding a PDF from Google Drive and optimizing how it's displayed in your form.
+
+<iframe src="https://www.youtube.com/embed/NHA8ducXP5w" title="YouTube video player" frameborder="0" className="w-full aspect-video rounded-xl" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen />
+
+<Steps>
+  <Step title="Upload the PDF to Google Drive" icon="file-doc" titleSize="h2">
+    If you haven't already, upload your PDF to [Google Drive](https://drive.google.com). Open the PDF by double-clicking and select **"Open in new tab" **from the three-dot menu. Within this new tab, click the three-dot menu (it's weird we know) and choose **"Embed item"**.
+
+    ![Pdf Embed Ezgif Com Gif To Webp Converter Web](/images/pdf-embed-ezgif.com-gif-to-webp-converter.webp)
+
+    Copy the HTML `<iframe>` code provided by Google, which we'll use in the next step.
+
+    <Warning>
+      Make sure the sharing permissions are set to **“Anyone with the link can view”**. Without this, the embed will not load in your form.
+    </Warning>
+  </Step>
+  <Step title="Embed in Weavely" icon="code" titleSize="h2">
+    In your Weavely form, add an **Embed HTML** element. Open the element's settings pane and copy-paste the `<iframe>` code from the first step. Once published, your PDF will appear directly inside the form, and users can preview it without leaving the page. They can also click the pop-out button in the PDF viewer to open it full screen.
+
+    ![Pdf Embed2 Gi](/images/pdf-embed2.gif)
+
+    <Tip>
+      We suggest you set both the width and height in the `<iframe> `code to 100% to ensure it fills the container. 
+    </Tip>
+  </Step>
+  <Step title="Improve the PDF Display" icon="palette" titleSize="h2">
+    If the embedded PDF appears too small or scroll-heavy, you can adjust the layout. Go to the **Theme Editor** in Weavely. Under **Advanced Settings**, increase the **Form Width** to give the PDF more space and add the following **Custom CSS** to adjust the aspect ratio:
+
+    ```css
+    .embed-html {
+        width: 100%;
+        height: 100%;
+        aspect-ratio: 1 / 1;
+        background: var(--surface-color);
+        overflow: auto;
+    }
+    ```
+
+    ![Pdf Embed Custom Ezgif Com Gif To Webp Converter Web](/images/pdf-embed-custom-ezgif.com-gif-to-webp-converter.webp)
+  </Step>
+</Steps>

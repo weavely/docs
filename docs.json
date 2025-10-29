@@ -26,6 +26,7 @@
             "pages": [
               "integrations/email-notifications",
               "features/custom-domain",
+              "features/embed-pdf",
               "features/skip-logic",
               "features/answer-piping",
               "features/event-trigger",
