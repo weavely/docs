@@ -1,8 +1,64 @@
 ---
 title: "Forms API"
-description: "Endpoints for retrieving and managing forms."
+og:title: "Generate Forms using Weavely's Free API"
+description: "Generate and manage AI-powered forms with the Weavely Forms API. Learn how to create, retrieve, and customize form data using simple endpoints — no authentication required for generation."
 ---
-
+<span className="weavely-jsonld" hidden>
+{`{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://help.weavely.ai/developers/forms",
+      "url": "https://help.weavely.ai/developers/forms",
+      "name": "Forms API",
+      "description": "Endpoints for retrieving and managing forms.",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://help.weavely.ai/#website",
+        "name": "Weavely Help Center"
+      },
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Developers", "item": "https://help.weavely.ai/developers" },
+          { "@type": "ListItem", "position": 2, "name": "Forms API", "item": "https://help.weavely.ai/developers/forms" }
+        ]
+      },
+      "publisher": { "@id": "https://www.weavely.ai/#org" }
+    },
+    {
+      "@type": "TechArticle",
+      "headline": "Forms API",
+      "description": "API documentation for developers — learn how to generate and retrieve form data via Weavely’s endpoints.",
+      "inLanguage": "en",
+      "mainEntityOfPage": { "@id": "https://help.weavely.ai/developers/forms" },
+      "author": { "@id": "https://www.weavely.ai/#org" },
+      "publisher": { "@id": "https://www.weavely.ai/#org" }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://www.weavely.ai/#org",
+      "name": "WEAVE.LY BV",
+      "url": "https://www.weavely.ai",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Herbert Hooverlaan 141",
+        "addressLocality": "Schaarbeek",
+        "postalCode": "1030",
+        "addressCountry": "BE"
+      },
+      "identifier": "BE0773.878.569",
+      "sameAs": [
+        "https://www.instagram.com/weavely.ai/",
+        "https://www.linkedin.com/company/weave-ly/",
+        "https://www.youtube.com/@weavely"
+      ]
+    }
+  ]
+}`}
+</span>
 ## Generate form
 
 > POST api.weavely.ai/v1/forms/generate
