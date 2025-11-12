@@ -16,6 +16,7 @@
       s.setAttribute('data-weavely-jsonld', 'true');
       document.head.appendChild(s);
       INJECTED.add(span);
+      console.log("JSON-LD INJECTED");
       return true;
     } catch (e) {
       console.warn('[Weavely JSON-LD] Failed to parse', e, { snippet: raw?.slice(0, 120) });
