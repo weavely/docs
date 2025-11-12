@@ -1,8 +1,84 @@
 ---
 title: "Send Form Responses to Google Sheets"
+og:title: "Send Form Responses to Google Sheets"
 description: "Weavely's Google Sheets integration lets you connect your form to a spreadsheet and automatically send new responses as rows. "
 sidebarTitle: "Google Sheets"
 ---
+<span className="weavely-jsonld" hidden>
+{`{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://help.weavely.ai/integrations/google-sheets",
+      "url": "https://help.weavely.ai/integrations/google-sheets",
+      "name": "Send Form Responses to Google Sheets",
+      "description": "Weavely's Google Sheets integration lets you connect your form to a spreadsheet and automatically send new responses as rows.",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://help.weavely.ai/#website",
+        "name": "Weavely Help Center"
+      },
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Integrations", "item": "https://help.weavely.ai/integrations" },
+          { "@type": "ListItem", "position": 2, "name": "Google Sheets", "item": "https://help.weavely.ai/integrations/google-sheets" }
+        ]
+      },
+      "publisher": { "@id": "https://www.weavely.ai/#org" }
+    },
+    {
+      "@type": "TechArticle",
+      "headline": "Send Form Responses to Google Sheets",
+      "description": "Weavely's Google Sheets integration lets you connect your form to a spreadsheet and automatically send new responses as rows.",
+      "inLanguage": "en",
+      "author": { "@id": "https://www.weavely.ai/#org" },
+      "publisher": { "@id": "https://www.weavely.ai/#org" },
+      "mainEntityOfPage": { "@id": "https://help.weavely.ai/integrations/google-sheets" }
+    },
+    {
+      "@type": "VideoObject",
+      "name": "AI Form Data to Google Sheets: Weave.ly Tutorial",
+      "description": "Want your form responses to flow straight into a spreadsheet, without copy-pasting anything? In this quick tutorial, I show you how to connect Weavely.ai to Google Sheets so submissions show up in real-time.\\n\\nWhether you’re building a waitlist, feedback tracker, or a lead capture tool, this integration makes data handling effortless.",
+      "uploadDate": "2025-05-09T00:00:00Z",
+      "duration": "PT2M9S",
+      "embedUrl": "https://www.youtube.com/embed/IvHc5U0bLFw",
+      "contentUrl": "https://www.youtube.com/watch?v=IvHc5U0bLFw",
+      "thumbnailUrl": [
+        "https://i.ytimg.com/vi/IvHc5U0bLFw/hqdefault.jpg",
+        "https://i.ytimg.com/vi/IvHc5U0bLFw/sddefault.jpg"
+      ],
+      "potentialAction": {
+        "@type": "WatchAction",
+        "target": "https://www.youtube.com/watch?v=IvHc5U0bLFw"
+      },
+      "publisher": { "@id": "https://www.weavely.ai/#org" },
+      "author": { "@id": "https://www.weavely.ai/#org" }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://www.weavely.ai/#org",
+      "name": "WEAVE.LY BV",
+      "url": "https://www.weavely.ai",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Herbert Hooverlaan 141",
+        "addressLocality": "Schaarbeek",
+        "postalCode": "1030",
+        "addressCountry": "BE"
+      },
+      "identifier": "BE0773.878.569",
+      "sameAs": [
+        "https://www.instagram.com/weavely.ai/",
+        "https://www.linkedin.com/company/weave-ly/",
+        "https://www.youtube.com/@weavely"
+      ]
+    }
+  ]
+}`}
+</span>
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/IvHc5U0bLFw?si=qi5-09GQo-gMFo33" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen />
 
@@ -10,23 +86,23 @@ sidebarTitle: "Google Sheets"
 
 With the editor open, navigate to the _Integrations_ tab and select the _Google Sheets_ integration as shown below.
 
-![Screenshot2025 05 12at09 55 53 Pn](/images/Screenshot2025-05-12at09.55.53.png)
+![Screenshot showing where to find the Google Sheets integration in Weavely AI](/Screenshot2025-05-12at09.55.53-ezgif.com-png-to-webp-converter.webp)
 
 ## Step 2: Link Your Google Account
 
 Is this the first time you set up a Google Sheets integration? Then Weavely will first guide you through the steps to connect your Google account to Weavely. Just press _"Connect to Google Sheets"_ to get started.
 
-![Screenshot2025 05 12at09 58 40 Pn](/images/Screenshot2025-05-12at09.58.40.png)
+![Screenshot showing how to configure the Google Sheets integration in Weavely AI](/Screenshot2025-05-12at09.58.40-ezgif.com-png-to-webp-converter.webp)
 
 The next steps are self explanatory, you've probably used them before if you've ever connected a Google account to something. Make sure to give Weavely the rights it needs by checking the permissions checkbox though:
 
-![Screenshot2025 05 12at09 59 27 Pn](/images/Screenshot2025-05-12at09.59.27.png)
+![Screenshot showing the permissions asked for by Weavely AI in Google Sheets](/Screenshot2025-05-12at09.59.27-ezgif.com-png-to-webp-converter.webp)
 
 ## Step 3: Select Form Fields
 
 By default Weavely will create a new Google Sheet for you which has a column for every form field in your form. You can also choose to only import a selection of form fields into your Google Sheet using the checkboxes.
 
-![Screenshot2025 05 12at10 03 40 Pn](/images/Screenshot2025-05-12at10.03.40.png)
+![Screenshot showing how to map form fields to Google Sheets columns in Weavely AI](/Screenshot2025-05-12at10.03.40-ezgif.com-png-to-webp-converter.webp)
 
 <Warning>
   Changes you make to your form will not automatically update the Google Sheet you created in the previous steps. In case you need to change your form after you've setup the integration we suggest you delete the integration and create a new one.
@@ -36,4 +112,4 @@ By default Weavely will create a new Google Sheet for you which has a column for
 
 If you ever need to reset your connection with Google Sheets, for instance to switch to a different account or reauthorize access, you can do so from your Weavely dashboard. Go to **Settings → Connected Accounts** and click the red **“Disconnect”** button next to Google Sheets. You can then reconnect with the correct account.
 
-![Screenshot2025 08 08at10 33 38 Pn](/images/Screenshot2025-08-08at10.33.38.png)
+![Screenshot showing how to disconnect a Google Sheets account in Weavely AI](/Screenshot2025-08-08at10.33.38.png)
