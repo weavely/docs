@@ -1,8 +1,84 @@
 ---
 title: "Send Form Responses to Notion"
+og:title: "Send Form Responses to Notion"
 description: "Weavely's Notion integration lets you connect your form to a Notion database and automatically send new responses as database entries. "
 sidebarTitle: "Notion"
 ---
+<span className="weavely-jsonld" hidden>
+{`{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://help.weavely.ai/integrations/notion",
+      "url": "https://help.weavely.ai/integrations/notion",
+      "name": "Send Form Responses to Notion",
+      "description": "Weavely's Notion integration lets you connect your form to a Notion database and automatically send new responses as database entries.",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://help.weavely.ai/#website",
+        "name": "Weavely Help Center"
+      },
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Integrations", "item": "https://help.weavely.ai/integrations" },
+          { "@type": "ListItem", "position": 2, "name": "Notion", "item": "https://help.weavely.ai/integrations/notion" }
+        ]
+      },
+      "publisher": { "@id": "https://www.weavely.ai/#org" }
+    },
+    {
+      "@type": "TechArticle",
+      "headline": "Send Form Responses to Notion",
+      "description": "Weavely's Notion integration lets you connect your form to a Notion database and automatically send new responses as database entries.",
+      "inLanguage": "en",
+      "author": { "@id": "https://www.weavely.ai/#org" },
+      "publisher": { "@id": "https://www.weavely.ai/#org" },
+      "mainEntityOfPage": { "@id": "https://help.weavely.ai/integrations/notion" }
+    },
+    {
+      "@type": "VideoObject",
+      "name": "AI Form Data to Notion: Weave.ly Tutorial",
+      "description": "Want your form responses to flow straight into a Notion database, without copy-pasting anything? In this quick tutorial, I show you how to connect Weavely.ai to Notion so submissions show up in real-time.",
+      "uploadDate": "2025-05-12T00:00:00Z",
+      "duration": "PT2M29S",
+      "embedUrl": "https://www.youtube.com/embed/SRJroqqjNPE",
+      "contentUrl": "https://www.youtube.com/watch?v=SRJroqqjNPE",
+      "thumbnailUrl": [
+        "https://i.ytimg.com/vi/SRJroqqjNPE/hqdefault.jpg",
+        "https://i.ytimg.com/vi/SRJroqqjNPE/sddefault.jpg"
+      ],
+      "potentialAction": {
+        "@type": "WatchAction",
+        "target": "https://www.youtube.com/watch?v=SRJroqqjNPE"
+      },
+      "publisher": { "@id": "https://www.weavely.ai/#org" },
+      "author": { "@id": "https://www.weavely.ai/#org" }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://www.weavely.ai/#org",
+      "name": "WEAVE.LY BV",
+      "url": "https://www.weavely.ai",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Herbert Hooverlaan 141",
+        "addressLocality": "Schaarbeek",
+        "postalCode": "1030",
+        "addressCountry": "BE"
+      },
+      "identifier": "BE0773.878.569",
+      "sameAs": [
+        "https://www.instagram.com/weavely.ai/",
+        "https://www.linkedin.com/company/weave-ly/",
+        "https://www.youtube.com/@weavely"
+      ]
+    }
+  ]
+}`}
+</span>
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/SRJroqqjNPE?si=iJyHrODpTbUbJsta" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen />
 
@@ -10,19 +86,19 @@ sidebarTitle: "Notion"
 
 With the editor open, navigate to the _Integrations_ tab and select the _Notion_ integration as shown below.
 
-![Screenshot2025 05 12at10 44 43 Pn](/images/Screenshot2025-05-12at10.44.43.png)
+![Screenshot showing where to find the Notion integration in Weavely AI](/Screenshot2025-05-12at10.44.43-ezgif.com-png-to-webp-converter.webp)
 
 ## Step 2: Link Your Notion Account
 
 Is this the first time you set up a Notion integration? Then Weavely will first guide you through the steps to connect your Notion account to Weavely. Just press _"Connect to Notion"_ to get started.
 
-![Screenshot2025 05 12at11 33 12 Pn](/images/Screenshot2025-05-12at11.33.12.png)
+![Screenshot showing how to connect Notion to Weavely AI](/Screenshot2025-05-12at11.33.12-ezgif.com-png-to-webp-converter.webp)
 
 ## Step 3: Map Form Fields to Database Properties
 
 Once you've connected your Notion account you'll be able to set up the integration for your form. In a first step you'll need to select which Notion database you want the responses to go to. In a second step you can specify how fields of your form correspond to columns of your Notion database. The gif below showcases both these steps.
 
-![Notion Integration Gi](/images/notion-integration.gif)
+![Animated screenshot showing how to configure the Notion integration in Weavely AI](/images/notion-integration.gif)
 
 <Info>
   If you can't see your Notion database you might not have given Weavely permissions to the right workspace or pages within your Notion. You can repeat the process in step 2 by disconnecting your Notion account in the Weavely dashboard under _Settings -\> Connected Accounts_
@@ -32,4 +108,4 @@ Once you've connected your Notion account you'll be able to set up the integrati
 
 If you ever need to reset your connection with Notion, for instance to switch to a different account or reauthorize access, you can do so from your Weavely dashboard. Go to **Settings → Connected Accounts** and click the red **“Disconnect”** button next to Notion. You can then reconnect with the correct account.
 
-![Screenshot2025 08 08at10 40 01 Pn](/images/Screenshot2025-08-08at10.40.01.png)
+![Screenshot showing how to disconnect Notion from Weavely AI](/Screenshot2025-08-08at10.40.01-ezgif.com-png-to-webp-converter.webp)
