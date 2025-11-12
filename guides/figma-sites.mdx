@@ -1,7 +1,86 @@
 ---
 title: "How to Add a Contact Form to Figma Sites"
+og:title: "How to Add a Contact Form to Figma Sites"
 description: "So you've built your website using Figma Sites, but you're looking to add a web form to it? You've come to the right place!"
 ---
+
+<span className="weavely-jsonld" hidden>
+{`{
+"@context": "https://schema.org",
+"@graph": [
+  {
+    "@type": "WebPage",
+    "@id": "https://help.weavely.ai/guides/figma-sites",
+    "url": "https://help.weavely.ai/guides/figma-sites",
+    "name": "How to Add a Contact Form to Figma Sites",
+    "description": "So you've built your website using Figma Sites, but you're looking to add a web form to it? You've come to the right place!",
+    "inLanguage": "en",
+    "isPartOf": {
+      "@type": "WebSite",
+      "@id": "https://help.weavely.ai/#website",
+      "name": "Weavely Help Center"
+    },
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Guides", "item": "https://help.weavely.ai/guides" },
+        { "@type": "ListItem", "position": 2, "name": "How to Add a Contact Form to Figma Sites", "item": "https://help.weavely.ai/guides/figma-sites" }
+      ]
+    },
+    "publisher": { "@id": "https://www.weavely.ai/#org" }
+  },
+  {
+    "@type": "TechArticle",
+    "headline": "How to Add a Contact Form to Figma Sites",
+    "description": "So you've built your website using Figma Sites, but you're looking to add a web form to it? You've come to the right place!",
+    "author": { "@id": "https://www.weavely.ai/#org" },
+    "publisher": { "@id": "https://www.weavely.ai/#org" },
+    "inLanguage": "en",
+    "mainEntityOfPage": { "@id": "https://help.weavely.ai/guides/figma-sites" }
+  },
+  {
+    "@type": "VideoObject",
+    "@id": "https://help.weavely.ai/guides/figma-sites#video",
+    "name": "How to Embed a Web Form in Your Figma Site",
+    "description": "Want to add a contact or lead form to your Figma Site? In this tutorial, I’ll show you how to embed an AI-generated web form from Weavely into your Figma Site.",
+    "thumbnailUrl": [
+      "https://i.ytimg.com/vi/z_vOp2GQ7rE/hqdefault.jpg",
+      "https://i.ytimg.com/vi/z_vOp2GQ7rE/sddefault.jpg"
+    ],
+    "uploadDate": "2025-06-04T00:00:00Z",
+    "duration": "PT3M40S",
+    "embedUrl": "https://www.youtube.com/embed/z_vOp2GQ7rE",
+    "contentUrl": "https://www.youtube.com/watch?v=z_vOp2GQ7rE",
+    "potentialAction": {
+      "@type": "WatchAction",
+      "target": "https://www.youtube.com/watch?v=z_vOp2GQ7rE"
+    },
+    "publisher": { "@id": "https://www.weavely.ai/#org" },
+    "author": { "@id": "https://www.weavely.ai/#org" }
+  },
+  {
+    "@type": "Organization",
+    "@id": "https://www.weavely.ai/#org",
+    "name": "WEAVE.LY BV",
+    "url": "https://www.weavely.ai",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Herbert Hooverlaan 141",
+      "addressLocality": "Schaarbeek",
+      "postalCode": "1030",
+      "addressCountry": "BE"
+    },
+    "identifier": "BE0773.878.569",
+    "sameAs": [
+      "https://www.instagram.com/weavely.ai/",
+      "https://www.linkedin.com/company/weave-ly/",
+      "https://www.youtube.com/@weavely"
+    ]
+  }
+]
+}`}
+
+</span>
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/z_vOp2GQ7rE?si=iIUTOlyEPHcnnYHr" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen />
 
@@ -13,16 +92,16 @@ Here's how to seamlessly embed a form into your Figma site using a Weavely form 
   <Step title="Create your Form">
     Figma doesn't have a built-in form builder (yet), so you'll  need to build your form in an external tool in order to add it to your Figma Site. We might be biased here, but we think Weavely is a great tool to build forms 😉 For this tutorial we'll keep things simple. We built this contact form:
 
-    ![Screenshot 2025-06-04 at 14.16.08.png](/images/Screenshot2025-06-04at14.16.08.png)
+    ![Screenshot showing an example contact form in Weavely AI](/Screenshot2025-06-04at14.16.08.webp)
 
     Which we'll embed in one of Figma's template websites:
 
-    ![Screenshot 2025-06-04 at 14.16.48.png](/images/Screenshot2025-06-04at14.16.48.png)
+    ![Screenshot showing an example Figma Site in which we'll embed a Weavely AI contact form](/Screenshot2025-06-04at14.16.48.webp)
   </Step>
   <Step title="Add an Embed Layer in Figma">
     Select whichever page you want to add your form to, and drag an _"Embed"_ layer from the toolbar into the page as shown below.
 
-    ![Drag Embed Gi](/images/drag-embed.gif)
+    ![Animated screenshot showing how to add an embed layer in Figma Sites](/images/drag-embed.gif)
 
     You'll want to make sure that the embed renders correctly on the various viewports. In our case we modified the embed's _Layout_ settings to:
 
@@ -30,14 +109,14 @@ Here's how to seamlessly embed a form into your Figma site using a Weavely form 
     - fill the height of the parent frame
     - have a _minimum height_ of 700 to make sure that it completely renders the form to be embedded
 
-    ![Embed Layout(1) Gi](/images/embed-layout\(1\).gif)
+    ![Animated screenshot showing how to style an embed layer in Figma Sites](/images/embed-layout\(1\).gif)
   </Step>
   <Step title="Set the Embed Source" stepNumber={3}>
     Once you've added the embed layer and set its layout you can add the source data. Or in other words, add the form data to the embed layer. You can do this in two ways.
 
     First, by setting the embed's _URL_ to contain the form's URL (see [this tutorial](/get-started/sharing) to get your Weavely forms' URL).
 
-    ![Screenshot2025 06 04at15 58 00 Pn](/images/Screenshot2025-06-04at15.58.00.png)
+    ![Screenshot showing how to set the embed source of an element in Figma Sites](/Screenshot2025-06-04at15.58.00.webp)
 
     The downside of this approach is that by default this will make the form scrollable inside your website. Especially on mobile this negatively impacts user experience.
 
@@ -55,6 +134,6 @@ Here's how to seamlessly embed a form into your Figma site using a Weavely form 
 
     This ensures that the form isn't scrollable. You will need to make sure that the minimum height is sufficient for the form to completely render inside the iframe though.
 
-    ![Screenshot2025 06 04at15 59 05 Pn](/images/Screenshot2025-06-04at15.59.05.png)
+    ![Screenshot showing how to set the embed code of an element in Figma Sites](/Screenshot2025-06-04at15.59.05.webp)
   </Step>
 </Steps>
