@@ -1,8 +1,63 @@
 ---
 title: "Webhooks API"
-description: "Our Webhooks API instantly delivers each new submission to your specified endpoint URL or any compatible web application."
+description: "Instantly deliver new form submissions to your endpoint using Weavely’s Webhooks API. Create, manage, and receive real-time webhook events easily."
 ---
-
+<span className="weavely-jsonld" hidden>
+{`{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://help.weavely.ai/developers/webhooks",
+      "url": "https://help.weavely.ai/developers/webhooks",
+      "name": "Webhooks API",
+      "description": "Our Webhooks API instantly delivers each new submission to your specified endpoint URL or any compatible web application.",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://help.weavely.ai/#website",
+        "name": "Weavely Help Center"
+      },
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Developers", "item": "https://help.weavely.ai/developers" },
+          { "@type": "ListItem", "position": 2, "name": "Webhooks API", "item": "https://help.weavely.ai/developers/webhooks" }
+        ]
+      },
+      "publisher": { "@id": "https://www.weavely.ai/#org" }
+    },
+    {
+      "@type": "TechArticle",
+      "headline": "Webhooks API",
+      "description": "Learn how to create and delete webhooks and receive real-time form submission payloads at your endpoint using Weavely’s Webhooks API.",
+      "inLanguage": "en",
+      "mainEntityOfPage": { "@id": "https://help.weavely.ai/developers/webhooks" },
+      "author": { "@id": "https://www.weavely.ai/#org" },
+      "publisher": { "@id": "https://www.weavely.ai/#org" }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://www.weavely.ai/#org",
+      "name": "WEAVE.LY BV",
+      "url": "https://www.weavely.ai",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Herbert Hooverlaan 141",
+        "addressLocality": "Schaarbeek",
+        "postalCode": "1030",
+        "addressCountry": "BE"
+      },
+      "identifier": "BE0773.878.569",
+      "sameAs": [
+        "https://www.instagram.com/weavely.ai/",
+        "https://www.linkedin.com/company/weave-ly/",
+        "https://www.youtube.com/@weavely"
+      ]
+    }
+  ]
+}`}
+</span>
 ## Create webhook
 
 > POST api.weavely.ai/v1/forms/[formId]/webhooks
