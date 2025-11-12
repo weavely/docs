@@ -2,6 +2,7 @@
   const html = document.body.innerHTML;
   const regex = /\{\/\*\s*JSON-LD-START([\s\S]*?)JSON-LD-END\s*\*\/\}/m;
   const match = html.match(regex);
+  console.log("Match? " + match);
   if (match && match[1]) {
     try {
       const json = match[1].trim();
