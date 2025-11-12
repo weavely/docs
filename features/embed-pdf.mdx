@@ -4,15 +4,87 @@ description: "Learn how to embed a PDF in your forms with Weavely AI. Perfect fo
 sidebarTitle: "Embed PDF"
 ---
 
+<span className="weavely-jsonld" hidden>
+{`{
+"@context": "https://schema.org",
+"@graph": [
+  {
+    "@type": "WebPage",
+    "@id": "https://help.weavely.ai/features/embed-pdf",
+    "url": "https://help.weavely.ai/features/embed-pdf",
+    "name": "How to Embed a PDF in a Weavely Form",
+    "description": "Learn how to embed a PDF in your forms with Weavely AI. Perfect for surveys, feedback forms, or custom data collection with embedded content.",
+    "inLanguage": "en",
+    "isPartOf": {
+      "@type": "WebSite",
+      "@id": "https://help.weavely.ai/#website",
+      "name": "Weavely Help Center"
+    },
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Features", "item": "https://help.weavely.ai/features" },
+        { "@type": "ListItem", "position": 2, "name": "Embed PDF", "item": "https://help.weavely.ai/features/embed-pdf" }
+      ]
+    },
+    "publisher": { "@id": "https://www.weavely.ai/#org" }
+  },
+  {
+    "@type": "TechArticle",
+    "headline": "How to Embed a PDF in a Weavely Form",
+    "description": "Step-by-step guide for embedding a Google Drive–hosted PDF inside a Weavely AI form, including DNS permissions, iframe setup, and display optimization.",
+    "inLanguage": "en",
+    "mainEntityOfPage": { "@id": "https://help.weavely.ai/features/embed-pdf" },
+    "author": { "@id": "https://www.weavely.ai/#org" },
+    "publisher": { "@id": "https://www.weavely.ai/#org" }
+  },
+  {
+    "@type": "VideoObject",
+    "name": "How to Embed a PDF into Your Web Form with Weavely AI",
+    "description": "Want to add a PDF directly into your form experience? In this tutorial, I’ll show you how to embed a PDF inside a Weavely web form, perfect for sharing terms, contracts, guides, or reference materials right where users need them.",
+    "thumbnailUrl": ["https://i.ytimg.com/vi/NHA8ducXP5w/maxresdefault.jpg"],
+    "uploadDate": "2025-10-29T12:00:00Z",
+    "duration": "PT3M36S",
+    "embedUrl": "https://www.youtube.com/embed/NHA8ducXP5w",
+    "contentUrl": "https://youtu.be/NHA8ducXP5w",
+    "potentialAction": {
+      "@type": "WatchAction",
+      "target": "https://youtu.be/NHA8ducXP5w"
+    }
+  },
+  {
+    "@type": "Organization",
+    "@id": "https://www.weavely.ai/#org",
+    "name": "WEAVE.LY BV",
+    "url": "https://www.weavely.ai",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Herbert Hooverlaan 141",
+      "addressLocality": "Schaarbeek",
+      "postalCode": "1030",
+      "addressCountry": "BE"
+    },
+    "identifier": "BE0773.878.569",
+    "sameAs": [
+      "https://www.instagram.com/weavely.ai/",
+      "https://www.linkedin.com/company/weave-ly/",
+      "https://www.youtube.com/@weavely"
+    ]
+  }
+]
+}`}
+
+</span>
+
 You can embed a PDF directly into your Weavely form, allowing users to view documents like product specs, guides, or legal disclaimers without leaving the form experience. This tutorial walks you through embedding a PDF from Google Drive and optimizing how it's displayed in your form.
 
 <iframe src="https://www.youtube.com/embed/NHA8ducXP5w" title="YouTube video player" frameborder="0" className="w-full aspect-video rounded-xl" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen />
 
 <Steps>
   <Step title="Upload the PDF to Google Drive" icon="file-doc" titleSize="h2">
-    If you haven't already, upload your PDF to [Google Drive](https://drive.google.com). Open the PDF by double-clicking and select **"Open in new tab" **from the three-dot menu. Within this new tab, click the three-dot menu (it's weird we know) and choose **"Embed item"**.
+    If you haven't already, upload your PDF to [Google Drive](https://drive.google.com). Open the PDF by double-clicking and select \*\*"Open in new tab" \*\*from the three-dot menu. Within this new tab, click the three-dot menu (it's weird we know) and choose **"Embed item"**.
 
-    ![Pdf Embed Ezgif Com Gif To Webp Converter Web](/images/pdf-embed-ezgif.com-gif-to-webp-converter.webp)
+    ![Animated screenshot showing how to get an embeddable iframe code from a PDF hosted on Google Drive](/images/pdf-embed-ezgif.com-gif-to-webp-converter.webp)
 
     Copy the HTML `<iframe>` code provided by Google, which we'll use in the next step.
 
@@ -23,10 +95,10 @@ You can embed a PDF directly into your Weavely form, allowing users to view docu
   <Step title="Embed in Weavely" icon="code" titleSize="h2">
     In your Weavely form, add an **Embed HTML** element. Open the element's settings pane and copy-paste the `<iframe>` code from the first step. Once published, your PDF will appear directly inside the form, and users can preview it without leaving the page. They can also click the pop-out button in the PDF viewer to open it full screen.
 
-    ![Pdf Embed2 Gi](/images/pdf-embed2.gif)
+    ![Animated screenshot showing how to embed a PDF into a Weavely AI form](/images/pdf-embed2.gif)
 
     <Tip>
-      We suggest you set both the width and height in the `<iframe> `code to 100% to ensure it fills the container. 
+      We suggest you set both the width and height in the `<iframe> `code to 100% to ensure it fills the container.
     </Tip>
   </Step>
   <Step title="Improve the PDF Display" icon="palette" titleSize="h2">
@@ -42,6 +114,6 @@ You can embed a PDF directly into your Weavely form, allowing users to view docu
     }
     ```
 
-    ![Pdf Embed Custom Ezgif Com Gif To Webp Converter Web](/images/pdf-embed-custom-ezgif.com-gif-to-webp-converter.webp)
+    ![Animated screenshot showing how to change the appearance of an embedded pdf in Weavely AI ](/images/pdf-embed-custom-ezgif.com-gif-to-webp-converter.webp)
   </Step>
 </Steps>
