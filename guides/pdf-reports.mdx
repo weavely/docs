@@ -1,8 +1,85 @@
 ---
 title: "How to Generate PDF Reports from Form Responses with AI"
+og:title: "How to Generate PDF Reports from Form Responses with AI"
 description: "Generate dynamic PDF reports from AI‑powered form responses. Turn survey submissions into professional PDF reports automatically with Weavely."
 sidebarTitle: "PDF reports"
 ---
+<span className="weavely-jsonld" hidden>
+{`{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://help.weavely.ai/guides/pdf-reports",
+      "url": "https://help.weavely.ai/guides/pdf-reports",
+      "name": "How to Generate PDF Reports from Form Responses with AI",
+      "description": "Generate dynamic PDF reports from AI-powered form responses. Turn survey submissions into professional PDF reports automatically with Weavely.",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://help.weavely.ai/#website",
+        "name": "Weavely Help Center"
+      },
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Guides", "item": "https://help.weavely.ai/guides" },
+          { "@type": "ListItem", "position": 2, "name": "PDF reports", "item": "https://help.weavely.ai/guides/pdf-reports" }
+        ]
+      },
+      "publisher": { "@id": "https://www.weavely.ai/#org" }
+    },
+    {
+      "@type": "TechArticle",
+      "headline": "How to Generate PDF Reports from Form Responses with AI",
+      "description": "Learn how to capture responses with Weavely, generate branded PDFs using Google Docs & Drive, and email them automatically via Make.com.",
+      "inLanguage": "en",
+      "author": { "@id": "https://www.weavely.ai/#org" },
+      "publisher": { "@id": "https://www.weavely.ai/#org" },
+      "mainEntityOfPage": { "@id": "https://help.weavely.ai/guides/pdf-reports" }
+    },
+    {
+      "@type": "VideoObject",
+      "@id": "https://help.weavely.ai/guides/pdf-reports#video",
+      "name": "Generate PDF Reports from Form Responses with AI for Free (Weavely + Make.com)",
+      "description": "Turn form or survey responses into beautiful, automated PDF reports, in minutes. This tutorial shows how to use Weavely.ai and Make.com to generate fully customized PDF reports from online form submissions.",
+      "thumbnailUrl": [
+        "https://i.ytimg.com/vi/Q-ASaEU3htg/hqdefault.jpg",
+        "https://i.ytimg.com/vi/Q-ASaEU3htg/sddefault.jpg"
+      ],
+      "uploadDate": "2025-10-21T00:00:00Z",
+      "duration": "PT6M16S",
+      "embedUrl": "https://www.youtube.com/embed/Q-ASaEU3htg",
+      "contentUrl": "https://www.youtube.com/watch?v=Q-ASaEU3htg",
+      "potentialAction": {
+        "@type": "WatchAction",
+        "target": "https://www.youtube.com/watch?v=Q-ASaEU3htg"
+      },
+      "publisher": { "@id": "https://www.weavely.ai/#org" },
+      "author": { "@id": "https://www.weavely.ai/#org" }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://www.weavely.ai/#org",
+      "name": "WEAVE.LY BV",
+      "url": "https://www.weavely.ai",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Herbert Hooverlaan 141",
+        "addressLocality": "Schaarbeek",
+        "postalCode": "1030",
+        "addressCountry": "BE"
+      },
+      "identifier": "BE0773.878.569",
+      "sameAs": [
+        "https://www.instagram.com/weavely.ai/",
+        "https://www.linkedin.com/company/weave-ly/",
+        "https://www.youtube.com/@weavely"
+      ]
+    }
+  ]
+}`}
+</span>
 
 Weavely lets you create powerful AI-generated forms. In this guide, we’ll show you how to take your form submissions, turn them into a beautifully formatted PDF, and automatically email that PDF either to the respondent or to yourself, all for free using [Make](https://www.make.com/).
 
@@ -35,7 +112,7 @@ Weavely lets you create powerful AI-generated forms. In this guide, we’ll show
 
     For example, here's the template we created for our video tutorial.
 
-    ![Screenshot2025 10 21at11 18 17 Web](/images/Screenshot2025-10-21at11.18.17.webp)
+    ![Screenshot of an example pdf report which will be populated with form responses from Weavely AI](/images/Screenshot2025-10-21at11.18.17.webp)
   </Step>
   <Step title="Set Up Your Scenario in Make" icon="gear" titleSize="h2">
     Create a new scenario in Make. You'll need four modules in this scenario.
@@ -50,7 +127,7 @@ Weavely lets you create powerful AI-generated forms. In this guide, we’ll show
 
     You can read our [dedicated tutorial](/integrations/make) if you need help setting up the Weavely module in Make.
 
-    ![Screenshot2025 10 21at11 27 23 Web](/images/Screenshot2025-10-21at11.27.23.webp)
+    ![Screenshot of setting up Weavely AI in make.com](/images/Screenshot2025-10-21at11.27.23.webp)
 
     ### Module 2: Create Document from Template
 
@@ -65,7 +142,7 @@ Weavely lets you create powerful AI-generated forms. In this guide, we’ll show
     - Set a document name (e.g., `"Contact Form Submission"`).
     - Choose the folder where the document will be saved.
 
-    ![Screenshot2025 10 21at11 28 57 Web](/images/Screenshot2025-10-21at11.28.57.webp)
+    ![Screenshot of setting up a word document template in make.com ](/images/Screenshot2025-10-21at11.28.57.webp)
 
     ### Module 3: Download a File
 
@@ -75,7 +152,7 @@ Weavely lets you create powerful AI-generated forms. In this guide, we’ll show
     - Use the document ID from the previous module.
     - Enable: `Convert Google Document to format → PDF`.
 
-    ![Screenshot2025 10 21at11 32 07(1) Web](/images/Screenshot2025-10-21at11.32.07\(1\).webp)
+    ![Screenshot showing how to download a google doc in  make.com](/images/Screenshot2025-10-21at11.32.07\(1\).webp)
 
     ### Module 4: Send Email with Attachment
 
@@ -87,7 +164,7 @@ Weavely lets you create powerful AI-generated forms. In this guide, we’ll show
     - Body: Optional – you can leave this blank or customize it.
     - Attachment: The PDF file from the previous module.
 
-    ![Screenshot2025 10 21at11 34 44 Web](/images/Screenshot2025-10-21at11.34.44.webp)
+    ![Screenshot showing how to send an email with make.com](/images/Screenshot2025-10-21at11.34.44.webp)
   </Step>
   <Step title="Test the Flow" icon="vial" titleSize="h2">
     1. Run your scenario.
