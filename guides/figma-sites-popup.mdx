@@ -1,8 +1,87 @@
 ---
 title: "Add a Popup Form to Your Figma Site"
+og:title: "Add a Popup Form to Your Figma Site"
 description: "Learn how to embed a functional popup form into your Figma site using Weavely"
 sidebarTitle: "How to Add a Popup Form to Figma Sites "
 ---
+
+<span className="weavely-jsonld" hidden>
+{`{
+"@context": "https://schema.org",
+"@graph": [
+  {
+    "@type": "WebPage",
+    "@id": "https://help.weavely.ai/guides/figma-sites-popup",
+    "url": "https://help.weavely.ai/guides/figma-sites-popup",
+    "name": "Add a Popup Form to Your Figma Site",
+    "description": "Learn how to embed a functional popup form into your Figma site using Weavely",
+    "inLanguage": "en",
+    "isPartOf": {
+      "@type": "WebSite",
+      "@id": "https://help.weavely.ai/#website",
+      "name": "Weavely Help Center"
+    },
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Guides", "item": "https://help.weavely.ai/guides" },
+        { "@type": "ListItem", "position": 2, "name": "Add a Popup Form to Your Figma Site", "item": "https://help.weavely.ai/guides/figma-sites-popup" }
+      ]
+    },
+    "publisher": { "@id": "https://www.weavely.ai/#org" }
+  },
+  {
+    "@type": "TechArticle",
+    "headline": "Add a Popup Form to Your Figma Site",
+    "description": "Learn how to embed a functional popup form into your Figma site using Weavely",
+    "author": { "@id": "https://www.weavely.ai/#org" },
+    "publisher": { "@id": "https://www.weavely.ai/#org" },
+    "inLanguage": "en",
+    "mainEntityOfPage": { "@id": "https://help.weavely.ai/guides/figma-sites-popup" }
+  },
+  {
+    "@type": "VideoObject",
+    "@id": "https://help.weavely.ai/guides/figma-sites-popup#video",
+    "name": "How to Add Popup Forms to Figma Sites (Step-by-Step)",
+    "description": "Want to capture more leads or feedback directly on your Figma Site? In this tutorial, I’ll show you how to build and embed a popup form using Weavely (the AI form builder) and connect it seamlessly to your Figma Site.",
+    "thumbnailUrl": [
+      "https://i.ytimg.com/vi/Ml5EkwuJNBw/hqdefault.jpg",
+      "https://i.ytimg.com/vi/Ml5EkwuJNBw/sddefault.jpg"
+    ],
+    "uploadDate": "2025-10-03T00:00:00Z",
+    "duration": "PT4M17S",
+    "embedUrl": "https://www.youtube.com/embed/Ml5EkwuJNBw",
+    "contentUrl": "https://www.youtube.com/watch?v=Ml5EkwuJNBw",
+    "potentialAction": {
+      "@type": "WatchAction",
+      "target": "https://www.youtube.com/watch?v=Ml5EkwuJNBw"
+    },
+    "publisher": { "@id": "https://www.weavely.ai/#org" },
+    "author": { "@id": "https://www.weavely.ai/#org" }
+  },
+  {
+    "@type": "Organization",
+    "@id": "https://www.weavely.ai/#org",
+    "name": "WEAVE.LY BV",
+    "url": "https://www.weavely.ai",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Herbert Hooverlaan 141",
+      "addressLocality": "Schaarbeek",
+      "postalCode": "1030",
+      "addressCountry": "BE"
+    },
+    "identifier": "BE0773.878.569",
+    "sameAs": [
+      "https://www.instagram.com/weavely.ai/",
+      "https://www.linkedin.com/company/weave-ly/",
+      "https://www.youtube.com/@weavely"
+    ]
+  }
+]
+}`}
+
+</span>
 
 # Add a Pop-Up Form to Your Figma Site
 
@@ -18,11 +97,11 @@ This guide walks you through how to integrate a Weavely pop-up form without modi
 
     Once you're happy with your form go ahead and hit _"Publish"._
 
-    ![Screenshot2025 10 03at15 42 36 Pn](/images/Screenshot2025-10-03at15.42.36.png)
+    ![Screenshot showing how to publish a form in Weavely AI](/images/Screenshot2025-10-03at15.42.36.png)
 
     Once your form is published you'll need to copy the code in the _"Embed Form"_ section of the _Share_ tab.
 
-    ![Screenshot2025 10 03at15 57 21 Pn](/images/Screenshot2025-10-03at15.57.21.png)
+    ![Screenshot showing how to embed a Weavely AI form in a website](/Screenshot2025-10-03at15.57.21.webp)
 
     <Warning>
       Ignore the code in the Popup form section, as this will only render full-screen popups for now. Unless that's what you're looking for obviously!
@@ -31,11 +110,11 @@ This guide walks you through how to integrate a Weavely pop-up form without modi
   <Step title="Embed the Code in Figma Sites" icon="gear-code">
     In Figma Sites, go to your _"Site settings"_.
 
-    ![Screenshot2025 10 03at16 03 14 Pn](/images/Screenshot2025-10-03at16.03.14.png)
+    ![Screenshot showing how to embed a form in a Figma Site ](/Screenshot2025-10-03at16.03.14.webp)
 
     You'll want to paste code in two seperate sections of your site's settings. First, paste the _Weavely embed script_ into the _\<head\>_ part of the settings.
 
-    ![Screenshot2025 10 03at16 08 11 Pn](/images/Screenshot2025-10-03at16.08.11.png)
+    ![Screenshot showing how to add a form embed code to the head of a Figma Site ](/Screenshot2025-10-03at16.08.11.webp)
 
     Second, you'll need to take form \<div\> element from Weavely and wrap it in popup logic. For example, if this is your form link: \_https://forms.weavely.ai/8f8b93dd-94cf-4dff-8a21-cccbef407f44. \_Then the following will create a popup which appears after a second on the bottom right of your site:
 
@@ -96,7 +175,7 @@ This guide walks you through how to integrate a Weavely pop-up form without modi
 
     You'll need to paste this code into the _\<body\>_ section of your site's settings.
 
-    ![Screenshot2025 10 03at16 18 26 Pn](/images/Screenshot2025-10-03at16.18.26.png)
+    ![Screenshot showing how to add a form embed code to the body of a Figma Site](/Screenshot2025-10-03at16.18.26.webp)
   </Step>
 </Steps>
 
