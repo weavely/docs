@@ -7,17 +7,61 @@ sidebarTitle: "Invoices"
 <span className="weavely-jsonld" hidden>
 {`{
   "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": "Your page title",
-  "description": "1–2 sentence summary",
-  "mainEntityOfPage": "https://help.weavely.ai/path",
-  "inLanguage": "en",
-  "author": { "@type": "Organization", "name": "Weavely" },
-  "publisher": { "@type": "Organization", "name": "WEAVE.LY BV" }
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://help.weavely.ai/accounts/invoices",
+      "url": "https://help.weavely.ai/accounts/invoices",
+      "name": "Accessing your Invoices in Weavely.ai",
+      "description": "Learn where to access your Weavely.ai pro subscription invoices.",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://help.weavely.ai/#website",
+        "name": "Weavely Help Center"
+      },
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Help Center", "item": "https://help.weavely.ai/" },
+          { "@type": "ListItem", "position": 2, "name": "Accounts", "item": "https://help.weavely.ai/accounts" },
+          { "@type": "ListItem", "position": 3, "name": "Invoices", "item": "https://help.weavely.ai/accounts/invoices" }
+        ]
+      },
+      "publisher": { "@id": "https://www.weavely.ai/#org" }
+    },
+    {
+      "@type": "TechArticle",
+      "headline": "Accessing your Invoices in Weavely.ai",
+      "description": "Learn where to access your Weavely.ai pro subscription invoices.",
+      "author": { "@type": "Organization", "name": "Weavely" },
+      "publisher": { "@id": "https://www.weavely.ai/#org" },
+      "inLanguage": "en",
+      "mainEntityOfPage": { "@id": "https://help.weavely.ai/accounts/invoices" }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://www.weavely.ai/#org",
+      "name": "WEAVE.LY BV",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Herbert Hooverlaan 141",
+        "addressLocality": "Schaarbeek",
+        "postalCode": "1030",
+        "addressCountry": "BE"
+      },
+      "identifier": "BE0773.878.569",
+      "sameAs": [
+        "https://www.instagram.com/weavely.ai/",
+        "https://www.linkedin.com/company/weave-ly/",
+        "https://www.youtube.com/@weavely"
+      ]
+    }
+  ]
 }`}
 </span>
 When you upgrade your Weavely subscription, you won't automatically receive invoices by email from us. However, you can easily access invoices for all your payments inside our platform.
 
 Inside the dashboard navigate to **Settings → Team Settings** and click the "_Billing & Invoices_" button. You'll be redirected to a Stripe portal which contains all your details.
 
-![Invoices Gi](/images/invoices.gif)
+![Invoices Gi](/invoices1-ezgif.com-optimize.gif)
