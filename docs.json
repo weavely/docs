@@ -105,13 +105,18 @@
             "group": "Use Cases",
             "pages": [
               "guides/examples-cover",
-              "guides/pdf-to-form",
-              "guides/hubspot-lead-gen",
-              "guides/figma-sites",
-              "guides/figma-sites-popup",
-              "guides/google-sites",
-              "guides/carrd",
-              "guides/pdf-reports"
+              "guides/use-cases/pdf-to-form",
+              "guides/use-cases/hubspot-lead-gen",
+              "guides/use-cases/pdf-reports"
+            ]
+          },
+          {
+            "group": "Website Embeds",
+            "pages": [
+              "guides/embeds/figma-sites",
+              "guides/embeds/figma-sites-popup",
+              "guides/embeds/google-sites",
+              "guides/embeds/carrd"
             ]
           }
         ]
