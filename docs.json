@@ -120,7 +120,13 @@
                   "guides/embeds/figma-sites-popup"
                 ]
               },
-              "guides/embeds/framer",
+              {
+                "group" : "Framer",
+                "pages" : [
+                  "guides/embeds/framer",
+                  "guides/embeds/framer-logic"
+                ]
+              },
               "guides/embeds/google-sites",
               "guides/embeds/carrd"
             ]
