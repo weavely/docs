@@ -114,6 +114,7 @@
             "group": "Website Embeds",
             "pages": [
               "guides/embeds/figma-sites",
+              "guides/embeds/framer",
               "guides/embeds/figma-sites-popup",
               "guides/embeds/google-sites",
               "guides/embeds/carrd"
