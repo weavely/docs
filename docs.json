@@ -124,7 +124,8 @@
                 "group" : "Framer",
                 "pages" : [
                   "guides/embeds/framer",
-                  "guides/embeds/framer-logic"
+                  "guides/embeds/framer-logic",
+                  "guides/embeds/framer-multi-step"
                 ]
               },
               "guides/embeds/google-sites",
