@@ -2,39 +2,164 @@
 title: "The Basics: Generating Forms with AI"
 description: "Learn the basics of building forms using artificial intelligence in Weavely.ai"
 ---
+<span className="weavely-jsonld" hidden>
+{`{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://help.weavely.ai/get-started/the-basics",
+      "url": "https://help.weavely.ai/get-started/the-basics",
+      "name": "The Basics: Generating Forms with AI",
+      "description": "Learn the basics of building forms using artificial intelligence in Weavely.ai",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://help.weavely.ai/#website",
+        "name": "Weavely Help Center"
+      },
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Get Started",
+            "item": "https://help.weavely.ai/get-started"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "The Basics: Generating Forms with AI",
+            "item": "https://help.weavely.ai/get-started/the-basics"
+          }
+        ]
+      },
+      "publisher": {
+        "@id": "https://www.weavely.ai/#org"
+      }
+    },
 
-<iframe src="https://www.youtube.com/embed/1hzNsjhWeT0" title="YouTube video player" frameborder="0" className="w-full aspect-video rounded-xl" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen />
+    {
+      "@type": "TechArticle",
+      "headline": "The Basics: Generating Forms with AI",
+      "description": "Step-by-step guide to generating forms with AI in Weavely, from prompting and tweaking questions to styling, integrations, publishing, and analytics.",
+      "inLanguage": "en",
+      "author": {
+        "@id": "https://www.weavely.ai/#org"
+      },
+      "publisher": {
+        "@id": "https://www.weavely.ai/#org"
+      },
+      "mainEntityOfPage": {
+        "@id": "https://help.weavely.ai/get-started/the-basics"
+      }
+    },
+
+    {
+      "@type": "VideoObject",
+      "@id": "https://www.youtube.com/watch?v=UuNhu_u4EWo",
+      "name": "How to Generate Forms with AI for Free (weavely.ai tutorial)",
+      "description": "New to Weavely? This quick tutorial walks you through how to build your first AI-generated form, customize it, and publish it in minutes.",
+      "thumbnailUrl": [
+        "https://i.ytimg.com/vi/UuNhu_u4EWo/hqdefault.jpg"
+      ],
+      "embedUrl": "https://www.youtube.com/embed/UuNhu_u4EWo",
+      "contentUrl": "https://www.youtube.com/watch?v=UuNhu_u4EWo",
+      "uploadDate": "2025-11-19T00:00:00Z",
+      "duration": "PT5M31S",
+      "publisher": {
+        "@id": "https://www.weavely.ai/#org"
+      },
+      "potentialAction": {
+        "@type": "WatchAction",
+        "target": "https://www.youtube.com/watch?v=UuNhu_u4EWo"
+      }
+    },
+
+    {
+      "@type": "Organization",
+      "@id": "https://www.weavely.ai/#org",
+      "name": "WEAVE.LY BV",
+      "url": "https://www.weavely.ai",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Herbert Hooverlaan 141",
+        "addressLocality": "Schaarbeek",
+        "postalCode": "1030",
+        "addressCountry": "BE"
+      },
+      "identifier": "BE0773.878.569",
+      "sameAs": [
+        "https://www.instagram.com/weavely.ai/",
+        "https://www.linkedin.com/company/weave-ly/",
+        "https://www.youtube.com/@weavely"
+      ]
+    }
+  ]
+}`}
+</span>
+<iframe src="https://www.youtube.com/embed/UuNhu_u4EWo" title="YouTube video player" frameborder="0" className="w-full aspect-video rounded-xl" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen />
 
 This article distills the key moves from our “Quick Guide” video into a written walkthrough.  
 
 Follow along once and you’ll be spinning up branded, multi-page forms on autopilot.
 
-## Step 1: Prompt to Generate a Form
+<Steps>
+  <Step title="Step 1: Prompt to Generate a Form" icon="thought-bubble" titleSize="h2">
+    You generate forms in Weavely by leaving a prompt which specifies what your form is about. Optionally you can also speak to our AI by holding the microphone button in the bottom right corner of the prompt area.
 
-You generate forms in Weavely by leaving a prompt which specifies what your form is about. Optionally you can also speak to our AI by holding the microphone button in the bottom right corner of the prompt area.
+    Besides giving our AI the context it needs in text format you can also upload .pdf, .png or .jpg files with additional information. Here are some examples you can get started with:
 
-Besides giving our AI the context it needs in text format you can also upload .pdf, .png or .jpg files with additional information. Here are some examples you can get started with:
+    - A document with draft questions
+    - A pitch deck of your product
+    - A document containing customer information
 
-- A document with draft questions
-- A pitch deck of your product
-- A document containing customer information
+    ![Screenshot showing the weavely.ai form editor](/images/Screenshot2025-11-20at11.52.41.png)
+  </Step>
+  <Step title="Step 2: Tweak your Form's Content" icon="hammer-brush" titleSize="h2">
+    You can continue tweaking your form by chatting to our AI. More precisely, you can:
 
-![Screenshot2025 05 07at16 36 20 Pn](/images/Screenshot2025-05-07at16.36.20.png)
+    - Change existing questions
+    - Add new questions and pages
+    - Reorder elements (questions, pages)
+    - Add conditional logic rules (e.g. hide/show form elements)
 
-## Step 2: Drop in Extra Questions on Demand
+    <img
+      src="/images/Screenshot-2025-11-20-at-13.53.04.webp"
+      alt="Screenshot showing a conversation between a user and Weavely AI tweaking a form's content and adding conditional logic"
+      title="Tweaking a Form in Weavely AI"
+      className="mx-auto"
+      style={{ width:"35%" }}
+    />
+  </Step>
+  <Step title="Step 3: Change your Form's Design" icon="palette" titleSize="h2">
+    You can specify the desired style with a prompt or by uploading a screenshot. In the latter case our AI will match the color styles and font (if detected).
 
-Mid-build and remember something you need to add? Simply click _Add Content_ in the left panel and choose _"Create with AI"_. Type a short prompt to explain what you want to add, for example:
+    ![Animated screenshot showing how to style a web form using AI in Weavely](/images/styling-ai-ezgif.com-video-to-webp-converter.webp)
+  </Step>
+  <Step title="Step 4: Setup Integrations" icon="plug" titleSize="h2">
+    <Info>
+      Integrations are currently only available outside of AI mode. You won't be able to ask AI to set up an integration for you (yet).
+    </Info>
+    Data collected by Weavely forms will be safely stored on our servers and accessible from within your form editor (see Step 6). However, you might want to forward your data to a third-party system (e.g. Google Sheets), set up e-mail notifications, or automate a workflow based on responses (e.g. using Zapier or Make). You can do all of this from within the  _Integrations_ tab in the form editor.
 
-> “Add a willingness-to-pay scale question.”
+    ![Screenshot showing where to find the integration tab in Weavely AI Forms](/images/Screenshot-2025-11-20-at-14.10.09.webp)
+  </Step>
+  <Step title="Step 5: Publish and Embed" icon="party-horn" titleSize="h2">
+    <Info>
+      Publishing is currently only available outside of AI mode. You won't be able to ask AI to publish your form for you.
+    </Info>
+    Once you're satisfied with the way your form works and looks, you're ready to publish it and collect responses! You can either share your form as a standalone web form using the provided editor or [embed it into your website](/features/embeddings). We also offer a wide range of integrations with [website builders](https://help.weavely.ai/guides/examples-cover).
+  </Step>
+  <Step title="Step 6: Analyze Results" icon="database" titleSize="h2">
+    ![Screenshot showing form analytics in Weavely AI](/images/Screenshot-2025-11-20-at-14.18.47.webp)
 
-The question(s) appear(s) in the right format!
+    Weavely offers you form analytics on four levels:
 
-![Add Content Gi](/images/add-content.gif)
-
-## Step 3: Style your Form with AI
-
-By default your form will be generated in one of Weavely's built-in themes. You can either manually restyle your form using the right panel or let AI restyle your form by pressing _Change Theme_ at the top of the right panel.
-
-You can specify the desired style with a prompt or by uploading a screenshot. In the latter case our AI will match the colour styles and font (if detected).
-
-![Change Theme Gi](/images/change-theme.gif)
+    1. A general overview of the individual responses received by your form.
+    2. A summary, for each form element, of the responses received. Depending on the element's type this will be a different visual (e.g. a pie-chart for multiple-choice questions).
+    3. Analytics about your form's performance in general (i.e. amount of views on your form, and total responses received).
+    4. Smart insights, which use AI to generate reports tailored to your report and which you can tweak through prompting as well.
+  </Step>
+</Steps>
