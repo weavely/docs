@@ -125,8 +125,8 @@
                 "pages" : [
                   "guides/embeds/framer",
                   "guides/embeds/framer-logic",
-                  "guides/embeds/framer-multi-step",
-                  "guides/embeds/framer-file-upload"
+                  "guides/embeds/framer-file-upload",
+                  "guides/embeds/framer-multi-step"
                 ]
               },
               "guides/embeds/google-sites",
