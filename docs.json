@@ -77,7 +77,8 @@
                 "icon": "robot",
                 "pages": [
                   "integrations/zapier",
-                  "integrations/make"
+                  "integrations/make",
+                  "integrations/viasocket"
                 ]
               }
             ]
