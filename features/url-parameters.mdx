@@ -4,7 +4,104 @@ og:title: "Hidden Form URL Parameters in Weavely AI"
 description: "Track custom data in AI-powered forms using URL query parameters in Weavely. Perfect for user segmentation and dynamic response tagging."
 sidebarTitle: "URL Parameters"
 ---
-
+<span className="weavely-jsonld" hidden>
+{`{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://help.weavely.ai/#website",
+      "url": "https://help.weavely.ai/",
+      "name": "Weavely Help Center"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://help.weavely.ai/features/url-parameters#webpage",
+      "url": "https://help.weavely.ai/features/url-parameters",
+      "name": "How to Use Form URL Parameters in Weavely",
+      "description": "Learn how to track custom data in AI-powered forms using URL query parameters in Weavely. Tag responses by user type, traffic source, campaign ID, and more for better segmentation and analysis.",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@id": "https://help.weavely.ai/#website"
+      },
+      "breadcrumb": {
+        "@id": "https://help.weavely.ai/features/url-parameters#breadcrumb"
+      },
+      "publisher": {
+        "@id": "https://www.weavely.ai/#org"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://help.weavely.ai/features/url-parameters#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Weavely Help Center",
+          "item": "https://help.weavely.ai/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Features",
+          "item": "https://help.weavely.ai/features"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "URL Parameters",
+          "item": "https://help.weavely.ai/features/url-parameters"
+        }
+      ]
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://help.weavely.ai/features/url-parameters#article",
+      "headline": "How to Use Form URL Parameters in Weavely",
+      "description": "Step-by-step guide to using URL query parameters in Weavely forms to pass hidden data such as user type, traffic source, and campaign identifiers into form submissions.",
+      "inLanguage": "en",
+      "datePublished": "2025-12-11",
+      "author": {
+        "@id": "https://www.weavely.ai/#org"
+      },
+      "publisher": {
+        "@id": "https://www.weavely.ai/#org"
+      },
+      "mainEntityOfPage": {
+        "@id": "https://help.weavely.ai/features/url-parameters#webpage"
+      }
+    },
+    {
+      "@type": "VideoObject",
+      "@id": "https://help.weavely.ai/features/url-parameters#video",
+      "name": "Hidden URL Parameters in AI Forms (Weavely Tutorial)",
+      "description": "Learn how to use URL query parameters in Weavely.ai to automatically tag form responses with custom data like user type, traffic source, campaign ID, and more without asking extra questions.",
+      "thumbnailUrl": [
+        "https://i.ytimg.com/vi/o-6_tRKs8ww/hqdefault.jpg"
+      ],
+      "embedUrl": "https://www.youtube.com/embed/o-6_tRKs8ww",
+      "contentUrl": "https://www.youtube.com/watch?v=o-6_tRKs8ww",
+      "uploadDate": "2025-12-11T12:00:00Z",
+      "duration": "PT2M3S",
+      "inLanguage": "en",
+      "publisher": {
+        "@id": "https://www.weavely.ai/#org"
+      },
+      "potentialAction": {
+        "@type": "WatchAction",
+        "target": "https://www.youtube.com/watch?v=o-6_tRKs8ww"
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://www.weavely.ai/#org",
+      "name": "Weavely",
+      "url": "https://www.weavely.ai"
+    }
+  ]
+}`}
+</span>
 Weavely allows you to dynamically pass external data into your form using **URL query parameters**. This is especially useful when distributing a form to different audiences and wanting to track user segments.
 
 For example, you might send a feedback form to different user types (e.g., _testers_, _power users_) and track their responses accordingly.
