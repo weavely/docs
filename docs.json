@@ -31,7 +31,8 @@
               "features/answer-piping",
               "features/event-trigger",
               "features/embeddings",
-              "features/quizzes"
+              "features/quizzes",
+              "features/url-parameters"
             ]
           },
           

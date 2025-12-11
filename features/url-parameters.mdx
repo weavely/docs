@@ -1,0 +1,53 @@
+---
+title: "How to Use Form URL Parameters in Weavely"
+og:title: "Hidden Form URL Parameters in Weavely AI"
+description: "Track custom data in AI-powered forms using URL query parameters in Weavely. Perfect for user segmentation and dynamic response tagging."
+sidebarTitle: "URL Parameters"
+---
+
+Weavely allows you to dynamically pass external data into your form using **URL query parameters**. This is especially useful when distributing a form to different audiences and wanting to track user segments.
+
+For example, you might send a feedback form to different user types (e.g., _testers_, _power users_) and track their responses accordingly.
+
+<iframe src="https://www.youtube.com/embed/o-6_tRKs8ww" title="YouTube video player" frameborder="0" className="w-full aspect-video rounded-xl" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen />
+
+<Steps>
+  <Step title="Step 1: Open Your Form's Settings" icon="link" titleSize="h2">
+    1. In your Weavely form editor, go to **Settings**.
+    2. Scroll down to the **URL Parameters** section.
+    3. Add a new parameter, for example, `usertype`.
+
+    ![Screenshot showing how to add a form URL parameter in Weavely AI](/images/Screenshot2025-12-11at11.38.52.webp)
+  </Step>
+  <Step title="Step 2: Publish and Append the Parameter" icon="cloud-arrow-up" titleSize="h2">
+    1. Click **Publish** on your form.
+    2. Copy the generated form URL.
+    3. Append the parameter to the link using the format:
+
+       ```
+       ?parameter=value
+       ```
+
+       For example, using the URL parameter we created in step 1 we would add it as follows:
+
+       ```
+       https://forms.weavely.ai/formId?usertype=test
+       ```
+
+    You can now share this modified link in emails, newsletters, or landing pages.
+  </Step>
+</Steps>
+
+## URL Parameters in Form Responses
+
+Form responses will automatically specify the values you provided for URL parameters. For example, in the image below we got three responses to our form. One where the URL parameter wasn't specified, one where `?usertype=tester`  and one where `?usertype=power-user`.
+
+## Pro Tip: Add Multiple Parameters
+
+You can add multiple query parameters by repeating the process in **Settings → URL Parameters**. Then append them to your URL using the `&` symbol:
+
+```
+https://forms.weavely.ai/formId?usertype=poweruser&ref=newsletter
+```
+
+This is ideal for combining segmentation with traffic source tracking, for example.
