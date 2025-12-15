@@ -32,7 +32,8 @@
               "features/event-trigger",
               "features/embeddings",
               "features/quizzes",
-              "features/url-parameters"
+              "features/url-parameters",
+              "features/progress-bar"
             ]
           },
           
