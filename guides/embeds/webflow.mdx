@@ -1,0 +1,78 @@
+---
+title: "AI-Generated Forms for Webflow"
+description: "Want to add interactive, AI-powered forms directly into your Webflow website? With the Weavely plugin, you can easily embed custom forms into Webflow."
+sidebarTitle: "Webflow"
+---
+
+This guide will walk you through using Weavely's [Webflow App](https://webflow.com/apps/detail/weavely-ai-forms) to add forms to your Webflow site, generate new forms using AI, and adjust everything to match your site’s style.
+
+<iframe src="https://www.youtube.com/embed/l8qsB5coVeo" title="YouTube video player" frameborder="0" className="w-full aspect-video rounded-xl" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen />
+
+<Steps>
+  <Step title="Step 1: The Weavely App in Webflow" icon="plug" titleSize="h2">
+    Open your Webflow project and launch the **Weavely** app from the designer.
+
+    ![Screenshot showing how to find the Weavely AI Forms app in Webflow](/images/Screenshot2025-12-18at11.43.44.webp)
+
+    Select a **div or container** where you want to embed the form. The app will ask for a form URL, which you'll get from Weavely after creating your form.
+
+    ![Screenshot showing the Weavely AI Forms app before injecting a form in Webflow](/images/Screenshot2025-12-18at11.46.24.webp)
+
+    Alternatively, you can embed an **example form** first to see how it works. Simply click the example form button, and a sample form will be inserted into your selected container. Don't worry, you can definitely design better-looking forms than this one 😉
+
+    <Note>
+      The form appears as a placeholder in the Webflow designer. The actual form will only render on your published website.
+    </Note>
+  </Step>
+  <Step title="Step 2: Create your Weavely Form" icon="wand-magic-sparkles" titleSize="h2">
+    To create a custom form, head over to [weavely.ai](https://www.weavely.ai) and click the "Start for Free" button.
+
+    Inside the editor:
+
+    - On the left, you'll see a chat-style interface to generate forms with AI.
+    - On the right, you'll see the form being built in real-time.
+
+    ![Screenshot showing the Weavely AI Form editor](/images/Screenshot2025-12-18at11.49.48.webp)
+
+    You can:
+
+    - Describe your form in plain language (e.g., "I need a contact form for my website. Keep it very basic, three questions."). The AI will generate questions, pages, and even a visual theme.
+    - Ask the AI to make it multi-step (e.g., "Actually, I want this to be multi-step. Make sure we have different questions on different pages.")
+    - Ask the AI to adjust the design (e.g., "I want the background to be transparent and I want the top visual to be gone.")
+    - Ask the AI to add conditional logic rules (e.g., "I only want to show the message field if somebody provided an email address.")
+
+    Of course you can also access all of this functionality outside of the AI editor by toggling "manual mode" in the top bar.
+
+    Once you're happy with your form, click **Publish** and copy the form URL.
+
+    ![Screenshot showing the screen after you publish a form in Weavely AI](/images/Screenshot2025-12-18at11.51.19.png)
+  </Step>
+  <Step title="Step 3: Embed the Form in Webflow" icon="upload" titleSize="h2">
+    Return to Webflow and paste the published form's URL into the Weavely app.
+
+    ![Screenshot showing URL paste in plugin - placeholder]
+
+    Click **"Add to Design"** and the form will be embedded in your selected container.
+
+    <Note>
+      The form appears as a placeholder in the Webflow designer. The actual form will only render on your published website.
+    </Note>
+    ![Screenshot showing form added to Webflow - placeholder]
+
+    Publish your Webflow site. The form is now live and ready to accept responses!
+
+    ![Screenshot showing published form on live site - placeholder]
+
+    <Tip>
+      Need to update your form? Simply edit it in Weavely, click Publish, and refresh your Webflow website. The changes appear automatically—no need to update URLs or republish your Webflow site!
+    </Tip>
+  </Step>
+</Steps>
+
+## 📈 What Happens After Visitors Submit?
+
+Once embedded, Weavely handles all form logic and data collection. You can:
+
+- View **responses and analytics** directly inside Weavely.
+- **Integrate** with tools like Google Sheets, Notion, Salesforce, HubSpot or get email notifications.
+- Apply **conditional logic**, customize design, or edit questions anytime.
