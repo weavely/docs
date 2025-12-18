@@ -159,12 +159,6 @@
     "dark": "/logo/weavely-white.svg"
   },
   "navbar": {
-    "links": [
-      {
-        "label": "Support",
-        "href": "mailto:developer@weavely.ai"
-      }
-    ],
     "primary": {
       "type": "button",
       "label": "Dashboard",
