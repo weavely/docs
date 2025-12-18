@@ -25,6 +25,7 @@
             "group": "Features",
             "pages": [
               "integrations/email-notifications",
+              "features/ai-branding",
               "features/custom-domain",
               "features/embed-pdf",
               "features/skip-logic",
