@@ -1,7 +1,7 @@
 ---
-title: "Send Email Notifications When a Form is Submitted"
-og:title: "Send Email Notifications When a Form is Submitted"
-description: "Learn how to send emails when someone submits a form—whether to yourself, a teammate, or even the respondent."
+title: "How to Set Up Email Notifications for Form Submissions"
+og:title: "How to Set Up Email Notifications for Form Submissions"
+description: "Learn how to send automatic email notifications when someone submits your form. Set up confirmation emails for respondents and submission alerts for form owners."
 sidebarTitle: "Email Notifications"
 ---
 <span className="weavely-jsonld" hidden>
@@ -12,98 +12,233 @@ sidebarTitle: "Email Notifications"
       "@type": "WebPage",
       "@id": "https://help.weavely.ai/integrations/email-notifications",
       "url": "https://help.weavely.ai/integrations/email-notifications",
-      "name": "Send Email Notifications When a Form is Submitted",
-      "description": "Learn how to send emails when someone submits a form—whether to yourself, a teammate, or even the respondent.",
+      "name": "How to Set Up Email Notifications for Form Submissions",
+      "description": "Learn how to send automatic email notifications when someone submits your form. Set up confirmation emails for respondents and submission alerts for form owners.",
       "inLanguage": "en",
       "isPartOf": {
-        "@type": "WebSite",
-        "@id": "https://help.weavely.ai/#website",
-        "name": "Weavely Help Center"
+        "@id": "https://help.weavely.ai/#website"
       },
-      "breadcrumb": {
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Integrations", "item": "https://help.weavely.ai/integrations" },
-          { "@type": "ListItem", "position": 2, "name": "Email Notifications", "item": "https://help.weavely.ai/integrations/email-notifications" }
-        ]
-      },
-      "publisher": { "@id": "https://www.weavely.ai/#org" }
+      "publisher": {
+        "@id": "https://www.weavely.ai/#org"
+      }
     },
     {
       "@type": "TechArticle",
-      "headline": "Send Email Notifications When a Form is Submitted",
-      "description": "Learn how to send emails when someone submits a form—whether to yourself, a teammate, or even the respondent.",
-      "author": { "@id": "https://www.weavely.ai/#org" },
-      "publisher": { "@id": "https://www.weavely.ai/#org" },
+      "@id": "https://help.weavely.ai/integrations/email-notifications#article",
+      "headline": "How to Set Up Email Notifications for Form Submissions",
+      "description": "Learn how to send automatic email notifications when someone submits your form. Set up confirmation emails for respondents and submission alerts for form owners.",
       "inLanguage": "en",
-      "mainEntityOfPage": { "@id": "https://help.weavely.ai/integrations/email-notifications" }
+      "author": {
+        "@id": "https://www.weavely.ai/#org"
+      },
+      "publisher": {
+        "@id": "https://www.weavely.ai/#org"
+      },
+      "mainEntityOfPage": {
+        "@id": "https://help.weavely.ai/integrations/email-notifications"
+      }
     },
     {
-      "@type": "VideoObject",
-      "name": "Email Notifications on Form Submissions, Weavely AI Tutorial",
-      "description": "In this tutorial, I’ll show you how to setup email notifications for your Weavely AI forms.",
-      "uploadDate": "2025-10-23T00:00:00Z",
-      "duration": "PT2M41S",
-      "embedUrl": "https://www.youtube.com/embed/OdzA0SCajtU",
-      "contentUrl": "https://www.youtube.com/watch?v=OdzA0SCajtU",
-      "thumbnailUrl": [
-        "https://i.ytimg.com/vi/OdzA0SCajtU/hqdefault.jpg",
-        "https://i.ytimg.com/vi/OdzA0SCajtU/sddefault.jpg"
-      ],
-      "potentialAction": {
-        "@type": "WatchAction",
-        "target": "https://www.youtube.com/watch?v=OdzA0SCajtU"
-      },
-      "publisher": { "@id": "https://www.weavely.ai/#org" },
-      "author": { "@id": "https://www.weavely.ai/#org" }
+      "@type": "FAQPage",
+      "@id": "https://help.weavely.ai/integrations/email-notifications#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Do I need an email field in my form for notifications?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You need an email field for confirmation emails sent to respondents, but not for submission emails sent to you as the form owner. Submission emails go to your Weavely account email address by default."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I customize the email content?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Email notifications currently use a standardized format that includes all form field responses in a clean, professional layout. The content updates automatically based on your form fields."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Will respondents see all my form data?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Confirmation emails sent to respondents only include the responses they submitted. They do not include responses from other users or any admin-only information."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I send notifications to multiple email addresses?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Submission emails are sent to the form owner's email address. To share with multiple people, forward the emails or invite team members to access the Weavely dashboard."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How quickly are notification emails sent?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Submission emails and confirmation emails are sent instantly upon form submission. Respondents typically receive their confirmation within seconds of clicking submit."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I turn off email notifications?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. You can toggle off either or both notification types in your form's Settings > Notifications panel, and re-enable them at any time."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Will these emails go to spam?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Weavely sends notification emails through reliable email infrastructure to maximize deliverability, but recipients should check spam folders if they do not see the email and mark it as not spam to improve future delivery."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://help.weavely.ai/#website",
+      "name": "Weavely Help Center",
+      "url": "https://help.weavely.ai",
+      "inLanguage": "en",
+      "publisher": {
+        "@id": "https://www.weavely.ai/#org"
+      }
     },
     {
       "@type": "Organization",
       "@id": "https://www.weavely.ai/#org",
-      "name": "WEAVE.LY BV",
-      "url": "https://www.weavely.ai",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Herbert Hooverlaan 141",
-        "addressLocality": "Schaarbeek",
-        "postalCode": "1030",
-        "addressCountry": "BE"
-      },
-      "identifier": "BE0773.878.569",
-      "sameAs": [
-        "https://www.instagram.com/weavely.ai/",
-        "https://www.linkedin.com/company/weave-ly/",
-        "https://www.youtube.com/@weavely"
-      ]
+      "name": "Weavely",
+      "url": "https://www.weavely.ai"
     }
   ]
 }`}
 </span>
+Stay informed about every form submission and keep your respondents engaged with automatic email notifications. Weavely makes it easy to send submission alerts to yourself and confirmation emails to form respondents with just a few clicks.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/p--r27Vc6z0?si=SBx-nGP65apI2RRQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen />
+## What Are Email Notifications?
 
-With Weavely's **Email Notifications** integration, you can trigger emails instantly, personalize their content using answers from the form, and include dynamic info like submission timestamps or scores.
+Weavely offers two types of email notifications for your forms:
 
-<Tip>
-  You can add as many email notifications as you want.
-</Tip>
+**Submission Emails** - Get an email notification sent to you (the form owner) whenever someone submits your form. The email includes a complete copy of all submitted responses, formatted and easy to read.
 
-## Step 1: Turn on the Email Integration
+**Confirmation Emails** - Send an automatic email to the person who submitted your form, providing them with a summary of their responses. This serves as a receipt and confirms their submission was received.
 
-Within your form's editor, navigate to the _Integrations_ tab and press _\+Add_ in the _Email_ card
+![Screenshot showing the email notification settings in Weavely AI.](/images/Screenshot2026-01-15at17.06.41.webp)
 
-![Screenshot showing where to find the email notifications in Weavely AI](/Screenshot2025-05-08at21.16.38-ezgif.com-png-to-webp-converter.webp)
+## Setting Up Submission Emails (For Form Owners)
 
-## Step 2: Setting the Email's Content
+Submission emails notify you instantly when someone completes your form, allowing you to respond quickly and track form activity in real time.
 
-You can configure three elements of an email notification:
+### How to Enable Submission Emails
 
-1. **To:** the recipient of your email notification (at the time of writing this can only be a single email address).
-2. **Subject:** the subject of the email.
-3. **Content:** the email notification's actual content.
+1. Open your form in the Weavely editor
+2. Navigate to **Settings** in the top menu
+3. Select **Notifications** from the left sidebar
+4. Toggle on **Submission emails**
+5. Your form's submission notifications are now active
 
-![Screenshot showing how to configure the email notifications in Weavely AI](/Screenshot2025-05-08at21.19.42-ezgif.com-png-to-webp-converter.webp)
+Once enabled, you'll receive a nicely formatted email every time someone submits your form. The email includes all submitted data, making it easy to review responses without logging into your dashboard. An example of such an email is shown below.
 
-For all three of these elements, you can either type in text or insert values from the form's responses (i.e. answer piping). Start by typing "@" and a dropdown will appear with form elements you can insert. For the "_To"_ part of your email you can only insert values from email form elements. The gif below shows how this works.
+![Screenshot of a confirmation email received in Weavely AI.](/images/Screenshot2026-01-15at19.29.00.webp)
 
-![Animated screenshot showing how to configure email notifcations in Weavely AI](/images/answer-piping.webp)
+### What's Included in Submission Emails?
+
+Each submission email notification contains:
+
+- Complete form responses from all fields
+- Submission date and time
+- Clean, formatted layout for easy reading
+- All form data in a professional email format
+
+## Setting Up Confirmation Emails (For Respondents)
+
+Confirmation emails automatically send respondents a copy of their submission, providing them with a record of what they submitted and confirming their form was received successfully.
+
+### How to Enable Confirmation Emails
+
+1. Open your form in the Weavely editor
+2. Go to **Settings** \> **Notifications**
+3. Toggle on **Confirmation emails**
+4. Select which email field from your form should receive the confirmation
+
+The confirmation email will be sent to whichever email address field you select. This means your form must collect an email address for this feature to work. An example of a confirmation email is shown below.
+
+![Screenshot showing an example confirmation email in Weavely AI.](/images/Screenshot2026-01-15at19.32.38.webp)
+
+### Selecting the Email Field
+
+If your form has multiple email fields, you can choose which one receives the confirmation email:
+
+1. Click on the **Confirmation emails** setting
+2. A dropdown will appear showing all email fields in your form
+3. Select the appropriate email field
+4. Save your changes
+
+For most forms, you'll only have one email field, making this selection automatic.
+
+![Screenshot showing how to select the recipient of a confirmation email in Weavely AI.](/images/Screenshot2026-01-15at19.30.20.webp)
+
+### What's Included in Confirmation Emails?
+
+Confirmation emails sent to respondents include:
+
+- A summary of all their submitted responses
+- Confirmation that their submission was received
+- Professional formatting with your form branding
+- A complete record they can save for their records
+
+## Why Use Email Notifications?
+
+Email notifications improve your form workflow and user experience:
+
+**For Form Owners:**
+
+- Get instant alerts when forms are submitted
+- Review submissions directly from your inbox
+- No need to constantly check your dashboard
+- Respond quickly to time-sensitive submissions
+- Track form activity in real time
+
+**For Respondents:**
+
+- Receive immediate confirmation of submission
+- Get a copy of their responses for their records
+- Builds trust and improves user experience
+- Reduces follow-up questions about whether the form was received
+- Provides transparency about what information was submitted
+
+## Frequently Asked Questions
+
+### Do I need an email field in my form for notifications?
+
+You need an email field for **confirmation emails** (sent to respondents), but not for **submission emails** (sent to you as the form owner). Submission emails will go to your Weavely account email address by default.
+
+### Can I customize the email content?
+
+Currently, email notifications use a standardized format that includes all form field responses in a clean, professional layout. The content automatically updates based on your form fields.
+
+### Will respondents see all my form data?
+
+No. Confirmation emails sent to respondents only include the specific responses **they** submitted. They won't see responses from other users or any admin-only information.
+
+### Can I send notifications to multiple email addresses?
+
+Submission emails are sent to the form owner's email address. To share submissions with multiple team members, you can forward the notification emails or invite team members to access your Weavely dashboard directly.
+
+### How quickly are notification emails sent?
+
+Both submission emails and confirmation emails are sent instantly upon form submission. Respondents receive their confirmation within seconds of clicking submit.
+
+### Can I turn off email notifications?
+
+Yes. Simply toggle off either or both notification types in your form's Settings \> Notifications panel. You can enable or disable notifications at any time.
+
+### Will these emails go to spam?
+
+Weavely's email notifications are sent through reliable email infrastructure to ensure high deliverability. However, recipients should check their spam folders if they don't see the email within a few minutes and mark it as "not spam" to ensure future emails arrive in their inbox.
