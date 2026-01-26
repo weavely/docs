@@ -9,6 +9,20 @@
   },
   "favicon": "/weavely-logo.svg",
   "navigation": {
+    "global": {
+      "anchors": [
+        {
+          "anchor": "Community",
+          "icon": "reddit",
+          "href": "https://www.reddit.com/r/WeavelyForms/"
+        },
+        {
+          "anchor": "Blog",
+          "icon": "newspaper",
+          "href": "https://www.weavely.ai/blog"
+        }
+      ]
+    },
     "tabs": [
       {
         "tab": "Help Center",
@@ -24,6 +38,7 @@
           {
             "group": "Features",
             "pages": [
+              "help-center/features/autosave",
               "integrations/email-notifications",
               "features/spam-protection",
               "features/theming",
@@ -39,10 +54,8 @@
               "features/progress-bar"
             ]
           },
-          
           {
             "group": "Integrations",
-            "href":"/integrations/notion",
             "pages": [
               "integrations/aoverview",
               "integrations/personal-tokens",
@@ -94,7 +107,7 @@
               "accounts/invoices"
             ]
           },
-           {
+          {
             "group": "Developers",
             "pages": [
               "developers/identity",
@@ -120,15 +133,15 @@
             "group": "Website Embeds",
             "pages": [
               {
-                "group" : "Figma Sites",
-                "pages" : [
+                "group": "Figma Sites",
+                "pages": [
                   "guides/embeds/figma-sites",
                   "guides/embeds/figma-sites-popup"
                 ]
               },
               {
-                "group" : "Framer",
-                "pages" : [
+                "group": "Framer",
+                "pages": [
                   "guides/embeds/framer",
                   "guides/embeds/framer-logic",
                   "guides/embeds/framer-file-upload",
@@ -142,21 +155,7 @@
           }
         ]
       }
-    ],
-    "global": {
-      "anchors": [
-        {
-          "anchor": "Community",
-          "href": "https://www.reddit.com/r/WeavelyForms/",
-          "icon": "reddit"
-        },
-        {
-          "anchor": "Blog",
-          "href": "https://www.weavely.ai/blog",
-          "icon": "newspaper"
-        }
-      ]
-    }
+    ]
   },
   "logo": {
     "light": "/logo/weavely-black.svg",
