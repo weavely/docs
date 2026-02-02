@@ -1,0 +1,68 @@
+---
+title: "How to Map Form Fields to Integrations in Weavely"
+og:title: "How to Map Form Fields to Integrations in Weavely"
+description: "Learn how to use Weavely's mapping functionality to connect your AI-generated forms with third-party tools like Notion, HubSpot, and Salesforce"
+sidebarTitle: "Field Mapping for Integrations"
+---
+
+Weavely's mapping functionality allows you to automatically send form submission data to various third-party tools like Notion, HubSpot, Salesforce, and more. This guide will show you how to map form fields to your integration destinations.
+
+<iframe src="https://www.youtube.com/embed/tPTqCGcpG8M" title="YouTube video player" frameborder="0" className="w-full aspect-video rounded-xl" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen />
+
+## Understanding Field Mapping
+
+When you set up an integration, each column or field in your destination (e.g., a Notion database) will appear as a mappable field in Weavely. You can populate these fields in three ways:
+
+1. **Static text** - Enter literal text that will be the same for every submission
+2. **Form field data** - Pull dynamic data from form submissions using the `@` symbol
+3. **Combined values** - Mix static text with form field data
+
+## Step 1: Set Up Your Integration
+
+Navigate to the **Integrations** section of your form and select the third-party tool you want to connect (e.g., Notion, HubSpot, Salesforce).
+
+Once connected, select the specific database or destination where you want your form data to be sent. Weavely will then display all available fields from that destination.
+
+## Step 2: Map Your Fields
+
+For each field in your integration, you have several options:
+
+### Option 1: Leave It Empty
+
+If a field is optional in your destination system, you can leave it blank.
+
+### Option 2: Enter Static Text
+
+Type any text directly into the field. For example, you could always set a status field to `"New Lead"` for every submission.
+
+### Option 3: Use Form Field Data
+
+To insert dynamic data from your form:
+
+1. Type the `@` symbol
+2. Select the form field you want to use from the dropdown menu
+3. The field reference will appear in the mapping
+
+**Example:** For a "Name" field in Notion, you could select `@First Name` to populate it with the first name from each form submission.
+
+![Screenshot of mapping form fields to integration values in Weavely AI](/images/Screenshot2026-02-02at16.43.50.webp)
+
+### Option 4: Combine Text and Form Fields
+
+You can mix static text with form field data to create custom formatting.
+
+**Example:** To create a full name field formatted as "First / Last":
+
+- Type `@` and select `First Name`
+- Type `/` (or any separator you prefer)
+- Type `@` again and select `Last Name`
+
+This will result in entries like "John / Doe" in your destination system.
+
+## Step 3: Save Your Integration & Test it
+
+Once you've mapped all required fields, click **Create Integration. **Submit a test entry through your form to verify that:
+
+- Data appears in your destination system correctly
+- Field mappings are working as expected
+- Any combined fields display the formatting you want

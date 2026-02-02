@@ -57,6 +57,7 @@
           {
             "group": "Integrations",
             "pages": [
+              "help-center/integrations/data-mapping",
               "integrations/aoverview",
               "integrations/personal-tokens",
               {
