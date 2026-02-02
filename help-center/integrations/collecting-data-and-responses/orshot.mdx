@@ -1,0 +1,62 @@
+---
+title: "How to Generate PDFs from Form Submissions with Orshot"
+og:title: "How to Generate PDFs from Form Submissions with Orshot"
+description: "Automatically generate custom PDF certificates, tickets, and documents from Weavely form submissions using Orshot integration."
+sidebarTitle: "Generate PDFs with Orshot"
+---
+
+The Orshot integration lets you automatically generate PDF documents from form submissions. When someone completes your form, their responses are sent to Orshot to create a personalized PDF based on your template. This works for certificates, tickets, receipts, and any custom document you need.
+
+<iframe src="https://www.youtube.com/embed/kB4wFWqnu7s" title="YouTube video player" frameborder="0" className="w-full aspect-video rounded-xl" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen />
+
+## Setting Up Orshot in Your Weavely Form
+
+First, you'll need an Orshot account with a PDF template ready. In your Orshot account, go to **API Keys** and copy your API key.
+
+![Screenshot showing where to find an API key in Orshot](/images/Screenshot2026-02-02at17.21.20.webp)
+
+In your Weavely form, navigate to the **Integrations** tab and click **Add** next to Orshot.
+
+![Screenshot showing where to find the Orshot integration in Weavely AI](/images/Screenshot2026-02-02at17.25.14.webp)
+
+Paste your Orshot API key in the field and click **Connect to Orshot**. Your Orshot templates will automatically load.
+
+![Animated screenshot showing how to connect Orshot to Weavely AI](/images/orshot-connect.gif)
+
+## Mapping Form Fields to Your PDF Template
+
+Once connected, select which Orshot template you want to use from the dropdown menu.
+
+For each field in your Orshot template, you'll see a mapping field where you can specify what data to include. Click the **@** symbol to select form fields, or type literal text directly.
+
+You can read more about mapping form fields in [this tutorial](/help-center/integrations/data-mapping).
+
+Click **Create Integration** and republish your form. PDFs will now generate automatically for each new submission.
+
+## Viewing Your Generated PDFs
+
+After a form is submitted, the generated PDF appears in your Orshot account. Go to your certificate template and click **Renders** to see all generated PDFs.
+
+![Screenshot showing where to find renders in Orshot](/images/Screenshot2026-02-02at17.30.45.webp)
+
+## Frequently Asked Questions
+
+**Do I need an Orshot account to use this integration?**
+
+Yes, you'll need an active Orshot account and API key. You can sign up at orshot.com.
+
+**Can I customize the PDF design?**
+
+Yes, Orshot has pre-made templates and a PDF studio where you can design custom templates with your own branding, colors, and layout.
+
+**Where can I see the generated PDFs?**
+
+Generated PDFs appear in your Orshot account under the template's Renders section. Each form submission creates a new render.
+
+**What types of PDFs can I generate?**
+
+You can generate any type of PDF document including certificates, event tickets, receipts, reports, invoices, or custom documents designed in Orshot's PDF studio.
+
+**Can I use multiple templates for one form?**
+
+Currently, each integration supports one template. To use different templates, you can set up conditional logic in Orshot or create separate forms for each template type.

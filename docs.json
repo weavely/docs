@@ -81,6 +81,7 @@
                 "group": "Collecting Data and Responses",
                 "icon": "database",
                 "pages": [
+                  "help-center/integrations/collecting-data-and-responses/orshot",
                   "integrations/email-notifications",
                   "integrations/google-sheets",
                   "integrations/notion",
