@@ -191,7 +191,7 @@
   },
   "redirects": [
     {
-      "source": "/guides/figma-sites ",
+      "source": "/guides/figma-sites",
       "destination": "/guides/embeds/figma-sites"
     }
   ]
