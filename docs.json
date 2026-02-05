@@ -188,5 +188,11 @@
     "gtm": {
         "tagId": "GTM-W8WL7BK"
     }
-  }
+  },
+  "redirects": [
+    {
+      "source": "/guides/figma-sites ",
+      "destination": "/guides/embeds/figma-sites"
+    }
+  ]
 }
