@@ -3,62 +3,65 @@ title: "Forms API"
 og:title: "Generate Forms using Weavely's Free API"
 description: "Generate and manage AI-powered forms using Weavely’s Forms API. Create, retrieve, and customize form data easily."
 ---
+
 <span className="weavely-jsonld" hidden>
 {`{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "WebPage",
-      "@id": "https://help.weavely.ai/developers/forms",
-      "url": "https://help.weavely.ai/developers/forms",
-      "name": "Forms API",
-      "description": "Endpoints for retrieving and managing forms.",
-      "inLanguage": "en",
-      "isPartOf": {
-        "@type": "WebSite",
-        "@id": "https://help.weavely.ai/#website",
-        "name": "Weavely Help Center"
-      },
-      "breadcrumb": {
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Developers", "item": "https://help.weavely.ai/developers" },
-          { "@type": "ListItem", "position": 2, "name": "Forms API", "item": "https://help.weavely.ai/developers/forms" }
-        ]
-      },
-      "publisher": { "@id": "https://www.weavely.ai/#org" }
+"@context": "https://schema.org",
+"@graph": [
+  {
+    "@type": "WebPage",
+    "@id": "https://help.weavely.ai/developers/forms",
+    "url": "https://help.weavely.ai/developers/forms",
+    "name": "Forms API",
+    "description": "Endpoints for retrieving and managing forms.",
+    "inLanguage": "en",
+    "isPartOf": {
+      "@type": "WebSite",
+      "@id": "https://help.weavely.ai/#website",
+      "name": "Weavely Help Center"
     },
-    {
-      "@type": "TechArticle",
-      "headline": "Forms API",
-      "description": "API documentation for developers — learn how to generate and retrieve form data via Weavely’s endpoints.",
-      "inLanguage": "en",
-      "mainEntityOfPage": { "@id": "https://help.weavely.ai/developers/forms" },
-      "author": { "@id": "https://www.weavely.ai/#org" },
-      "publisher": { "@id": "https://www.weavely.ai/#org" }
-    },
-    {
-      "@type": "Organization",
-      "@id": "https://www.weavely.ai/#org",
-      "name": "WEAVE.LY BV",
-      "url": "https://www.weavely.ai",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Herbert Hooverlaan 141",
-        "addressLocality": "Schaarbeek",
-        "postalCode": "1030",
-        "addressCountry": "BE"
-      },
-      "identifier": "BE0773.878.569",
-      "sameAs": [
-        "https://www.instagram.com/weavely.ai/",
-        "https://www.linkedin.com/company/weave-ly/",
-        "https://www.youtube.com/@weavely"
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Developers", "item": "https://help.weavely.ai/developers" },
+        { "@type": "ListItem", "position": 2, "name": "Forms API", "item": "https://help.weavely.ai/developers/forms" }
       ]
-    }
-  ]
+    },
+    "publisher": { "@id": "https://www.weavely.ai/#org" }
+  },
+  {
+    "@type": "TechArticle",
+    "headline": "Forms API",
+    "description": "API documentation for developers — learn how to generate and retrieve form data via Weavely’s endpoints.",
+    "inLanguage": "en",
+    "mainEntityOfPage": { "@id": "https://help.weavely.ai/developers/forms" },
+    "author": { "@id": "https://www.weavely.ai/#org" },
+    "publisher": { "@id": "https://www.weavely.ai/#org" }
+  },
+  {
+    "@type": "Organization",
+    "@id": "https://www.weavely.ai/#org",
+    "name": "WEAVE.LY BV",
+    "url": "https://www.weavely.ai",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Herbert Hooverlaan 141",
+      "addressLocality": "Schaarbeek",
+      "postalCode": "1030",
+      "addressCountry": "BE"
+    },
+    "identifier": "BE0773.878.569",
+    "sameAs": [
+      "https://www.instagram.com/weavely.ai/",
+      "https://www.linkedin.com/company/weave-ly/",
+      "https://www.youtube.com/@weavely"
+    ]
+  }
+]
 }`}
+
 </span>
+
 ## Generate form
 
 > POST api.weavely.ai/v1/forms/generate
@@ -141,3 +144,357 @@ Each field object includes:
 <ResponseField name="type" type="string">
   The type of the field (e.g., `text`, `datetime`, etc.).
 </ResponseField>
+
+## Create form
+
+> POST api.weavely.ai/v1/forms
+
+Creates a new form from a complete form specification.
+
+### Request
+
+#### Headers
+
+<ParamField header="Authorization" type="string" required>
+  `Bearer <token>`\
+  Your personal token.
+</ParamField>
+
+<ParamField header="Content-Type" type="string" required>
+  `application/json`
+</ParamField>
+
+#### Body
+
+The request body is a complete form specification with the following structure:
+
+<ParamField body="formJSON" type="object" required>
+  The form structure containing all pages and elements.
+
+  ```json
+  {
+    "pages": [
+      {
+        "id": "string",
+        "name": "string",
+        "type": "form-page" | "ending-page",
+        "elements": [...]
+      }
+    ]
+  }
+  ```
+
+  See **Form Structure Reference **below for complete element types and configurations.
+</ParamField>
+
+<ParamField body="themeJSON" type="object" required>
+  The form's visual theme configuration.
+
+  ```json
+  {
+    "name": "string",
+    "font": {...},
+    "logo": {...},
+    "colors": {...},
+    "layout": {...},
+    "visual": {...}
+  }
+  ```
+
+  See **Theme Configuration Reference **below for all available options.
+</ParamField>
+
+<ParamField body="settings" type="object">
+  Optional form settings.
+
+  ```json
+  {
+    "access": {
+      "stopSubmissions": boolean
+    },
+    "general": {
+      "showProgressBar": boolean,
+      "autoSaveProgress": boolean
+    },
+    "notifications": {
+      "submissionEmail": {...},
+      "confirmationEmail": {...}
+    }
+  }
+  ```
+</ParamField>
+
+<ParamField body="logicRules" type="array">
+  Optional conditional logic rules.
+
+  Each rule defines conditions and actions to execute based on field values.
+
+  See **Logic Rules Reference **below for complete documentation.
+</ParamField>
+
+<ParamField body="eventTriggers" type="array">
+  Optional event-based triggers.
+
+  Triggers execute actions in response to form events (e.g., form submission, page load).
+
+  See **Event Triggers Reference** below for available triggers and actions.
+</ParamField>
+
+<ParamField body="calculatedValues" type="array">
+  Optional calculated field values.
+
+  (Currently undocumented - reserved for future use)
+</ParamField>
+
+<ParamField body="pageAttributes" type="object">
+  Optional page-specific attributes.
+
+  (Currently undocumented - reserved for future use)
+</ParamField>
+
+### Response
+
+<ResponseField name="id" type="string">
+  The unique identifier (UUID) of the created form.
+</ResponseField>
+
+<ResponseField name="url" type="string">
+  Direct link to edit the form in the Weavely editor.
+
+  Format: `https://forms.weavely.ai/editor/{formId}`
+</ResponseField>
+
+### Example
+
+**Request:**
+
+```bash
+curl -X POST https://api.weavely.ai/v1/forms \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer wvy_your_token_here" \
+  -d '{
+    "formJSON": {
+      "pages": [{
+        "id": "page-1",
+        "name": "Contact",
+        "type": "form-page",
+        "elements": [
+          {
+            "id": "name",
+            "type": "input-text",
+            "label": "Your Name",
+            "settings": { "required": true },
+            "placeholder": "Enter your name..."
+          }
+        ]
+      }]
+    },
+    "themeJSON": {
+      "name": "Nova",
+      "colors": {
+        "primary": "#6c5ce7",
+        "background": "#FFFFFF"
+      }
+    }
+  }'
+```
+
+**Response:**
+
+```json
+{
+  "id": "8e2d178f-4e9c-4fe3-9619-e44412bf7ba1",
+  "url": "https://forms.weavely.ai/editor/8e2d178f-4e9c-4fe3-9619-e44412bf7ba1"
+}
+```
+
+---
+
+## Form Structure Reference
+
+### Element Types
+
+Weavely forms support 27 element types organized into categories:
+
+**Input Elements:**
+
+- `input-text` - Single-line text input
+- `input-number` - Numeric input
+- `input-email` - Email address input with validation
+- `input-phone-number` - Phone number input
+- `input-url` - URL input with validation
+- `input-time` - Time picker
+- `input-date` - Date picker
+- `text-area` - Multi-line text input
+- `input-file` - File upload
+
+**Choice Elements:**
+
+- `checkbox-buttons` - Multiple selection checkboxes
+- `radio-buttons` - Single selection radio buttons
+- `dropdown` - Dropdown select menu
+- `image-choice` - Image-based selection
+- `checkbox` - Single checkbox (yes/no)
+- `matrix` - Grid of choices (rows × columns)
+- `ranking` - Drag-and-drop ranking
+
+**Rating Elements:**
+
+- `star-rating` - Star-based rating (customizable number of stars)
+- `scale-rating` - Numeric scale rating
+- `range-slider` - Slider with min/max values
+
+**Display Elements:**
+
+- `heading` - Heading text
+- `paragraph` - Paragraph text
+- `image` - Image display
+- `embed-html` - Custom HTML embed
+- `embed-audio` - Audio player
+- `embed-video` - Video embed
+
+**Special Elements:**
+
+- `signature` - Digital signature capture
+- `navigation-buttons` - Form navigation controls (previous/next/submit)
+
+---
+
+## Theme Configuration Reference
+
+### Available Themes
+
+Weavely includes 7 preset themes:
+
+- Nova
+- Retro
+- Dawn
+- Dusk
+- Frost
+- Ember
+- Glass
+
+### Layout Types
+
+- `under` - Questions displayed under answers
+- `left` - Content aligned left
+- `right` - Content aligned right
+- `clean` - Clean minimal layout
+- `over` - Questions displayed over answers
+- `through` - Full-width layout
+
+### Component Presets
+
+**Input Presets:**
+
+- `default` - Default input styling
+- `square` - Square input styling
+
+**Button Presets:**
+
+- `default` - Default button styling
+- `square` - Square button styling
+
+**Hover Animations:**
+
+- `default` - Default hover animation
+- `grow` - Grow effect on hover
+
+---
+
+## Logic Rules Reference
+
+Logic rules enable conditional behavior based on field values.
+
+### Structure
+
+```json
+{
+  "id": "string (UUID)",
+  "name": "string",
+  "logicalOperator": "any" | "all",
+  "conditions": [{
+    "id": "string (UUID)",
+    "variable": "field:{elementId}",
+    "operator": "isEmpty" | "isEqual" | "contains" | ...,
+    "value": null | string | number
+  }],
+  "actions": [{
+    "id": "string (UUID)",
+    "name": "hideElement" | "showElement" | "skipToPage" | ...,
+    "data": { "elementId": "string (UUID)" }
+  }]
+}
+```
+
+### Logical Operators
+
+- `any` - OR logic: trigger actions if ANY condition is true
+- `all` - AND logic: trigger actions if ALL conditions are true
+
+### Condition Operators
+
+**Universal (all field types):**
+
+- `isEmpty` - Check if field is empty/null
+- `isNotEmpty` - Check if field has a value
+- `isEqual` - Check if field equals a specific value
+- `isNotEqual` - Check if field does not equal a specific value
+
+**String operators (text fields):**
+
+- `contains` - Check if field contains a substring
+- `doesNotContain` - Check if field does not contain a substring
+- `startsWith` - Check if field starts with a string
+- `endsWith` - Check if field ends with a string
+
+**Numeric operators (number fields):**
+
+- `lessThan` - Check if field is less than a value
+- `lessThanOrEqual` - Check if field is less than or equal to a value
+- `greaterThan` - Check if field is greater than a value
+- `greaterThanOrEqual` - Check if field is greater than or equal to a value
+
+### Available Actions
+
+- `hideElement` - Hide a specific element
+- `showElement` - Show a specific element
+- `hidePage` - Hide a specific page
+- `skipToPage` - Navigate to a specific page
+- `setEnding` - Set which ending page to display
+
+---
+
+## Event Triggers Reference
+
+Event triggers execute actions in response to form events.
+
+### Structure
+
+```json
+{
+  "id": "string (UUID)",
+  "name": "string",
+  "trigger": {
+    "name": "formSubmitted" | "formLoaded" | "formPageShown"
+  },
+  "actions": [{
+    "id": "string (UUID)",
+    "name": "openUrl" | "restartForm",
+    "data": { "url": "string" }
+  }]
+}
+```
+
+### Available Triggers
+
+- `formSubmitted` - Triggered when form is successfully submitted
+- `formLoaded` - Triggered when form initially loads
+- `formPageShown` - Triggered when a form page is displayed
+
+### Available Actions
+
+- `openUrl` - Redirect to a URL
+  - Requires `data.url` field
+- `restartForm` - Restart the form from the beginning
+  - No additional data required
