@@ -1,0 +1,41 @@
+---
+title: "Connect Your Weavely Form to n8n for Workflow Automation"
+og:title: "Connect Your Weavely Form to n8n for Workflow Automation"
+description: "n8n is an open-source automation platform that lets you connect your Weavely form to hundreds of other apps and services. Trigger any n8n workflow automatically when someone submits a form."
+sidebarTitle: "n8n"
+---
+
+Here's how to connect your Weavely form to n8n in just a few minutes using the Weavely community node.
+
+<Steps>
+  <Step title="Enable Community Nodes in n8n" titleSize="h2">
+    Weavely connects to n8n through a verified community node. Before you can install it, you'll need to enable community nodes in your n8n instance. Navigate to your **Admin Panel** and make sure **Verified Community Nodes** are enabled.
+
+    <Frame>
+      ![Screenshot showing how to enable verified community nodes in the n8n admin panel](/images/Screenshot2026-02-12at15.05.32.webp)
+    </Frame>
+  </Step>
+  <Step title="Generate a Personal Token in Weavely" titleSize="h2">
+    You'll need a _"personal token"_ to connect your Weavely account to n8n. To create one, navigate to _Settings-\>Personal Tokens_ in the Weavely dashboard, give your token a name (e.g. "n8n"), and click create. Once generated, copy the token — you'll paste it into n8n in the next step.
+
+    ![Animated screenshot showing where to create a personal token in Weavely AI](/images/personal-tokens.gif)
+  </Step>
+  <Step title="Install the Weavely Node and Set Up Your Credentials" titleSize="h2">
+    Create a new workflow in n8n and search for **Weavely** under the available triggers. Install the Weavely community node, then add it to your workflow. When prompted to set up credentials, paste the personal token you copied from Weavely and hit **Save** — n8n will test the connection to confirm everything is working.
+
+    <Frame>
+      ![Screenshot showing how to install the Weavely community node and configure credentials in n8n](/images/Screenshot2026-02-12at15.09.10.webp)
+    </Frame>
+  </Step>
+  <Step title="Select Your Team and Form" titleSize="h2">
+    Once your credentials are saved, select the **team** you want to listen to and then choose the specific **form** you want to trigger the workflow. The form needs to be published in Weavely for it to appear in the dropdown. If you've just published a form, you may need to close and reopen the node settings for it to show up.
+
+    When you press **Execute Step**, n8n will start listening for new submissions. Submit a test response to your form and you'll see the output data in n8n — including the form ID, response ID, creation timestamp, and all your answers with their question labels, values, and question IDs.
+
+    <Frame>
+      ![Screenshot showing the configuration of a Weavely form trigger node in n8n](/images/Screenshot2026-02-12at15.11.11.webp)
+    </Frame>
+  </Step>
+</Steps>
+
+And that's it! From here, you can connect the Weavely trigger to any other nodes in your n8n workflow — whether that's sending data to Google Sheets, Notion, a CRM, Slack, or any of n8n's hundreds of available integrations.

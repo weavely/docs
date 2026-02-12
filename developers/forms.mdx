@@ -359,6 +359,511 @@ Weavely forms support 27 element types organized into categories:
 - `navigation-buttons` - Form navigation controls (previous/next/submit)
 
 ---
+### Element Specifications
+
+<Accordion title="input-text">
+  **Single-line text input**
+
+  ```json
+  {
+    "type": "input-text",
+    "label": "string",
+    "settings": {
+      "required": boolean
+    },
+    "description": "string",
+    "placeholder": "string"
+  }
+  ```
+</Accordion>
+
+<Accordion title="input-number">
+  **Numeric input only**
+
+  ```json
+  {
+    "type": "input-number",
+    "label": "string",
+    "settings": {
+      "required": boolean
+    },
+    "description": "string",
+    "placeholder": "string"
+  }
+  ```
+</Accordion>
+
+<Accordion title="input-email">
+  **Email input with validation**
+
+  ```json
+  {
+    "type": "input-email",
+    "label": "string",
+    "settings": {
+      "required": boolean
+    },
+    "description": "string",
+    "placeholder": "string"
+  }
+  ```
+</Accordion>
+
+<Accordion title="input-phone-number">
+  **Phone number input**
+
+  ```json
+  {
+    "type": "input-phone-number",
+    "label": "string",
+    "settings": {
+      "required": boolean
+    },
+    "description": "string",
+    "placeholder": "string"
+  }
+  ```
+</Accordion>
+
+<Accordion title="input-url">
+  **URL input with validation**
+
+  ```json
+  {
+    "type": "input-url",
+    "label": "string",
+    "settings": {
+      "required": boolean
+    },
+    "description": "string",
+    "placeholder": "string"
+  }
+  ```
+</Accordion>
+
+<Accordion title="input-time">
+  **Time picker input**
+
+  ```json
+  {
+    "type": "input-time",
+    "label": "string",
+    "settings": {
+      "required": boolean
+    },
+    "description": "string",
+    "placeholder": "string"
+  }
+  ```
+</Accordion>
+
+<Accordion title="input-date">
+  **Date picker input**
+
+  ```json
+  {
+    "type": "input-date",
+    "label": "string",
+    "settings": {
+      "required": boolean
+    },
+    "description": "string",
+    "placeholder": "string"
+  }
+  ```
+</Accordion>
+
+<Accordion title="text-area">
+  **Multi-line text input**
+
+  ```json
+  {
+    "type": "text-area",
+    "label": "string",
+    "settings": {
+      "required": boolean
+    },
+    "description": "string",
+    "placeholder": "string"
+  }
+  ```
+</Accordion>
+
+<Accordion title="input-file">
+  **File upload input**
+
+  ```json
+  {
+    "type": "input-file",
+    "label": "string",
+    "settings": {
+      "required": boolean,
+      "maxFiles": number,
+      "maxFileSize": number,
+      "allowedFileType": "string"
+    },
+    "description": "string",
+    "placeholder": "string"
+  }
+  ```
+</Accordion>
+
+<Accordion title="checkbox-buttons">
+  **Multiple selection checkboxes**
+
+  ```json
+  {
+    "type": "checkbox-buttons",
+    "label": "string",
+    "settings": {
+      "required": boolean,
+      "randomize": boolean,
+      "allowOtherOption": boolean,
+      "otherOptionLabel": "string",
+      "options": [
+        {
+          "label": "string",
+          "value": "string"
+        }
+      ]
+    },
+    "description": "string",
+    "placeholder": "string"
+  }
+  ```
+</Accordion>
+
+<Accordion title="radio-buttons">
+  **Single selection radio group**
+
+  ```json
+  {
+    "type": "radio-buttons",
+    "label": "string",
+    "settings": {
+      "required": boolean,
+      "randomize": boolean,
+      "allowOtherOption": boolean,
+      "otherOptionLabel": "string",
+      "options": [
+        {
+          "label": "string",
+          "value": "string"
+        }
+      ]
+    },
+    "description": "string",
+    "placeholder": "string"
+  }
+  ```
+</Accordion>
+
+<Accordion title="dropdown">
+  **Dropdown select menu**
+
+  ```json
+  {
+    "type": "dropdown",
+    "label": "string",
+    "settings": {
+      "required": boolean,
+      "randomize": boolean,
+      "placeholder": "string",
+      "options": [
+        {
+          "label": "string",
+          "value": "string"
+        }
+      ]
+    },
+    "description": "string",
+    "placeholder": "string"
+  }
+  ```
+</Accordion>
+
+<Accordion title="image-choice">
+  **Image-based selection**
+
+  ```json
+  {
+    "type": "image-choice",
+    "label": "string",
+    "settings": {
+      "required": boolean,
+      "multiple": boolean,
+      "randomize": boolean,
+      "imageWidth": number,
+      "imageHeight": number,
+      "imageFit": "string",
+      "options": [
+        {
+          "label": "string",
+          "value": "string",
+          "data": "string (URL)" | null
+        }
+      ]
+    },
+    "description": "string",
+    "placeholder": "string"
+  }
+  ```
+</Accordion>
+
+<Accordion title="checkbox">
+  **Single checkbox (yes/no)**
+
+  ```json
+  {
+    "type": "checkbox",
+    "label": "string",
+    "settings": {
+      "required": boolean,
+      "default": boolean
+    },
+    "description": "string",
+    "placeholder": "string"
+  }
+  ```
+</Accordion>
+
+<Accordion title="matrix">
+  **Grid of choices (rows × columns)**
+
+  ```json
+  {
+    "type": "matrix",
+    "label": "string",
+    "fields": [
+      {
+        "id": "string (UUID)",
+        "type": "matrix-field",
+        "label": "string",
+        "settings": {
+          "required": boolean,
+          "multiple": boolean,
+          "options": [
+            {
+              "label": "string",
+              "value": "string"
+            }
+          ]
+        },
+        "description": "string",
+        "placeholder": "string"
+      }
+    ],
+    "settings": {
+      "required": boolean,
+      "multiple": boolean,
+      "options": [
+        {
+          "label": "string",
+          "value": "string"
+        }
+      ]
+    },
+    "description": "string"
+  }
+  ```
+</Accordion>
+
+<Accordion title="ranking">
+  **Drag-and-drop ranking**
+
+  ```json
+  {
+    "type": "ranking",
+    "label": "string",
+    "settings": {
+      "required": boolean,
+      "options": [
+        {
+          "label": "string",
+          "value": "string"
+        }
+      ]
+    },
+    "description": "string",
+    "placeholder": "string"
+  }
+  ```
+</Accordion>
+
+<Accordion title="star-rating">
+  **Star-based rating**
+
+  ```json
+  {
+    "type": "star-rating",
+    "label": "string",
+    "settings": {
+      "required": boolean,
+      "stars": number,
+      "icon": "string"
+    },
+    "description": "string",
+    "placeholder": "string"
+  }
+  ```
+</Accordion>
+
+<Accordion title="scale-rating">
+  **Numeric scale rating**
+
+  ```json
+  {
+    "type": "scale-rating",
+    "label": "string",
+    "settings": {
+      "required": boolean,
+      "scales": number
+    },
+    "description": "string",
+    "placeholder": "string"
+  }
+  ```
+</Accordion>
+
+<Accordion title="range-slider">
+  **Slider with min/max values**
+
+  ```json
+  {
+    "type": "range-slider",
+    "label": "string",
+    "settings": {
+      "min": number,
+      "max": number,
+      "step": number
+    },
+    "description": "string",
+    "placeholder": "string"
+  }
+  ```
+</Accordion>
+
+<Accordion title="heading">
+  **Heading text**
+
+  ```json
+  {
+    "type": "heading",
+    "label": "string"
+  }
+  ```
+</Accordion>
+
+<Accordion title="paragraph">
+  **Paragraph text**
+
+  ```json
+  {
+    "type": "paragraph",
+    "label": "string"
+  }
+  ```
+</Accordion>
+
+<Accordion title="image">
+  **Image display**
+
+  ```json
+  {
+    "type": "image",
+    "settings": {
+      "src": "string (URL)"
+    }
+  }
+  ```
+</Accordion>
+
+<Accordion title="embed-html">
+  **Custom HTML embed**
+
+  ```json
+  {
+    "type": "embed-html",
+    "settings": {
+      "codeSnippet": "string"
+    }
+  }
+  ```
+</Accordion>
+
+<Accordion title="embed-audio">
+  **Audio player**
+
+  ```json
+  {
+    "type": "embed-audio",
+    "settings": {
+      "url": "string"
+    }
+  }
+  ```
+</Accordion>
+
+<Accordion title="embed-video">
+  **Video embed**
+
+  ```json
+  {
+    "type": "embed-video",
+    "settings": {
+      "url": "string"
+    }
+  }
+  ```
+</Accordion>
+
+<Accordion title="signature">
+  **Digital signature capture**
+
+  ```json
+  {
+    "type": "signature",
+    "label": "string",
+    "settings": {
+      "fileFormat": "string"
+    },
+    "description": "string",
+    "placeholder": "string"
+  }
+  ```
+</Accordion>
+
+<Accordion title="navigation-buttons">
+  **Form navigation controls**
+
+  ```json
+  {
+    "type": "navigation-buttons",
+    "elements": [
+      {
+        "id": "string (UUID)",
+        "type": "previous_page",
+        "label": "string"
+      },
+      {
+        "id": "string (UUID)",
+        "type": "next-page",
+        "label": "string"
+      },
+      {
+        "id": "string (UUID)",
+        "type": "submit_form",
+        "label": "string"
+      }
+    ]
+  }
+  ```
+
+  **Sub-types:**
+  - `previous_page` - Go to previous page
+  - `next-page` - Go to next page  
+  - `submit_form` - Submit the form
+</Accordion>
 
 ## Theme Configuration Reference
 
