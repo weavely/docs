@@ -126,6 +126,7 @@
           {
             "group": "Use Cases",
             "pages": [
+              "guides/use-cases/untitled-page",
               "guides/examples-cover",
               "guides/use-cases/pdf-to-form",
               "guides/use-cases/hubspot-lead-gen",
