@@ -126,7 +126,7 @@
           {
             "group": "Use Cases",
             "pages": [
-              "guides/use-cases/untitled-page",
+              "guides/use-cases/n8n-google-sheets",
               "guides/examples-cover",
               "guides/use-cases/pdf-to-form",
               "guides/use-cases/hubspot-lead-gen",
