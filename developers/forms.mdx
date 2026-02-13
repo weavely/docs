@@ -1,7 +1,7 @@
 ---
 title: "Forms API"
 og:title: "Generate Forms using Weavely's Free API"
-description: "Generate and manage AI-powered forms using Weavely’s Forms API. Create, retrieve, and customize form data easily."
+description: "Generate and manage AI-powered forms using Weavely's Forms API. Create, retrieve, and customize form data easily."
 ---
 
 <span className="weavely-jsonld" hidden>
@@ -32,7 +32,7 @@ description: "Generate and manage AI-powered forms using Weavely’s Forms API. 
   {
     "@type": "TechArticle",
     "headline": "Forms API",
-    "description": "API documentation for developers — learn how to generate and retrieve form data via Weavely’s endpoints.",
+    "description": "API documentation for developers — learn how to generate and retrieve form data via Weavely's endpoints.",
     "inLanguage": "en",
     "mainEntityOfPage": { "@id": "https://help.weavely.ai/developers/forms" },
     "author": { "@id": "https://www.weavely.ai/#org" },
@@ -64,7 +64,7 @@ description: "Generate and manage AI-powered forms using Weavely’s Forms API. 
 
 ## Generate form
 
-> POST api.weavely.ai/v1/forms/generate
+> POST api.weavely.ai/v1/forms/generate
 
 ### Request
 
@@ -78,7 +78,7 @@ _No authentication header is required for this endpoint._
 
 <ParamField body="prompt" type="string" required>
   A natural-language description of the form to generate\
-    e.g. `"A simple contact form in Flemish"`.
+    e.g. `"A simple contact form in Flemish"`.
 </ParamField>
 
 <ParamField body="files" type="array[object]">
@@ -867,43 +867,236 @@ Weavely forms support 27 element types organized into categories:
 
 ## Theme Configuration Reference
 
-### Available Themes
+The `themeJSON` object controls all visual styling for the form. It contains the following sections: `name`, `font`, `logo`, `colors`, `layout`, `visual`, and `components`.
 
-Weavely includes 7 preset themes:
+### Theme Presets
 
-- Nova
-- Retro
-- Dawn
-- Dusk
-- Frost
-- Ember
-- Glass
+Weavely includes 7 preset themes. Set via the `name` field — the preset provides default values for colors, fonts, and components. Any explicit values you set will override the preset defaults.
 
-### Layout Types
+- `Nova`
+- `Retro`
+- `Dawn`
+- `Dusk`
+- `Frost`
+- `Ember`
+- `Glass`
 
-- `under` - Questions displayed under answers
-- `left` - Content aligned left
-- `right` - Content aligned right
-- `clean` - Clean minimal layout
-- `over` - Questions displayed over answers
-- `through` - Full-width layout
+### Font
 
-### Component Presets
+Controls typography for body text and headings independently.
 
-**Input Presets:**
+```json
+"font": {
+  "text": {
+    "size": "16px",
+    "family": "Plus Jakarta Sans"
+  },
+  "headings": {
+    "size": "32px",
+    "family": "Plus Jakarta Sans"
+  }
+}
+```
 
-- `default` - Default input styling
-- `square` - Square input styling
+You can also set the font family globally using a shorthand:
 
-**Button Presets:**
+```json
+"font": {
+  "family": "Poppins"
+}
+```
 
-- `default` - Default button styling
-- `square` - Square button styling
+### Logo
 
-**Hover Animations:**
+Optional logo image displayed on the form.
 
-- `default` - Default hover animation
-- `grow` - Grow effect on hover
+```json
+"logo": {
+  "src": "string (URL)" | null,
+  "variables": {
+    "width": "40px",
+    "justifySelf": "center"
+  }
+}
+```
+
+Set `src` to an image URL, or `null` for no logo.
+
+### Colors
+
+Full color palette for the form. All values are hex codes.
+
+```json
+"colors": {
+  "primary": "#6c5ce7",
+  "background": "#FFFFFF",
+  "text": "#000000",
+  "question": "#000000",
+  "answer": "#000000",
+  "secondary": "#222222",
+  "surface": "#F7F8FA",
+  "border": "#dedfe0",
+  "error": "#FF0000"
+}
+```
+
+| Color | Controls |
+|---|---|
+| `primary` | Buttons, accents, active states |
+| `background` | Page/form background |
+| `text` | General body text |
+| `question` | Field labels / question text |
+| `answer` | User input text |
+| `secondary` | Secondary UI elements |
+| `surface` | Input field backgrounds |
+| `border` | Input borders, dividers |
+| `error` | Validation error messages |
+
+You can provide only a subset of colors (e.g. just `primary` and `background`) and the theme preset will fill in the rest.
+
+### Layout
+
+Controls where the visual (image or color) appears relative to the form.
+
+```json
+"layout": {
+  "type": "right"
+}
+```
+
+| Type | Description |
+|---|---|
+| `under` | Visual is placed behind the form as a full-page background |
+| `left` | Visual is displayed as a left side panel, form on the right |
+| `right` | Visual is displayed as a right side panel, form on the left |
+| `clean` | No visual — form only |
+| `over` | Visual overlays the form area |
+| `through` | Visual bleeds through the form |
+
+### Visual
+
+The background visual — either an image or a solid color. Works together with `layout` to determine how the visual is positioned.
+
+**Image visual:**
+
+```json
+"visual": {
+  "type": "image",
+  "value": "string (image URL)",
+  "variables": {
+    "size": "cover",
+    "repeat": "no-repeat",
+    "position": "center"
+  }
+}
+```
+
+**Color visual:**
+
+```json
+"visual": {
+  "type": "color",
+  "value": "#5a3131",
+  "variables": {
+    "size": "cover",
+    "repeat": "no-repeat",
+    "position": "center"
+  }
+}
+```
+
+The `variables` object uses CSS-like properties and defaults to `size: "cover"`, `repeat: "no-repeat"`, `position: "center"` for both types.
+
+**Common combinations:**
+
+- Side image: `layout.type: "right"` (or `"left"`) + `visual.type: "image"` — displays a photo alongside the form
+- Background color: `layout.type: "under"` + `visual.type: "color"` — fills the page behind the form with a solid color
+- Background image: `layout.type: "under"` + `visual.type: "image"` — fills the page behind the form with an image
+- No visual: `layout.type: "clean"` — form only, no visual element
+
+### Components
+
+Controls form layout, input style, button style, and question weight.
+
+```json
+"components": {
+  "form": {
+    "variables": {
+      "gap": "30px",
+      "maxWidth": "700px",
+      "textAlign": "left"
+    }
+  },
+  "input": {
+    "preset": "default"
+  },
+  "button": {
+    "preset": "default",
+    "hoverAnimation": {
+      "preset": "grow"
+    }
+  },
+  "question": {
+    "variables": {
+      "fontWeight": "500"
+    }
+  }
+}
+```
+
+**Input presets:**
+
+- `default` — Rounded input styling
+- `square` — Square input styling
+
+**Button presets:**
+
+- `default` — Rounded button styling
+- `square` — Square button styling
+
+**Hover animation presets:**
+
+- `default` — Default hover animation
+- `grow` — Grow effect on hover
+
+### Complete themeJSON Example
+
+```json
+{
+  "name": "Nova",
+  "font": {
+    "text": { "size": "16px", "family": "Plus Jakarta Sans" },
+    "headings": { "size": "32px", "family": "Plus Jakarta Sans" }
+  },
+  "logo": {
+    "src": null,
+    "variables": { "width": "40px", "justifySelf": "center" }
+  },
+  "colors": {
+    "primary": "#6c5ce7",
+    "background": "#FFFFFF",
+    "text": "#000000",
+    "question": "#000000",
+    "answer": "#000000",
+    "secondary": "#222222",
+    "surface": "#F7F8FA",
+    "border": "#dedfe0",
+    "error": "#FF0000"
+  },
+  "layout": { "type": "right" },
+  "visual": {
+    "type": "image",
+    "value": "https://example.com/your-image.jpg",
+    "variables": { "size": "cover", "repeat": "no-repeat", "position": "center" }
+  },
+  "components": {
+    "form": { "variables": { "gap": "30px", "maxWidth": "700px", "textAlign": "left" } },
+    "input": { "preset": "default" },
+    "button": { "preset": "default", "hoverAnimation": { "preset": "grow" } },
+    "question": { "variables": { "fontWeight": "500" } }
+  }
+}
+```
 
 ---
 
