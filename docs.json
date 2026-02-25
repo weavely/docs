@@ -51,7 +51,8 @@
               "features/embeddings",
               "features/quizzes",
               "features/url-parameters",
-              "features/progress-bar"
+              "features/progress-bar",
+              "features/form-language"
             ]
           },
           {
