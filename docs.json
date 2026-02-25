@@ -52,7 +52,8 @@
               "features/quizzes",
               "features/url-parameters",
               "features/progress-bar",
-              "features/form-language"
+              "features/form-language",
+              "features/create-multi-language-forms"
             ]
           },
           {
