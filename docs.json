@@ -53,7 +53,8 @@
               "features/url-parameters",
               "features/progress-bar",
               "features/form-language",
-              "features/create-multi-language-forms"
+              "features/create-multi-language-forms",
+              "features/pdf-responses"
             ]
           },
           {
