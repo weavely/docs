@@ -168,6 +168,18 @@ Creates a new form from a complete form specification.
 
 The request body is a complete form specification with the following structure:
 
+<ParamField body="name" type="string">
+  Display name for the form shown in the Weavely dashboard.
+</ParamField>
+
+<ParamField body="teamId" type="string" required>
+  The UUID of the team to associate this form with.
+</ParamField>
+
+<ParamField body="publish" type="boolean">
+  Set to `true` to publish the form immediately. Without this, the form is created as a draft and won't be accessible at its public URL.
+</ParamField>
+
 <ParamField body="formJSON" type="object" required>
   The form structure containing all pages and elements.
 
@@ -184,7 +196,7 @@ The request body is a complete form specification with the following structure:
   }
   ```
 
-  See **Form Structure Reference **below for complete element types and configurations.
+  See **Form Structure Reference** below for complete element types and configurations.
 </ParamField>
 
 <ParamField body="themeJSON" type="object" required>
@@ -201,7 +213,7 @@ The request body is a complete form specification with the following structure:
   }
   ```
 
-  See **Theme Configuration Reference **below for all available options.
+  See **Theme Configuration Reference** below for all available options.
 </ParamField>
 
 <ParamField body="settings" type="object">
@@ -209,19 +221,29 @@ The request body is a complete form specification with the following structure:
 
   ```json
   {
+    "mode": "quiz",
+    "quiz": {
+      "instantFeedback": boolean
+    },
     "access": {
       "stopSubmissions": boolean
     },
     "general": {
       "showProgressBar": boolean,
-      "autoSaveProgress": boolean
+      "autoSaveProgress": boolean,
+      "showValidationErrors": boolean
     },
     "notifications": {
       "submissionEmail": {...},
       "confirmationEmail": {...}
+    },
+    "i18n": {
+      "language": "string"
     }
   }
   ```
+
+  See **Quiz Mode Reference** below for quiz-specific settings. See **Internationalisation Reference** for supported language codes.
 </ParamField>
 
 <ParamField body="logicRules" type="array">
@@ -229,7 +251,7 @@ The request body is a complete form specification with the following structure:
 
   Each rule defines conditions and actions to execute based on field values.
 
-  See **Logic Rules Reference **below for complete documentation.
+  See **Logic Rules Reference** below for complete documentation.
 </ParamField>
 
 <ParamField body="eventTriggers" type="array">
@@ -273,6 +295,9 @@ curl -X POST https://api.weavely.ai/v1/forms \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer wvy_your_token_here" \
   -d '{
+    "name": "Contact Form",
+    "teamId": "your-team-uuid",
+    "publish": true,
     "formJSON": {
       "pages": [{
         "id": "page-1",
@@ -314,7 +339,7 @@ curl -X POST https://api.weavely.ai/v1/forms \
 
 ### Element Types
 
-Weavely forms support 27 element types organized into categories:
+Weavely forms support 26 element types organized into categories:
 
 **Input Elements:**
 
@@ -356,9 +381,9 @@ Weavely forms support 27 element types organized into categories:
 **Special Elements:**
 
 - `signature` - Digital signature capture
-- `navigation-buttons` - Form navigation controls (previous/next/submit)
 
 ---
+
 ### Element Specifications
 
 <Accordion title="input-text">
@@ -568,7 +593,6 @@ Weavely forms support 27 element types organized into categories:
     "settings": {
       "required": boolean,
       "randomize": boolean,
-      "placeholder": "string",
       "options": [
         {
           "label": "string",
@@ -576,8 +600,7 @@ Weavely forms support 27 element types organized into categories:
         }
       ]
     },
-    "description": "string",
-    "placeholder": "string"
+    "description": "string"
   }
   ```
 </Accordion>
@@ -600,7 +623,7 @@ Weavely forms support 27 element types organized into categories:
         {
           "label": "string",
           "value": "string",
-          "data": "string (URL)" | null
+          "data": { "url": "string" } | null
         }
       ]
     },
@@ -755,7 +778,7 @@ Weavely forms support 27 element types organized into categories:
 </Accordion>
 
 <Accordion title="paragraph">
-  **Paragraph text**
+  **Paragraph text. Supports HTML markup and variable piping via `{{variable_id}}` syntax.**
 
   ```json
   {
@@ -833,37 +856,7 @@ Weavely forms support 27 element types organized into categories:
   ```
 </Accordion>
 
-<Accordion title="navigation-buttons">
-  **Form navigation controls**
-
-  ```json
-  {
-    "type": "navigation-buttons",
-    "elements": [
-      {
-        "id": "string (UUID)",
-        "type": "previous_page",
-        "label": "string"
-      },
-      {
-        "id": "string (UUID)",
-        "type": "next-page",
-        "label": "string"
-      },
-      {
-        "id": "string (UUID)",
-        "type": "submit_form",
-        "label": "string"
-      }
-    ]
-  }
-  ```
-
-  **Sub-types:**
-  - `previous_page` - Go to previous page
-  - `next-page` - Go to next page  
-  - `submit_form` - Submit the form
-</Accordion>
+---
 
 ## Theme Configuration Reference
 
@@ -1100,6 +1093,117 @@ Controls form layout, input style, button style, and question weight.
 
 ---
 
+## Quiz Mode Reference
+
+Quiz mode turns a form into a scored assessment.
+
+### Enabling Quiz Mode
+
+Set `settings.mode` to `"quiz"` and optionally configure quiz-specific settings:
+
+```json
+{
+  "settings": {
+    "mode": "quiz",
+    "quiz": {
+      "instantFeedback": true
+    }
+  }
+}
+```
+
+| Setting | Type | Description |
+|---|---|---|
+| `mode` | `"quiz"` | Activates quiz mode. Omit for standard form behaviour |
+| `quiz.instantFeedback` | boolean | When `true`, shows correct/incorrect feedback after each question rather than at the end |
+
+### Quiz-Compatible Element Types
+
+Only the following element types support quiz scoring:
+
+- `radio-buttons`
+- `checkbox-buttons`
+- `input-text`
+- `dropdown`
+
+### The `quiz` Property
+
+Add a `quiz` object to any compatible element to define its correct answer and score:
+
+```json
+{
+  "id": "string (UUID)",
+  "type": "radio-buttons",
+  "label": "What is the capital of France?",
+  "settings": { ... },
+  "quiz": {
+    "score": 1,
+    "answer": "Paris"
+  }
+}
+```
+
+| Field | Type | Description |
+|---|---|---|
+| `score` | number | Points awarded for a correct answer. Can be any positive number — questions can be weighted differently |
+| `answer` | string | Correct answer for single-select elements (`radio-buttons`, `input-text`, `dropdown`). For `radio-buttons` and `dropdown`, must match the option's `value` exactly. For `input-text`, matching is case-insensitive |
+| `answer` | array of strings | All correct answers for `checkbox-buttons` — respondent must select exactly this set of values |
+
+### Quiz Variables
+
+When quiz mode is active, four variables are automatically available for use in logic rules and answer piping:
+
+| Variable ID | Description |
+|---|---|
+| `quiz:quiz-score` | Total points scored by the respondent |
+| `quiz:max-score` | Maximum possible score (sum of all `quiz.score` values) |
+| `quiz:correct-answers` | Number of questions answered correctly |
+| `quiz:total-quiz-questions` | Total number of quiz questions in the form |
+
+### Score-Based Conditional Endings
+
+Use quiz variables in logic rules to direct respondents to different ending pages based on their score:
+
+```json
+{
+  "id": "string (UUID)",
+  "name": "High score ending",
+  "logicalOperator": "any",
+  "conditions": [
+    {
+      "id": "string (UUID)",
+      "variable": "quiz:quiz-score",
+      "operator": "greaterThanOrEqual",
+      "value": "5"
+    }
+  ],
+  "actions": [
+    {
+      "id": "string (UUID)",
+      "name": "setEnding",
+      "data": {
+        "elementId": "string (ending-page UUID)"
+      }
+    }
+  ]
+}
+```
+
+All standard logic rule actions are available (`hideElement`, `showElement`, `hidePage`, `skipToPage`, `setEnding`).
+
+### Showing Results to Respondents
+
+Pipe quiz variables into paragraph labels using `{{variable_id}}` syntax. Element labels support HTML markup:
+
+```html
+<div>Thanks for completing the quiz!</div>
+<div><br></div>
+<div>Score: {{quiz:quiz-score}} / {{quiz:max-score}}</div>
+<div>Correct answers: {{quiz:correct-answers}} / {{quiz:total-quiz-questions}}</div>
+```
+
+---
+
 ## Logic Rules Reference
 
 Logic rules enable conditional behavior based on field values.
@@ -1146,7 +1250,7 @@ Logic rules enable conditional behavior based on field values.
 - `startsWith` - Check if field starts with a string
 - `endsWith` - Check if field ends with a string
 
-**Numeric operators (number fields):**
+**Numeric operators (number fields and quiz variables):**
 
 - `lessThan` - Check if field is less than a value
 - `lessThanOrEqual` - Check if field is less than or equal to a value
@@ -1196,3 +1300,57 @@ Event triggers execute actions in response to form events.
   - Requires `data.url` field
 - `restartForm` - Restart the form from the beginning
   - No additional data required
+
+---
+
+## Internationalisation Reference
+
+Set the form's language via `settings.i18n.language`. The server automatically injects the correct system message translations (button labels, placeholders, error messages) for the chosen language.
+
+```json
+{
+  "settings": {
+    "i18n": {
+      "language": "fr"
+    }
+  }
+}
+```
+
+### Supported Languages
+
+| Language | Code |
+|---|---|
+| Arabic | `ar` |
+| Catalan | `ca` |
+| Chinese (Simplified) | `zh-Hans` |
+| Chinese (Traditional) | `zh-Hant` |
+| Croatian | `hr` |
+| Czech | `cs` |
+| Danish | `da` |
+| Dutch | `nl` |
+| English | `en` |
+| Estonian | `et` |
+| Finnish | `fi` |
+| French | `fr` |
+| German (Formal) | `de` |
+| German (Informal) | `di` |
+| Greek | `el` |
+| Hebrew | `he` |
+| Hindi | `hi` |
+| Hungarian | `hu` |
+| Indonesian | `id` |
+| Italian | `it` |
+| Japanese | `ja` |
+| Korean | `ko` |
+| Norwegian | `no` |
+| Polish | `pl` |
+| Portuguese | `pt` |
+| Russian | `ru` |
+| Spanish | `es` |
+| Swedish | `sv` |
+| Turkish | `tr` |
+| Ukrainian | `uk` |
+| Vietnamese | `vi` |
+
+Note: German uses custom codes — `de` for formal ("Sie") and `di` for informal ("du").
