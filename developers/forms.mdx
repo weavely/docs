@@ -5,9 +5,9 @@ description: "Generate and manage AI-powered forms using Weavely's Forms API. Cr
 ---
 
 <span className="weavely-jsonld" hidden>
-{`{
-"@context": "https://schema.org",
-"@graph": [
+  {`{
+  "@context": "https://schema.org",
+  "@graph": [
   {
     "@type": "WebPage",
     "@id": "https://help.weavely.ai/developers/forms",
@@ -57,9 +57,8 @@ description: "Generate and manage AI-powered forms using Weavely's Forms API. Cr
       "https://www.youtube.com/@weavely"
     ]
   }
-]
-}`}
-
+  ]
+  }`}
 </span>
 
 ## Generate form
@@ -78,7 +77,7 @@ _No authentication header is required for this endpoint._
 
 <ParamField body="prompt" type="string" required>
   A natural-language description of the form to generate\
-    e.g. `"A simple contact form in Flemish"`.
+  e.g. `"A simple contact form in Flemish"`.
 </ParamField>
 
 <ParamField body="files" type="array[object]">
@@ -281,7 +280,12 @@ The request body is a complete form specification with the following structure:
 </ResponseField>
 
 <ResponseField name="url" type="string">
-  Direct link to edit the form in the Weavely editor.
+  Direct link to the form. Only valid if publish was set to true in request body
+
+  Format: `https://forms.weavely.ai/{formId}`
+</ResponseField>
+<ResponseField name="editor" type="string">
+  Direct link to edit the form.
 
   Format: `https://forms.weavely.ai/editor/{formId}`
 </ResponseField>
@@ -329,7 +333,8 @@ curl -X POST https://api.weavely.ai/v1/forms \
 ```json
 {
   "id": "8e2d178f-4e9c-4fe3-9619-e44412bf7ba1",
-  "url": "https://forms.weavely.ai/editor/8e2d178f-4e9c-4fe3-9619-e44412bf7ba1"
+  "editor": "https://forms.weavely.ai/editor/8e2d178f-4e9c-4fe3-9619-e44412bf7ba1",
+  "url": "https://forms.weavely.ai/8e2d178f-4e9c-4fe3-9619-e44412bf7ba1"
 }
 ```
 
@@ -778,7 +783,7 @@ Weavely forms support 26 element types organized into categories:
 </Accordion>
 
 <Accordion title="paragraph">
-  **Paragraph text. Supports HTML markup and variable piping via `{{variable_id}}` syntax.**
+  **`Paragraph text. Supports HTML markup and variable piping via {{variable_id}} syntax.`**
 
   ```json
   {
@@ -933,17 +938,17 @@ Full color palette for the form. All values are hex codes.
 }
 ```
 
-| Color | Controls |
-|---|---|
-| `primary` | Buttons, accents, active states |
-| `background` | Page/form background |
-| `text` | General body text |
-| `question` | Field labels / question text |
-| `answer` | User input text |
-| `secondary` | Secondary UI elements |
-| `surface` | Input field backgrounds |
-| `border` | Input borders, dividers |
-| `error` | Validation error messages |
+| Color        | Controls                        |
+| ------------ | ------------------------------- |
+| `primary`    | Buttons, accents, active states |
+| `background` | Page/form background            |
+| `text`       | General body text               |
+| `question`   | Field labels / question text    |
+| `answer`     | User input text                 |
+| `secondary`  | Secondary UI elements           |
+| `surface`    | Input field backgrounds         |
+| `border`     | Input borders, dividers         |
+| `error`      | Validation error messages       |
 
 You can provide only a subset of colors (e.g. just `primary` and `background`) and the theme preset will fill in the rest.
 
@@ -957,14 +962,14 @@ Controls where the visual (image or color) appears relative to the form.
 }
 ```
 
-| Type | Description |
-|---|---|
-| `under` | Visual is placed behind the form as a full-page background |
-| `left` | Visual is displayed as a left side panel, form on the right |
-| `right` | Visual is displayed as a right side panel, form on the left |
-| `clean` | No visual — form only |
-| `over` | Visual overlays the form area |
-| `through` | Visual bleeds through the form |
+| Type      | Description                                                 |
+| --------- | ----------------------------------------------------------- |
+| `under`   | Visual is placed behind the form as a full-page background  |
+| `left`    | Visual is displayed as a left side panel, form on the right |
+| `right`   | Visual is displayed as a right side panel, form on the left |
+| `clean`   | No visual — form only                                       |
+| `over`    | Visual overlays the form area                               |
+| `through` | Visual bleeds through the form                              |
 
 ### Visual
 
@@ -1112,10 +1117,10 @@ Set `settings.mode` to `"quiz"` and optionally configure quiz-specific settings:
 }
 ```
 
-| Setting | Type | Description |
-|---|---|---|
-| `mode` | `"quiz"` | Activates quiz mode. Omit for standard form behaviour |
-| `quiz.instantFeedback` | boolean | When `true`, shows correct/incorrect feedback after each question rather than at the end |
+| Setting                | Type     | Description                                                                              |
+| ---------------------- | -------- | ---------------------------------------------------------------------------------------- |
+| `mode`                 | `"quiz"` | Activates quiz mode. Omit for standard form behaviour                                    |
+| `quiz.instantFeedback` | boolean  | When `true`, shows correct/incorrect feedback after each question rather than at the end |
 
 ### Quiz-Compatible Element Types
 
@@ -1143,22 +1148,22 @@ Add a `quiz` object to any compatible element to define its correct answer and s
 }
 ```
 
-| Field | Type | Description |
-|---|---|---|
-| `score` | number | Points awarded for a correct answer. Can be any positive number — questions can be weighted differently |
-| `answer` | string | Correct answer for single-select elements (`radio-buttons`, `input-text`, `dropdown`). For `radio-buttons` and `dropdown`, must match the option's `value` exactly. For `input-text`, matching is case-insensitive |
-| `answer` | array of strings | All correct answers for `checkbox-buttons` — respondent must select exactly this set of values |
+| Field    | Type             | Description                                                                                                                                                                                                        |
+| -------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `score`  | number           | Points awarded for a correct answer. Can be any positive number — questions can be weighted differently                                                                                                            |
+| `answer` | string           | Correct answer for single-select elements (`radio-buttons`, `input-text`, `dropdown`). For `radio-buttons` and `dropdown`, must match the option's `value` exactly. For `input-text`, matching is case-insensitive |
+| `answer` | array of strings | All correct answers for `checkbox-buttons` — respondent must select exactly this set of values                                                                                                                     |
 
 ### Quiz Variables
 
 When quiz mode is active, four variables are automatically available for use in logic rules and answer piping:
 
-| Variable ID | Description |
-|---|---|
-| `quiz:quiz-score` | Total points scored by the respondent |
-| `quiz:max-score` | Maximum possible score (sum of all `quiz.score` values) |
-| `quiz:correct-answers` | Number of questions answered correctly |
-| `quiz:total-quiz-questions` | Total number of quiz questions in the form |
+| Variable ID                 | Description                                             |
+| --------------------------- | ------------------------------------------------------- |
+| `quiz:quiz-score`           | Total points scored by the respondent                   |
+| `quiz:max-score`            | Maximum possible score (sum of all `quiz.score` values) |
+| `quiz:correct-answers`      | Number of questions answered correctly                  |
+| `quiz:total-quiz-questions` | Total number of quiz questions in the form              |
 
 ### Score-Based Conditional Endings
 
@@ -1319,38 +1324,38 @@ Set the form's language via `settings.i18n.language`. The server automatically i
 
 ### Supported Languages
 
-| Language | Code |
-|---|---|
-| Arabic | `ar` |
-| Catalan | `ca` |
-| Chinese (Simplified) | `zh-Hans` |
+| Language              | Code      |
+| --------------------- | --------- |
+| Arabic                | `ar`      |
+| Catalan               | `ca`      |
+| Chinese (Simplified)  | `zh-Hans` |
 | Chinese (Traditional) | `zh-Hant` |
-| Croatian | `hr` |
-| Czech | `cs` |
-| Danish | `da` |
-| Dutch | `nl` |
-| English | `en` |
-| Estonian | `et` |
-| Finnish | `fi` |
-| French | `fr` |
-| German (Formal) | `de` |
-| German (Informal) | `di` |
-| Greek | `el` |
-| Hebrew | `he` |
-| Hindi | `hi` |
-| Hungarian | `hu` |
-| Indonesian | `id` |
-| Italian | `it` |
-| Japanese | `ja` |
-| Korean | `ko` |
-| Norwegian | `no` |
-| Polish | `pl` |
-| Portuguese | `pt` |
-| Russian | `ru` |
-| Spanish | `es` |
-| Swedish | `sv` |
-| Turkish | `tr` |
-| Ukrainian | `uk` |
-| Vietnamese | `vi` |
+| Croatian              | `hr`      |
+| Czech                 | `cs`      |
+| Danish                | `da`      |
+| Dutch                 | `nl`      |
+| English               | `en`      |
+| Estonian              | `et`      |
+| Finnish               | `fi`      |
+| French                | `fr`      |
+| German (Formal)       | `de`      |
+| German (Informal)     | `di`      |
+| Greek                 | `el`      |
+| Hebrew                | `he`      |
+| Hindi                 | `hi`      |
+| Hungarian             | `hu`      |
+| Indonesian            | `id`      |
+| Italian               | `it`      |
+| Japanese              | `ja`      |
+| Korean                | `ko`      |
+| Norwegian             | `no`      |
+| Polish                | `pl`      |
+| Portuguese            | `pt`      |
+| Russian               | `ru`      |
+| Spanish               | `es`      |
+| Swedish               | `sv`      |
+| Turkish               | `tr`      |
+| Ukrainian             | `uk`      |
+| Vietnamese            | `vi`      |
 
 Note: German uses custom codes — `de` for formal ("Sie") and `di` for informal ("du").

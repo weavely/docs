@@ -54,7 +54,8 @@
               "features/progress-bar",
               "features/form-language",
               "features/create-multi-language-forms",
-              "features/pdf-responses"
+              "features/pdf-responses",
+              "features/untitled-page"
             ]
           },
           {
