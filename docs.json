@@ -121,6 +121,12 @@
               "developers/forms",
               "developers/webhooks"
             ]
+          },
+          {
+            "group": "Miscellaneous",
+            "pages": [
+              "supported-browsers"
+            ]
           }
         ]
       },
