@@ -8,6 +8,13 @@
     "dark": "#310080"
   },
   "favicon": "/weavely-logo.svg",
+  
+ "contextual": {
+   "options": [
+     "chatgpt",
+     "claude"
+    ]
+ },
   "navigation": {
     "global": {
       "anchors": [
