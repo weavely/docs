@@ -144,6 +144,86 @@ Each field object includes:
   The type of the field (e.g., `text`, `datetime`, etc.).
 </ResponseField>
 
+## Get form specification
+
+> GET api.weavely.ai/forms/:id/client
+
+Retrieves the complete specification of a published form.
+
+### Request
+
+_No authentication required for this endpoint._
+
+#### Path Parameters
+
+<ParamField path="id" type="string" required>
+  The unique identifier (UUID) of the form.
+</ParamField>
+
+### Response
+
+<ResponseField name="id" type="string">
+  The form's unique identifier.
+</ResponseField>
+
+<ResponseField name="name" type="string">
+  The form's display name.
+</ResponseField>
+
+<ResponseField name="plan" type="string">
+  The Weavely plan tier (e.g., "pro", "free").
+</ResponseField>
+
+<ResponseField name="settings" type="object">
+  Form configuration including access, general, notifications, and security settings.
+</ResponseField>
+
+<ResponseField name="formJSON" type="object">
+  Complete form structure with all pages and elements.
+  
+  See **Form Structure Reference** below for complete specifications.
+</ResponseField>
+
+<ResponseField name="themeJSON" type="object">
+  Complete theme configuration.
+  
+  See **Theme Configuration Reference** below for all available options.
+</ResponseField>
+
+<ResponseField name="variables" type="array">
+  Auto-generated variables for each input field in the form.
+  
+  Each variable includes `id` (pattern: `field:{elementId}`), `type`, `label`, and `dataType`.
+</ResponseField>
+
+<ResponseField name="logicRules" type="array">
+  Conditional logic rules configured for the form.
+  
+  See **Logic Rules Reference** below for structure.
+</ResponseField>
+
+<ResponseField name="eventTriggers" type="array">
+  Event-based triggers configured for the form.
+  
+  See **Event Triggers Reference** below for structure.
+</ResponseField>
+
+<ResponseField name="calculatedValues" type="array">
+  Calculated field values configured for the form.
+</ResponseField>
+
+<ResponseField name="pageAttributes" type="object">
+  Page metadata for SEO and social sharing (icon, title, description, openGraphImage).
+</ResponseField>
+
+<ResponseField name="i18n" type="object">
+  Internationalization settings including language code and UI translations.
+</ResponseField>
+
+<Note>
+This endpoint returns the complete published form specification. The form must be published for this endpoint to return data — unpublished forms will return a 400 Bad Request error.
+</Note>
+
 ## Create form
 
 > POST api.weavely.ai/v1/forms
