@@ -339,6 +339,148 @@ curl -X POST https://api.weavely.ai/v1/forms \
 ```
 
 ---
+## Update form
+
+> POST api.weavely.ai/v1/forms/:id
+
+Updates an existing form. This is a partial update endpoint — only the fields provided in the request body will be updated. All omitted fields remain unchanged.
+
+### Request
+
+#### Headers
+
+<ParamField header="Authorization" type="string" required>
+  `Bearer <token>`\
+  Your personal token.
+</ParamField>
+
+<ParamField header="Content-Type" type="string" required>
+  `application/json`
+</ParamField>
+
+#### Path Parameters
+
+<ParamField path="id" type="string" required>
+  The unique identifier (UUID) of the form to update.
+</ParamField>
+
+#### Body
+
+All body parameters are optional. Only include the fields you want to update. Omitted fields will remain unchanged.
+
+<ParamField body="name" type="string">
+  Update the form's name.
+</ParamField>
+
+<ParamField body="formJSON" type="object">
+  Update the form structure containing pages and elements.
+```json
+  {
+    "pages": [
+      {
+        "id": "string",
+        "name": "string",
+        "type": "form-page" | "ending-page",
+        "elements": [...]
+      }
+    ]
+  }
+```
+  
+  See **Form Structure Reference** below for complete element types and configurations.
+</ParamField>
+
+<ParamField body="themeJSON" type="object">
+  Update the form's visual theme configuration.
+```json
+  {
+    "name": "string",
+    "font": {...},
+    "logo": {...},
+    "colors": {...},
+    "layout": {...},
+    "visual": {...}
+  }
+```
+  
+  See **Theme Configuration Reference** below for all available options.
+</ParamField>
+
+<ParamField body="settings" type="object">
+  Update form settings.
+```json
+  {
+    "access": {
+      "stopSubmissions": boolean
+    },
+    "general": {
+      "showProgressBar": boolean,
+      "autoSaveProgress": boolean
+    },
+    "notifications": {
+      "submissionEmail": {...},
+      "confirmationEmail": {...}
+    }
+  }
+```
+</ParamField>
+
+<ParamField body="logicRules" type="array">
+  Update conditional logic rules.
+  
+  Each rule defines conditions and actions to execute based on field values.
+  
+  See **Logic Rules Reference** below for complete documentation.
+</ParamField>
+
+<ParamField body="eventTriggers" type="array">
+  Update event-based triggers.
+  
+  Triggers execute actions in response to form events (e.g., form submission, page load).
+  
+  See **Event Triggers Reference** below for available triggers and actions.
+</ParamField>
+
+<ParamField body="calculatedValues" type="array">
+  Update calculated field values.
+  
+  (Currently undocumented - reserved for future use)
+</ParamField>
+
+### Response
+
+<ResponseField name="id" type="string">
+  The unique identifier (UUID) of the updated form.
+</ResponseField>
+
+### Examples
+
+**Update only the form name:**
+```bash
+curl -X POST https://api.weavely.ai/v1/forms/e2fdec38-130c-4e2c-b0c7-4f238206c9ce \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer wvy_your_token_here" \
+  -d '{
+    "name": "Updated Contact Form"
+  }'
+```
+
+**Response:**
+```json
+{
+  "id": "e2fdec38-130c-4e2c-b0c7-4f238206c9ce"
+}
+```
+
+---
+
+<Note>
+This endpoint performs a **partial update**. Only the top-level fields you include in the request body will be modified. All other fields remain unchanged. This allows you to update specific parts of a form without needing to send the entire form structure.
+</Note>
+
+<Warning>
+When updating nested objects like `themeJSON` or `settings`, the entire object at that level is replaced. For example, if you update `themeJSON.colors`, make sure to include all color properties you want to keep, as the entire `colors` object will be replaced.
+</Warning>
 
 ## Form Structure Reference
 
