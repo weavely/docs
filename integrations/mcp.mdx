@@ -4,8 +4,9 @@ og:title: "Weavely.ai MCP Server"
 description: "Use our MCP server to connect Weavely to your favourite AI and LLM tools!"
 sidebarTitle: "Weavely MCP"
 ---
+
 <span className="weavely-jsonld" hidden>
-{`{
+  {`{
   "@context": "https://schema.org",
   "@graph": [
     {
@@ -32,7 +33,7 @@ sidebarTitle: "Weavely MCP"
     {
       "@type": "TechArticle",
       "headline": "Weavely.ai MCP Server",
-      "description": "Weavely's MCP Server allows AI clients like Claude, Cursor, or others to integrate directly with Weavely’s form-generation API—using the Model Context Protocol (MCP).",
+      "description": "Weavely's MCP Server allows AI clients like Claude, Cursor, or others to build and publish forms conversationally—using the Model Context Protocol (MCP).",
       "inLanguage": "en",
       "author": { "@id": "https://www.weavely.ai/#org" },
       "publisher": { "@id": "https://www.weavely.ai/#org" },
@@ -58,73 +59,158 @@ sidebarTitle: "Weavely MCP"
       ]
     }
   ]
-}`}
+  }`}
 </span>
 
-Weavely's MCP Server allows AI clients like **Claude**, **Cursor**, or others to integrate directly with Weavely’s form-generation API—using standard [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) tools.
+<iframe src="https://www.youtube.com/embed/NtS2UgeADhQ" title="YouTube video player" frameborder="0" className="w-full aspect-video rounded-xl" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen />
 
-This guide walks you through what the Weavely MCP is, how it works, and how to configure it for any compatible AI agent.
+Weavely's MCP Server allows AI clients like **Claude**, **Cursor**, **Windsurf**, or any MCP-compatible agent to **build, style, and publish forms conversationally** — using standard [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) tools.
+
+This guide walks you through what the Weavely MCP is, how it works, and how to configure it for any compatible AI client.
 
 ## What is an MCP Server?
 
-MCP (Model Context Protocol) is a standard that allows AI models to **call tools**—like APIs or custom functions—by passing structured arguments.
+MCP (Model Context Protocol) is a standard that allows AI models to **call tools** — like APIs or custom functions — by passing structured arguments.
 
 Instead of hardcoding every integration, you provide a reference to an MCP server that **exposes tools dynamically**. The LLM then learns what tools are available and when to use them, all without manual plumbing.
 
 ## What Can You Do with Weavely MCP?
 
-The **Weavely MCP server** currently exposes a `create-form` tool that lets your AI client instantly generate sophisticated, production-grade forms from a user prompt.
+The Weavely MCP server gives your AI client **full control over the form-building process** — from creating an empty form to adding questions, styling it, adding conditional logic, and publishing.
+
+The AI builds the form step by step while you follow along via a **live preview URL** that updates in real-time. When you're happy with the result, ask the AI to publish and you'll get a link to claim ownership.
 
 For example:
 
-> “Create a post-purchase NPS survey for new customers using behavioral science principles.”
+> "Create a post-purchase NPS survey for new customers. Use a 0–10 rating scale, add a follow-up text area that only shows when the score is below 7, and style it with a clean dark theme."
 
-Behind the scenes, the MCP tool calls:
+The AI will:
 
-```
-POST https://api.weavely.ai/v1/forms/generate
-```
+1. Create the form and share a live preview link
+2. Add a scale rating element and a conditional text area
+3. Set up logic to show the text area only for low scores
+4. Apply a dark color theme with clean layout
+5. Publish when you ask — giving you an editor URL to claim full ownership
 
-and returns the url of the generated form.
+## Setup
 
-## Basic Setup
-
-Here’s a sample configuration you can drop into your `mcp.json` or equivalent config file for any compatible AI client:
+Add the Weavely MCP server to your AI client's configuration:
 
 ```json
 {
   "mcpServers": {
-    "weavely-mcp-http": {
-      "command": "npx",
-      "args": [
-        "mcp-remote-http",
-        "https://mcp.weavely.ai/mcp"
-      ]
+    "weavely": {
+      "url": "https://mcp.weavely.ai/mcp"
     }
   }
 }
 ```
 
-This will load the tools served by `https://mcp.weavely.ai/mcp` via the `mcp-remote-http` runner.
+This works with any client that supports **Streamable HTTP** MCP servers, including Claude Desktop, Claude Code, and Cursor.
 
-**Note**: `npx` should be available in your terminal. If you're on Windows and using a local agent, you may need to prefix commands with `cmd /c`.
+<Note>
+  If your client only supports stdio-based MCP servers, use the `mcp-remote` bridge:
+
+  ```json
+  {
+    "mcpServers": {
+      "weavely": {
+        "command": "npx",
+        "args": [
+          "mcp-remote",
+          "https://mcp.weavely.ai/mcp"
+        ]
+      }
+    }
+  }
+  ```
+
+  `npx` must be available in your terminal. On Windows with a local agent, you may need to prefix with `cmd /c`.
+</Note>
 
 ## Tools
 
-`create-form`
+The MCP server exposes **13 tools** that cover the full form-building lifecycle:
 
-This MCP server currently exposes one tool:
+### Form management
 
-| Name          | Description                           | Inputs                                 |
-| ------------- | ------------------------------------- | -------------------------------------- |
-| `create-form` | Create a new Weavely form from prompt | `prompt` (required), `name` (optional) |
+| Tool | Description |
+| --- | --- |
+| `create_form` | Create a new form. Returns a `formId` and live preview URL. **Must be called first.** |
+| `get_form_summary` | Get the current form structure — pages, elements, theme, settings |
+| `publish_form` | Publish the form and get an editor URL to claim ownership |
+
+### Elements
+
+| Tool | Description |
+| --- | --- |
+| `add_element` | Add a question or content element to a page |
+| `update_element` | Update an element's label, description, options, etc. |
+| `remove_element` | Remove an element |
+| `reorder_elements` | Move an element to a different position or page |
+
+### Pages
+
+| Tool | Description |
+| --- | --- |
+| `add_page` | Add a new page (for multi-step forms) |
+| `remove_page` | Remove a page and its elements |
+| `reorder_pages` | Reorder form pages |
+
+### Styling & configuration
+
+| Tool | Description |
+| --- | --- |
+| `set_theme` | Set colors, fonts, layout, and component styles |
+| `set_settings` | Configure language, progress bar, auto-save, etc. |
+| `set_logic` | Add conditional show/hide rules and event triggers |
+
+### Supported element types
+
+The `add_element` tool supports **25 element types**:
+
+- **Input fields**: text, number, email, phone, URL, time, date, text area
+- **Choice fields**: radio buttons, checkboxes, dropdown, ranking
+- **Image choice**: multiple-choice with images (images assigned on platform after publishing)
+- **Matrix**: grid questions with rows and columns
+- **Rating**: star rating, scale rating, range slider
+- **Display**: headings, paragraphs (with HTML support)
+- **Media**: embedded HTML, audio, video
+- **Special**: file upload, signature, single checkbox
 
 ## How It Works
 
-Once loaded, the LLM sees `create-form` as a callable action and can invoke it whenever relevant in conversation.
+Once the MCP server is connected, the AI sees all 13 tools and uses them automatically based on your requests.
 
-**Example usage in Claude or Cursor**:
+**Example conversation:**
 
-> “Create a bug reporting form for engineering users with required fields for steps to reproduce.”
+> **You:** Create a customer feedback form with a star rating, a comment box, and an email field. Make it look professional.
+>
+> **AI:** I'll create that for you. Here's your live preview: `https://forms.weavely.ai/abc-123` — you can open it now and refresh to see updates as I build.
+>
+> _(AI calls create\_form, then add\_element three times, then set\_theme)_
+>
+> **You:** Add a dropdown asking how they found us, with options for Google, Social Media, and Friend.
+>
+> _(AI calls add\_element with radio-buttons and options)_
+>
+> **You:** Looks great, publish it!
+>
+> _(AI calls publish\_form)_
+>
+> **AI:** Your form is published! Open the editor to claim it: `https://forms.weavely.ai/editor/xyz-456?publish=true`
 
-The LLM will detect this intent, call the `create-form` tool, and return a full JSON definition of the form.
+The live preview updates with every change — you just refresh the page to see the latest version.
+
+## After Publishing
+
+Once you publish and claim your form on the Weavely platform, you get access to additional features that aren't available through the MCP:
+
+- **Integrations**: Make, Zapier, n8n, Google Sheets, HubSpot, Airtable, Notion
+- **Email notifications**: get notified on submissions or send confirmation emails
+- **Social media preview**: customize Open Graph image, title, and description
+- **Custom domain**: serve the form on your own domain
+- **Embed codes**: embed the form on any website
+- **Analytics**: view submissions and response data
+
+For the full developer reference, see our [Forms API documentation](https://help.weavely.ai/developers/forms) and [llms.txt](https://help.weavely.ai/llms.txt).
