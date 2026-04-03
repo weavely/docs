@@ -1,0 +1,84 @@
+---
+title: "Smart Insights: analyze survey results with AI"
+sidebarTitle: "Smart Insights"
+description: "Learn how to use Weavely's Smart Insights to automatically analyze survey data, cluster open-ended responses by theme, and find correlations across questions."
+---
+
+<iframe src="https://www.youtube.com/embed/GR_EYMSrdao" title="YouTube video player" frameborder="0" className="w-full aspect-video rounded-xl" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen />
+
+Every form collects data, but reading through responses one by one doesn't scale. Smart Insights uses AI to automatically analyze your survey results so you can spot patterns, understand open-ended answers, and find correlations between questions in seconds.
+
+<Info>
+  Smart Insights is not a replacement for fine-grained statistical analysis tools like Excel or R. It's designed to give you a fast, digestible overview of what your respondents are saying, grounded in real examples.
+</Info>
+
+## Where to find your results
+
+Once your form has collected responses, you have three tabs under the **Results** section:
+
+<Steps>
+  <Step title="Responses">
+    <Frame>
+      ![Screenshot showing a table of form responses in Weavely.ai](/images/Screenshot2026-04-03at11.13.25.webp)
+    </Frame>
+
+    A table showing every submission you've received. You can browse the full list or click into individual responses to see what a specific person answered across all questions.
+
+    <Frame>
+      ![Screenshot showing individual form responses in Weavely.ai](/images/Screenshot2026-04-03at11.13.53.webp)
+    </Frame>
+
+    You also get a **per-question view**: select any question to see a breakdown of how people responded, including numerical summaries for rating-type questions.
+
+    <Frame>
+      ![Screenshot showing form responses per question in Weavely.ai](/images/Screenshot2026-04-03at11.14.04.webp)
+    </Frame>
+  </Step>
+  <Step title="Analytics">
+    A high-level dashboard showing how your form is performing over time: total views, number of submissions, and trends. Think of this as meta-data about your form rather than analysis of the answers themselves.
+
+    <Frame>
+      ![Screenshot showing form analytics in Weavely.ai](/images/Screenshot2026-04-03at11.14.32.webp)
+    </Frame>
+  </Step>
+  <Step title="Smart Insights">
+    This is where AI-powered survey data analysis happens. Smart Insights automatically examines all your responses and surfaces what's worth paying attention to. More on this below.
+  </Step>
+</Steps>
+
+## How Smart Insights analyzes your data
+
+Smart Insights does two things that are hard to do manually: it **clusters open-ended text responses** into themes and it **finds correlations** across different questions.
+
+### Clustering open-ended responses
+
+<Frame>
+  ![Screenshot showing smart insights in Weavely.ai](/images/Screenshot2026-04-03at11.17.37.webp)
+</Frame>
+
+Open-ended questions are notoriously difficult to analyze. When fifty people answer "If you had a magic delete button, which feature would you remove?" in their own words, you need to read every answer to find patterns.
+
+Smart Insights handles this automatically. The AI reads every response, groups them into thematic clusters, and presents the results in two ways:
+
+- **Theme summaries** — Each cluster gets a label (e.g., "Performance and reliability issues") with a plain-language explanation of the category and concrete examples pulled from real responses. You see the pattern _and_ the evidence behind it.
+- **Bar chart visualization** — The same clustering data, shown as a chart so you can instantly see which themes come up most. For example, you might see that 4 out of 50 respondents would remove the "AI standup summaries" feature — even though they all phrased it differently.
+
+<Tip>
+  The AI groups responses by meaning, not by exact wording. So "the app is too slow," "loading takes forever," and "speed needs work" all end up in the same cluster.
+</Tip>
+
+### Finding correlations between questions
+
+Beyond analyzing individual questions, Smart Insights looks across your entire survey to find correlations between answers on different questions.
+
+For example, it might surface that users who requested improvements to the mobile app or integrations are also more likely to recommend your product. You'll see a visualization showing the relationship: what one group answered on one question mapped against their answers on another.
+
+This kind of cross-question analysis is exactly the sort of thing that typically requires exporting your data into a spreadsheet and running manual comparisons. Smart Insights does it for you, automatically.
+
+## When to use Smart Insights
+
+Smart Insights is most valuable when your form includes:
+
+- **Open-ended text questions** where respondents write free-form answers that are hard to scan manually
+- **Multiple questions** where correlations between answers might reveal something you wouldn't catch by reading responses individually
+- **Enough responses** to make patterns meaningful. The more submissions you have, the more useful the clustering and correlation analysis becomes
