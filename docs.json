@@ -150,7 +150,8 @@
               "guides/examples-cover",
               "guides/use-cases/pdf-to-form",
               "guides/use-cases/hubspot-lead-gen",
-              "guides/use-cases/pdf-reports"
+              "guides/use-cases/pdf-reports",
+              "guides/use-cases/auto-generate-post-meeting-surveys-with-n8n-and-weavely"
             ]
           },
           {
