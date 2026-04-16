@@ -81,7 +81,8 @@
                   "integrations/custom-gpt",
                   "integrations/mcp",
                   "integrations/claude",
-                  "integrations/figma-to-web-form"
+                  "integrations/figma-to-web-form",
+                  "integrations/how-to-create-forms-and-surveys-with-the-weavely-mcp-server-in-mistral-ai"
                 ]
               },
               {
