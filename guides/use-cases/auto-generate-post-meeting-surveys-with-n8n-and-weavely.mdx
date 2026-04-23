@@ -4,8 +4,9 @@ og:title: "Auto-Generate Post-Meeting Surveys with n8n and Weavely"
 description: "Learn how to automatically generate tailored post-meeting surveys from your Google Meet notes using an n8n AI agent and the Weavely MCP."
 sidebarTitle: "n8n Post-Meeting Surveys"
 ---
+
 <span className="weavely-jsonld" hidden>
-{`{
+  {`{
   "@context": "https://schema.org",
   "@graph": [
     {
@@ -53,13 +54,16 @@ sidebarTitle: "n8n Post-Meeting Surveys"
       "url": "https://www.weavely.ai"
     }
   ]
-}`}
+  }`}
 </span>
+
 <iframe src="https://www.youtube.com/embed/xapyKQZQm7Q" title="YouTube video player" frameborder="0" className="w-full aspect-video rounded-xl" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen />
 
 Most meetings end with good intentions and no follow-through. A post-meeting survey is the simplest way to capture feedback while the discussion is still fresh, but nobody sends them manually because the effort is not worth it for every call.
 
 This guide shows you how to build an n8n workflow that does it automatically. When a meeting ends, the workflow reads your Google Meet notes, generates tailored survey questions using an AI agent, builds the form via the Weavely MCP, and sends it to all attendees after a quick Slack approval.
+
+You can also use our free template here: [https://n8n.io/workflows/15095](https://n8n.io/workflows/15095) 
 
 ## What you need
 
