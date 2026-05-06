@@ -1,0 +1,95 @@
+---
+title: "Payments"
+---
+
+Weavely integrates with [Stripe](https://stripe.com) so you can collect payments directly through your forms. This works for one-time donations, single purchases, and recurring subscriptions.
+
+<Info>
+  You'll need a Stripe account to accept payments. If you don't have one yet, you can [create one here](https://dashboard.stripe.com/register).
+</Info>
+
+<iframe src="https://www.youtube.com/embed/I8yN18igJoM" title="YouTube video player" frameborder="0" className="w-full aspect-video rounded-xl" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen />
+
+## How it works
+
+When a respondent submits your form, they're redirected to a Stripe checkout page to complete the payment. Once payment succeeds, they're sent back to your form's success page. The money goes directly into your Stripe account, it never passes through Weavely.
+
+## Create a payment form
+
+<Steps>
+  <Step title='Generate your form with AI, set it to "Payment Form" mode'>
+    Describe the form you need in the prompt box. For example: _"I need a donation form for my pet adoption center"_.
+
+    Weavely AI will generate all the relevant fields for you, including the payment amount field, contact details, and success/error pages.
+
+    <Frame>
+      ![Screenshot showing how to enable payments in Weavely AI forms.](/images/Screenshot-2026-05-06-at-13.28.56.webp)
+    </Frame>
+
+    \
+    Most importantly, AI will automatically enable the "Payment Form" form mode for you in your form's settings. You can also do this manually. 
+  </Step>
+  <Step title="Connect your Stripe account" stepNumber={2}>
+    Go to your form's **Settings → Payment**  and click **Connect** to link your Stripe account.
+
+    <Frame>
+      ![Screenshot showing how to connect your Stripe account in Weavely AI.](/images/Screenshot-2026-05-06-at-13.38.32.webp)
+    </Frame>
+
+    You'll be asked to select which Stripe account to connect and grant the necessary permissions. Weavely has been vetted by Stripe — the integration only creates payments on your behalf and sends the money directly to your account.
+  </Step>
+  <Step title="Configure your payment type" stepNumber={3}>
+    After connecting Stripe, choose your payment type:
+
+    <Tabs>
+      <Tab title="Donation">
+        Select **Donation** as the payment type. This is the right option if you're a non-profit, donations are taxed at a lower rate by Stripe.
+
+        <Frame>
+          ![Configuring the payment options of a donation form in Weavely AI.](/images/Screenshot-2026-05-06-at-13.53.09.webp)
+        </Frame>
+      </Tab>
+      <Tab title="Purchase">
+        Select **Single purchase** for one-time product or service payments.
+
+        <Frame>
+          ![Configuring the payment options of a purchase form in Weavely AI.](/images/Screenshot-2026-05-06-at-13.54.31.webp)
+        </Frame>
+      </Tab>
+      <Tab title="Subscription">
+        Select **Subscription** for recurring payments. Stripe will handle the billing cycle automatically.
+
+        <Frame>
+          ![Configuring the payment options of a subscription form in Weavely AI.](/images/Screenshot-2026-05-06-at-13.55.49.webp)
+        </Frame>
+      </Tab>
+    </Tabs>
+
+    Give your payment a name and choose the currency, then choose how the amount is determined:
+
+    - **Fixed amount**: Every respondent pays the same amount. You set the amount.
+    - **Variable amount**: The amount is pulled from a numerical field in your form (e.g. a "Donation amount" field the respondent fills in).
+
+    <Note>
+      For variable amounts, the field must be a **numerical field**. Text fields won't work as a payment amount source.
+    </Note>
+
+    Finally, set the billing interval for the subscription
+
+    Click **Save** when you're done.
+  </Step>
+  <Step title="Publish and share" stepNumber={4}>
+    Hit the **Publish** button. You'll get a shareable URL you can send to respondents. You can also embed the form on your website as a standard embed or as a pop-up.
+  </Step>
+</Steps>
+
+## Viewing your payments
+
+There are two places to check incoming payments:
+
+- **In Weavely**: Go to the **Results** tab of your form. You'll see all submitted data, including whether each payment succeeded or failed, along with the payment amount.
+- **In Stripe**: Log in to your [Stripe dashboard](https://dashboard.stripe.com) to see the payments in your account. This is where you'll manage refunds, payouts, and financial reporting.
+
+<Tip>
+  You can also send response data to [Google Sheets](/integrations/google-sheets) or other tools using the **Integrations** tab. This is useful for keeping a live record of all donations or purchases.
+</Tip>
