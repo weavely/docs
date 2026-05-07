@@ -99,7 +99,7 @@ _No authentication header is required for this endpoint._
 
 ## Get form fields
 
-> GET api.weavely.ai/v1/forms/[formId]/fields
+> GET api.weavely.ai/v1/forms/\[formId\]/fields
 
 ### Request
 
@@ -180,31 +180,31 @@ _No authentication required for this endpoint._
 
 <ResponseField name="formJSON" type="object">
   Complete form structure with all pages and elements.
-  
+
   See **Form Structure Reference** below for complete specifications.
 </ResponseField>
 
 <ResponseField name="themeJSON" type="object">
   Complete theme configuration.
-  
+
   See **Theme Configuration Reference** below for all available options.
 </ResponseField>
 
 <ResponseField name="variables" type="array">
   Auto-generated variables for each input field in the form.
-  
+
   Each variable includes `id` (pattern: `field:{elementId}`), `type`, `label`, and `dataType`.
 </ResponseField>
 
 <ResponseField name="logicRules" type="array">
   Conditional logic rules configured for the form.
-  
+
   See **Logic Rules Reference** below for structure.
 </ResponseField>
 
 <ResponseField name="eventTriggers" type="array">
   Event-based triggers configured for the form.
-  
+
   See **Event Triggers Reference** below for structure.
 </ResponseField>
 
@@ -221,7 +221,7 @@ _No authentication required for this endpoint._
 </ResponseField>
 
 <Note>
-This endpoint returns the complete published form specification. The form must be published for this endpoint to return data — unpublished forms will return a 400 Bad Request error.
+  This endpoint returns the complete published form specification. The form must be published for this endpoint to return data — unpublished forms will return a 400 Bad Request error.
 </Note>
 
 ## Create form
@@ -300,7 +300,7 @@ The request body is a complete form specification with the following structure:
 
   ```json
   {
-    "mode": "quiz",
+    "type": "quiz",
     "quiz": {
       "instantFeedback": boolean
     },
@@ -364,6 +364,7 @@ The request body is a complete form specification with the following structure:
 
   Format: `https://forms.weavely.ai/{formId}`
 </ResponseField>
+
 <ResponseField name="editor" type="string">
   Direct link to edit the form.
 
@@ -419,6 +420,7 @@ curl -X POST https://api.weavely.ai/v1/forms \
 ```
 
 ---
+
 ## Update form
 
 > POST api.weavely.ai/v1/forms/:id
@@ -454,76 +456,79 @@ All body parameters are optional. Only include the fields you want to update. Om
 
 <ParamField body="formJSON" type="object">
   Update the form structure containing pages and elements.
-```json
-  {
-    "pages": [
-      {
-        "id": "string",
-        "name": "string",
-        "type": "form-page" | "ending-page",
-        "elements": [...]
-      }
-    ]
-  }
-```
-  
+
+  ```json
+    {
+      "pages": [
+        {
+          "id": "string",
+          "name": "string",
+          "type": "form-page" | "ending-page",
+          "elements": [...]
+        }
+      ]
+    }
+  ```
+
   See **Form Structure Reference** below for complete element types and configurations.
 </ParamField>
 
 <ParamField body="themeJSON" type="object">
   Update the form's visual theme configuration.
-```json
-  {
-    "name": "string",
-    "font": {...},
-    "logo": {...},
-    "colors": {...},
-    "layout": {...},
-    "visual": {...}
-  }
-```
-  
+
+  ```json
+    {
+      "name": "string",
+      "font": {...},
+      "logo": {...},
+      "colors": {...},
+      "layout": {...},
+      "visual": {...}
+    }
+  ```
+
   See **Theme Configuration Reference** below for all available options.
 </ParamField>
 
 <ParamField body="settings" type="object">
   Update form settings.
-```json
-  {
-    "access": {
-      "stopSubmissions": boolean
-    },
-    "general": {
-      "showProgressBar": boolean,
-      "autoSaveProgress": boolean
-    },
-    "notifications": {
-      "submissionEmail": {...},
-      "confirmationEmail": {...}
+
+  ```json
+    {
+      "access": {
+        "stopSubmissions": boolean
+      },
+      "general": {
+        "showProgressBar": boolean,
+        "autoSaveProgress": boolean
+      },
+      "notifications": {
+        "submissionEmail": {...},
+        "confirmationEmail": {...}
+      }
     }
-  }
-```
+  ```
 </ParamField>
 
 <ParamField body="logicRules" type="array">
   Update conditional logic rules.
-  
+
   Each rule defines conditions and actions to execute based on field values.
-  
+
   See **Logic Rules Reference** below for complete documentation.
 </ParamField>
 
 <ParamField body="eventTriggers" type="array">
   Update event-based triggers.
-  
+
   Triggers execute actions in response to form events (e.g., form submission, page load).
-  
+
   See **Event Triggers Reference** below for available triggers and actions.
 </ParamField>
 
 <ParamField body="calculatedValues" type="array">
   Update calculated field values.
-  
+
   (Currently undocumented - reserved for future use)
 </ParamField>
 
@@ -536,6 +541,7 @@ All body parameters are optional. Only include the fields you want to update. Om
 ### Examples
 
 **Update only the form name:**
+
 ```bash
 curl -X POST https://api.weavely.ai/v1/forms/e2fdec38-130c-4e2c-b0c7-4f238206c9ce \
   -H "Content-Type: application/json" \
@@ -546,6 +552,7 @@ curl -X POST https://api.weavely.ai/v1/forms/e2fdec38-130c-4e2c-b0c7-4f238206c9c
 ```
 
 **Response:**
+
 ```json
 {
   "id": "e2fdec38-130c-4e2c-b0c7-4f238206c9ce"
@@ -555,11 +562,11 @@ curl -X POST https://api.weavely.ai/v1/forms/e2fdec38-130c-4e2c-b0c7-4f238206c9c
 ---
 
 <Note>
-This endpoint performs a **partial update**. Only the top-level fields you include in the request body will be modified. All other fields remain unchanged. This allows you to update specific parts of a form without needing to send the entire form structure.
+  This endpoint performs a **partial update**. Only the top-level fields you include in the request body will be modified. All other fields remain unchanged. This allows you to update specific parts of a form without needing to send the entire form structure.
 </Note>
 
 <Warning>
-When updating nested objects like `themeJSON` or `settings`, the entire object at that level is replaced. For example, if you update `themeJSON.colors`, make sure to include all color properties you want to keep, as the entire `colors` object will be replaced.
+  When updating nested objects like `themeJSON` or `settings`, the entire object at that level is replaced. For example, if you update `themeJSON.colors`, make sure to include all color properties you want to keep, as the entire `colors` object will be replaced.
 </Warning>
 
 ## Form Structure Reference
@@ -1051,7 +1058,6 @@ Weavely forms support 26 element types organized into categories:
       "url": "string"
     }
   }
-  ```
 </Accordion>
 
 <Accordion title="embed-video">
@@ -1160,17 +1166,17 @@ Full color palette for the form. All values are hex codes.
 }
 ```
 
-| Color        | Controls                        |
-| ------------ | ------------------------------- |
-| `primary`    | Buttons, accents, active states |
-| `background` | Page/form background            |
-| `text`       | General body text               |
-| `question`   | Field labels / question text    |
-| `answer`     | User input text                 |
-| `secondary`  | Secondary UI elements           |
-| `surface`    | Input field backgrounds         |
-| `border`     | Input borders, dividers         |
-| `error`      | Validation error messages       |
+| Color | Controls |
+| --- | --- |
+| `primary` | Buttons, accents, active states |
+| `background` | Page/form background |
+| `text` | General body text |
+| `question` | Field labels / question text |
+| `answer` | User input text |
+| `secondary` | Secondary UI elements |
+| `surface` | Input field backgrounds |
+| `border` | Input borders, dividers |
+| `error` | Validation error messages |
 
 You can provide only a subset of colors (e.g. just `primary` and `background`) and the theme preset will fill in the rest.
 
@@ -1184,14 +1190,14 @@ Controls where the visual (image or color) appears relative to the form.
 }
 ```
 
-| Type      | Description                                                 |
-| --------- | ----------------------------------------------------------- |
-| `under`   | Visual is placed behind the form as a full-page background  |
-| `left`    | Visual is displayed as a left side panel, form on the right |
-| `right`   | Visual is displayed as a right side panel, form on the left |
-| `clean`   | No visual — form only                                       |
-| `over`    | Visual overlays the form area                               |
-| `through` | Visual bleeds through the form                              |
+| Type | Description |
+| --- | --- |
+| `under` | Visual is placed behind the form as a full-page background |
+| `left` | Visual is displayed as a left side panel, form on the right |
+| `right` | Visual is displayed as a right side panel, form on the left |
+| `clean` | No visual — form only |
+| `over` | Visual overlays the form area |
+| `through` | Visual bleeds through the form |
 
 ### Visual
 
@@ -1326,12 +1332,12 @@ Quiz mode turns a form into a scored assessment.
 
 ### Enabling Quiz Mode
 
-Set `settings.mode` to `"quiz"` and optionally configure quiz-specific settings:
+Set `settings.type` to `"quiz"` and optionally configure quiz-specific settings:
 
 ```json
 {
   "settings": {
-    "mode": "quiz",
+    "type": "quiz",
     "quiz": {
       "instantFeedback": true
     }
@@ -1339,10 +1345,10 @@ Set `settings.mode` to `"quiz"` and optionally configure quiz-specific settings:
 }
 ```
 
-| Setting                | Type     | Description                                                                              |
-| ---------------------- | -------- | ---------------------------------------------------------------------------------------- |
-| `mode`                 | `"quiz"` | Activates quiz mode. Omit for standard form behaviour                                    |
-| `quiz.instantFeedback` | boolean  | When `true`, shows correct/incorrect feedback after each question rather than at the end |
+| Setting | Type | Description |
+| --- | --- | --- |
+| `type` | `"quiz"` | Activates quiz mode. Omit for standard form behaviour |
+| `quiz.instantFeedback` | boolean | When `true`, shows correct/incorrect feedback after each question rather than at the end |
 
 ### Quiz-Compatible Element Types
 
@@ -1370,22 +1376,22 @@ Add a `quiz` object to any compatible element to define its correct answer and s
 }
 ```
 
-| Field    | Type             | Description                                                                                                                                                                                                        |
-| -------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `score`  | number           | Points awarded for a correct answer. Can be any positive number — questions can be weighted differently                                                                                                            |
-| `answer` | string           | Correct answer for single-select elements (`radio-buttons`, `input-text`, `dropdown`). For `radio-buttons` and `dropdown`, must match the option's `value` exactly. For `input-text`, matching is case-insensitive |
-| `answer` | array of strings | All correct answers for `checkbox-buttons` — respondent must select exactly this set of values                                                                                                                     |
+| Field | Type | Description |
+| --- | --- | --- |
+| `score` | number | Points awarded for a correct answer. Can be any positive number — questions can be weighted differently |
+| `answer` | string | Correct answer for single-select elements (`radio-buttons`, `input-text`, `dropdown`). For `radio-buttons` and `dropdown`, must match the option's `value` exactly. For `input-text`, matching is case-insensitive |
+| `answer` | array of strings | All correct answers for `checkbox-buttons` — respondent must select exactly this set of values |
 
 ### Quiz Variables
 
 When quiz mode is active, four variables are automatically available for use in logic rules and answer piping:
 
-| Variable ID                 | Description                                             |
-| --------------------------- | ------------------------------------------------------- |
-| `quiz:quiz-score`           | Total points scored by the respondent                   |
-| `quiz:max-score`            | Maximum possible score (sum of all `quiz.score` values) |
-| `quiz:correct-answers`      | Number of questions answered correctly                  |
-| `quiz:total-quiz-questions` | Total number of quiz questions in the form              |
+| Variable ID | Description |
+| --- | --- |
+| `quiz:quiz-score` | Total points scored by the respondent |
+| `quiz:max-score` | Maximum possible score (sum of all `quiz.score` values) |
+| `quiz:correct-answers` | Number of questions answered correctly |
+| `quiz:total-quiz-questions` | Total number of quiz questions in the form |
 
 ### Score-Based Conditional Endings
 
@@ -1430,6 +1436,32 @@ Pipe quiz variables into paragraph labels using `{{variable_id}}` syntax. Elemen
 ```
 
 ---
+
+## Payment Mode Reference
+
+Payment mode turns a form into a payment collection form.
+
+### Enabling Payment Mode
+
+Set `settings.type` to `"payment"`:
+
+```json
+{
+  "settings": {
+    "type": "payment"
+  }
+}
+```
+
+| Setting | Type        | Description                                           |
+| ------- | ----------- | ----------------------------------------------------- |
+| `type`  | `"payment"` | Activates payment mode. Omit for standard form behaviour |
+
+<Note>
+  Payment forms require additional setup in the Weavely dashboard (Stripe integration, pricing, etc.) before they can accept payments. The API call only flags the form as a payment form — it does not configure the payment provider.
+</Note>
+
+***
 
 ## Logic Rules Reference
 
@@ -1546,38 +1578,38 @@ Set the form's language via `settings.i18n.language`. The server automatically i
 
 ### Supported Languages
 
-| Language              | Code      |
-| --------------------- | --------- |
-| Arabic                | `ar`      |
-| Catalan               | `ca`      |
-| Chinese (Simplified)  | `zh-Hans` |
+| Language | Code |
+| --- | --- |
+| Arabic | `ar` |
+| Catalan | `ca` |
+| Chinese (Simplified) | `zh-Hans` |
 | Chinese (Traditional) | `zh-Hant` |
-| Croatian              | `hr`      |
-| Czech                 | `cs`      |
-| Danish                | `da`      |
-| Dutch                 | `nl`      |
-| English               | `en`      |
-| Estonian              | `et`      |
-| Finnish               | `fi`      |
-| French                | `fr`      |
-| German (Formal)       | `de`      |
-| German (Informal)     | `di`      |
-| Greek                 | `el`      |
-| Hebrew                | `he`      |
-| Hindi                 | `hi`      |
-| Hungarian             | `hu`      |
-| Indonesian            | `id`      |
-| Italian               | `it`      |
-| Japanese              | `ja`      |
-| Korean                | `ko`      |
-| Norwegian             | `no`      |
-| Polish                | `pl`      |
-| Portuguese            | `pt`      |
-| Russian               | `ru`      |
-| Spanish               | `es`      |
-| Swedish               | `sv`      |
-| Turkish               | `tr`      |
-| Ukrainian             | `uk`      |
-| Vietnamese            | `vi`      |
+| Croatian | `hr` |
+| Czech | `cs` |
+| Danish | `da` |
+| Dutch | `nl` |
+| English | `en` |
+| Estonian | `et` |
+| Finnish | `fi` |
+| French | `fr` |
+| German (Formal) | `de` |
+| German (Informal) | `di` |
+| Greek | `el` |
+| Hebrew | `he` |
+| Hindi | `hi` |
+| Hungarian | `hu` |
+| Indonesian | `id` |
+| Italian | `it` |
+| Japanese | `ja` |
+| Korean | `ko` |
+| Norwegian | `no` |
+| Polish | `pl` |
+| Portuguese | `pt` |
+| Russian | `ru` |
+| Spanish | `es` |
+| Swedish | `sv` |
+| Turkish | `tr` |
+| Ukrainian | `uk` |
+| Vietnamese | `vi` |
 
 Note: German uses custom codes — `de` for formal ("Sie") and `di` for informal ("du").
