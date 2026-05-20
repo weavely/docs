@@ -67,7 +67,8 @@
               "features/pdf-responses",
               "features/field-validation",
               "features/payments",
-              "features/version-history"
+              "features/version-history",
+              "features/animations"
             ]
           },
           {
