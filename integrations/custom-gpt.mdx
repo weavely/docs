@@ -1,115 +1,128 @@
 ---
-title: "Building Weavely.ai Forms in ChatGPT, Custom GPT Tutorial"
+title: "Build forms and surveys in ChatGPT with Weavely"
 og:title: "Building Weavely.ai Forms in ChatGPT, Custom GPT Tutorial"
-description: "Learn how to build Weavely.ai forms and surveys inside ChatGPT using our custom GPT"
+description: "Build forms and surveys from a prompt with the Weavely ChatGPT app, refine the design and logic in chat, then publish to collect responses inside ChatGPT."
 sidebarTitle: "ChatGPT "
 ---
-<span className="weavely-jsonld" hidden>
-{`{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "WebPage",
-      "@id": "https://help.weavely.ai/integrations/custom-gpt",
-      "url": "https://help.weavely.ai/integrations/custom-gpt",
-      "name": "Building Weavely.ai Forms in ChatGPT, Custom GPT Tutorial",
-      "description": "Learn how to build Weavely.ai forms and surveys inside ChatGPT using our custom GPT.",
-      "inLanguage": "en",
-      "isPartOf": {
-        "@type": "WebSite",
-        "@id": "https://help.weavely.ai/#website",
-        "name": "Weavely Help Center"
-      },
-      "breadcrumb": {
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Integrations", "item": "https://help.weavely.ai/integrations" },
-          { "@type": "ListItem", "position": 2, "name": "ChatGPT", "item": "https://help.weavely.ai/integrations/custom-gpt" }
-        ]
-      },
-      "publisher": { "@id": "https://www.weavely.ai/#org" }
-    },
-    {
-      "@type": "TechArticle",
-      "headline": "Building Weavely.ai Forms in ChatGPT, Custom GPT Tutorial",
-      "description": "Learn how to build Weavely.ai forms and surveys inside ChatGPT using our custom GPT.",
-      "author": { "@id": "https://www.weavely.ai/#org" },
-      "publisher": { "@id": "https://www.weavely.ai/#org" },
-      "inLanguage": "en",
-      "mainEntityOfPage": { "@id": "https://help.weavely.ai/integrations/custom-gpt" }
-    },
-    {
-      "@type": "VideoObject",
-      "name": "How to Build Working Forms and Surveys in ChatGPT",
-      "description": "In this short tutorial I explain how you can build working forms and surveys from within ChatGPT — forms that are published on the web and can gather actual responses.",
-      "uploadDate": "2025-04-24T00:00:00Z",
-      "duration": "PT2M31S",
-      "embedUrl": "https://www.youtube.com/embed/3q3O75AWCJk",
-      "contentUrl": "https://www.youtube.com/watch?v=3q3O75AWCJk",
-      "thumbnailUrl": [
-        "https://i.ytimg.com/vi/3q3O75AWCJk/hqdefault.jpg",
-        "https://i.ytimg.com/vi/3q3O75AWCJk/sddefault.jpg"
-      ],
-      "potentialAction": {
-        "@type": "WatchAction",
-        "target": "https://www.youtube.com/watch?v=3q3O75AWCJk"
-      },
-      "publisher": { "@id": "https://www.weavely.ai/#org" },
-      "author": { "@id": "https://www.weavely.ai/#org" }
-    },
-    {
-      "@type": "Organization",
-      "@id": "https://www.weavely.ai/#org",
-      "name": "WEAVE.LY BV",
-      "url": "https://www.weavely.ai",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Herbert Hooverlaan 141",
-        "addressLocality": "Schaarbeek",
-        "postalCode": "1030",
-        "addressCountry": "BE"
-      },
-      "identifier": "BE0773.878.569",
-      "sameAs": [
-        "https://www.instagram.com/weavely.ai/",
-        "https://www.linkedin.com/company/weave-ly/",
-        "https://www.youtube.com/@weavely"
-      ]
-    }
-  ]
-}`}
-</span>
 
-Looking to build forms and surveys in ChatGPT? We've built a custom GPT for exactly that use case. In this short tutorial you'll learn how to get started.
+Weavely is a ChatGPT app that lets you build working forms and surveys without leaving ChatGPT. Describe what you need, Weavely generates a live form, and you refine the questions, design, and logic right in the conversation — then publish to start collecting responses.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/3q3O75AWCJk?si=F1mEWRQsol6fU3mP" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen />
+It's free to use, with unlimited forms and unlimited responses.
 
-## Step 1: Finding our Custom GPT "Weavely Forms & Surveys"
+<Note>
+  You need a ChatGPT account to use the app. You only create a free Weavely account at the end, when you publish your form and want to collect responses.
+</Note>
 
-You can search for our custom GPT in the _"Explore GPTs"_ section of ChatGPT (see screenshot below). Alternatively, here's a [direct link](https://chatgpt.com/g/g-6808eedcf1bc8191a47e3c46b2bda4df-weavely-forms-surveys) to it!
+## Add the Weavely app to ChatGPT
 
-![Screenshot showing how to find custom GPTs in ChatGPT](/gpt11-ezgif.com-png-to-webp-converter.webp)
+<Steps>
+  <Step title="Find Weavely in ChatGPT apps">
+    In ChatGPT, open **Apps** and search for **Weavely** — listed as "Weavely – free forms and surveys."
 
-Once you've found our custom GPT simply press the "Start Chat" button at the bottom of the custom GPT card.
+    <Frame caption="Weavely in the ChatGPT apps directory">
+      ![Searching for the Weavely app in ChatGPT](/images/chatgpt-app/find-weavely.png)
+    </Frame>
+  </Step>
+  <Step title="Connect the app">
+    Select **Connect**. ChatGPT asks you to approve a few permissions. You can allow it to reference your chat memories, but that isn't required to build a form — so you can skip it and select **Connect**.
+  </Step>
+  <Step title="Start a chat with Weavely">
+    Select **Start chat**, or open any new chat and choose **Weavely forms and surveys** from the **\+ More** menu.
+  </Step>
+</Steps>
 
-![Screenshot showing the page for Weavely AI's custom GPT](/gpt21-ezgif.com-png-to-webp-converter.webp)
+## Build your first form
 
-## Step 2: Chat and Iterate on Your Form or Survey
+<Steps>
+  <Step title="Describe the form you need">
+    Tell Weavely what you're collecting and any context that matters. The more detail you give, the better the result. For example:
 
-This part probably needs the least explaining. Simply chat to our custom GPT like you would with ChatGPT. Brainstorm questions to ask, phrasing, types of questions to use, etc. You can essentially leverage the power of ChatGPT to fine tune all content-related aspects of your form or survey!
+    > I need a feedback survey for my e-commerce products, which are sandals. It's summer, so that's topical.
 
-![Screenshot showing how to build a form in ChatGPT using Weavely AI's custom GPT](/gpt31-ezgif.com-png-to-webp-converter.webp)
+    Weavely explains what it's going to build, then generates a fully functional preview you can try right away. Use the expand icon to open it full screen.
 
-Once you are satisfied with the outline of your form you can ask ChatGPT to go ahead and generate the Weavely form for you. It will then proceed by asking you whether you trust Weavely.ai. If that's the case (which we hope sincerely) then simply press \_"Confirm". \_
+    <Frame caption="A live, interactive form preview generated from a prompt">
+      ![A form preview generated by Weavely inside ChatGPT](/images/chatgpt-app/form-preview.png)
+    </Frame>
+  </Step>
+  <Step title="Test the preview">
+    The preview is interactive. Fill it in and select **Submit** to see the thank-you screen, then reset it to try different answers and flows.
+  </Step>
+</Steps>
 
-![Screenshot showing how to signal ChatGPT you are ready to publish your survey on Weavely AI](/gpt41-ezgif.com-png-to-webp-converter.webp)
+## Refine it in chat
 
-ChatGPT will subsequently send over the questions and question types used in your form to our API. Once the form is generated you'll receive the link to it inside of your conversation.
+Everything about the form can be changed by chatting with Weavely — no editor required.
 
-![Screenshot showing ChatGPT publishing a form using Weavely AI Custom GPT](/gpt51-ezgif.com-png-to-webp-converter.webp)
+**Change the design.** Ask for the look you want and Weavely updates the theme:
 
-## Step 3: Fine-tuning your Form's Design and Publishing
+> Can you make the colors more beach-like, given that this is about sandals?
 
-Clicking the link in the previous step will lead you straight to the Weavely.ai editor. You can use the editor to further refine the look and feel of your form, set up integrations, add conditional logic (e.g. skipping certain questions) or even change your form's social media preview and favicon. Whenever you're satisfied with the result you can go ahead and hit the "_Publish"_ button (top right). This step will require you to have a Weavely.ai account, but don't worry it's free to create one!
+**Add or edit questions.** Ask Weavely to add, remove, or reword questions at any time.
 
-![Screenshot showing how to fine tune a form generated in ChatGPT using Weavely AI](/gpt61-ezgif.com-png-to-webp-converter.webp)
+**Add conditional logic.** Show a question only when it's relevant:
+
+> Only show the sizing question if someone gives a star rating above two.
+
+ChatGPT asks permission to change the form's logic, then shows an updated preview. Test it: a rating of 4 reveals the sizing question, while a rating below 2 hides it.
+
+<Tip>
+  Treat it like a conversation. Keep refining the design, questions, and logic until the preview is exactly what you want before you publish.
+</Tip>
+
+## Publish and share
+
+<Steps>
+  <Step title="Publish your form">
+    When you're happy with the preview, select **Share form**. Weavely opens the platform for the final step.
+  </Step>
+  <Step title="Create your account and get the link">
+    If you don't have a Weavely account yet, create one for free. Once you're in, copy your form's URL.
+
+    <Frame caption="Your published form's shareable link in Weavely">
+      ![The shareable form URL in the Weavely platform](/images/chatgpt-app/share-link.png)
+    </Frame>
+  </Step>
+  <Step title="Collect responses">
+    Share the link with respondents. As people submit, their answers appear under your form's results in Weavely.
+  </Step>
+</Steps>
+
+## Do more in Weavely
+
+The ChatGPT app gets you from idea to published form fast, but you can keep working in Weavely whenever you need to:
+
+- **Keep editing** the theme, questions, and logic rules in the Weavely editor.
+- **Send responses anywhere** with integrations like Google Sheets, Zapier, Make, and n8n.
+
+## FAQ
+
+<AccordionGroup>
+  <Accordion title="Is the Weavely ChatGPT app free?">
+    Yes. You can create unlimited forms and collect unlimited responses for free.
+  </Accordion>
+
+  <Accordion title="Do I need a Weavely account?">
+    Not to build and preview a form. You create a free account only when you publish and want to start collecting responses.
+  </Accordion>
+
+  <Accordion title="Can I add conditional logic to my form?">
+    Yes. Ask in chat — for example, "only show this question if the rating is above two" — and Weavely updates the form's logic.
+  </Accordion>
+
+  <Accordion title="Where do my form responses go?">
+    Responses appear in your form's results in Weavely, and you can forward them to tools like Google Sheets, Zapier, Make, or n8n.
+  </Accordion>
+</AccordionGroup>
+
+## Next steps
+
+<CardGroup cols={2}>
+  <Card title="Try Weavely" icon="rocket" href="https://www.weavely.ai">
+    Build your first form or survey in ChatGPT.
+  </Card>
+
+  <Card title="Connect your integrations" icon="plug" href="https://www.weavely.ai">
+    Send responses to Google Sheets, Zapier, Make, and n8n.
+  </Card>
+</CardGroup>
