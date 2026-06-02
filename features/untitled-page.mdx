@@ -1,0 +1,55 @@
+---
+title: "Match Quiz"
+description: "Use Weavely's AI to build a quiz that weights each answer and sorts respondents into categories. Ideal for personality quizzes and product-match finders."
+---
+
+<iframe src="https://www.youtube.com/embed/BcgQHVZDkcA" title="YouTube video player" frameborder="0" className="w-full aspect-video rounded-xl" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen />
+
+A match quiz sorts respondents into **categories** based on their answers. Instead of one score, each answer carries **weights** toward different outcomes, and the outcome with the most points is the one the respondent sees. It's the format behind personality quizzes and "which product should you buy" finders.
+
+<Note>
+  Want a single score per respondent instead (e.g. cold, warm, hot leads)? See [Build a lead qualification form](/build-a-lead-qualification-form).
+</Note>
+
+## Steps
+
+<Steps>
+  <Step title="Describe the quiz you want">
+    Describe the quiz and the categories people should be sorted into. The more specific the prompt, the better the questions and outcomes.
+
+    ```text
+    I want a personality quiz which assigns people to one of the
+    four Harry Potter houses based on their traits.
+    ```
+
+    Another common use is an e-commerce product finder that recommends a different product depending on the answers. Press **Generate form**.
+  </Step>
+  <Step title="Review the questions and outcomes">
+    Weavely generates the questions _and_ the outcomes, in this case, one outcome per Harry Potter house, then wires up the weighting.
+
+    <Frame>
+      ![Generated match quiz questions and outcomes in Weavely AI](/images/Screenshot-2026-06-02-at-11.30.34.webp)
+    </Frame>
+  </Step>
+  <Step title="Check how the weighting is wired up">
+    Open **Settings → Match quiz**. Unlike a lead qualification form, there's no single score per answer. Instead, each answer carries a **weight** toward one or more outcomes. For example, "bravery" might be a point for Gryffindor, while "ambition" is a point for Slytherin. A single answer can carry weight toward several outcomes at once, bravery could add a point to both Gryffindor _and_ Hufflepuff.
+
+    <Frame>
+      ![Match quiz weighting settings in Weavely AI](/images/Screenshot-2026-06-02-at-11.31.28.webp)
+    </Frame>
+
+    <Tip>
+      Weavely's AI assigns weights for every question and answer automatically. Adjust or add weights to fine-tune which answers point to which outcome.
+    </Tip>
+  </Step>
+  <Step title="Publish and test">
+    Publish the form and fill it in. As a respondent moves through the quiz, they accumulate points toward each outcome, and the highest-scoring outcome is shown at the end.
+  </Step>
+  <Step title="Review responses">
+    <Frame>
+      ![Screenshot showing results of a match quiz in Weavely AI](/images/Screenshot-2026-06-02-at-11.32.25.webp)
+    </Frame>
+
+    In **Results**, you'll see each respondent's answers and the outcome they were matched to.
+  </Step>
+</Steps>

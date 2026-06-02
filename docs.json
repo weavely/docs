@@ -51,7 +51,8 @@
             "pages": [
               "features/quizzes",
               "features/payments",
-              "features/universal-form"
+              "features/universal-form",
+              "features/untitled-page"
             ]
           },
           {
