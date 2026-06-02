@@ -52,7 +52,8 @@
               "features/quizzes",
               "features/payments",
               "features/universal-form",
-              "features/untitled-page"
+              "features/match-quiz",
+              "features/lead-qualification"
             ]
           },
           {
