@@ -49,11 +49,11 @@
           {
             "group": "Form Modes",
             "pages": [
-              "features/quizzes",
-              "features/payments",
               "features/universal-form",
               "features/match-quiz",
-              "features/lead-qualification"
+              "features/lead-qualification",
+              "features/payments",
+              "features/quizzes"
             ]
           },
           {
