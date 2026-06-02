@@ -47,6 +47,13 @@
             ]
           },
           {
+            "group": "Form Modes",
+            "pages": [
+              "features/quizzes",
+              "features/payments"
+            ]
+          },
+          {
             "group": "Features",
             "pages": [
               "help-center/features/autosave",
@@ -60,14 +67,12 @@
               "features/answer-piping",
               "features/event-trigger",
               "features/embeddings",
-              "features/quizzes",
               "features/url-parameters",
               "features/progress-bar",
               "features/form-language",
               "features/create-multi-language-forms",
               "features/pdf-responses",
               "features/field-validation",
-              "features/payments",
               "features/version-history",
               "features/animations"
             ]
