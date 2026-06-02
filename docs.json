@@ -50,7 +50,8 @@
             "group": "Form Modes",
             "pages": [
               "features/quizzes",
-              "features/payments"
+              "features/payments",
+              "features/universal-form"
             ]
           },
           {
