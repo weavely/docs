@@ -78,7 +78,8 @@
               "features/field-validation",
               "features/version-history",
               "features/animations",
-              "features/closing-a-form"
+              "features/closing-a-form",
+              "features/password-protection"
             ]
           },
           {
