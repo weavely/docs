@@ -77,7 +77,8 @@
               "features/pdf-responses",
               "features/field-validation",
               "features/version-history",
-              "features/animations"
+              "features/animations",
+              "features/closing-a-form"
             ]
           },
           {
