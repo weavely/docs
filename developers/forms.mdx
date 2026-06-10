@@ -1,64 +1,64 @@
 ---
 title: "Forms API"
 og:title: "Generate Forms using Weavely's Free API"
-description: "Generate and manage AI-powered forms using Weavely's Forms API. Create, retrieve, and customize form data easily."
+description: "Generate and manage AI-powered forms using Weavely’s Forms API. Create, retrieve, and customize form data easily."
 ---
 
 <span className="weavely-jsonld" hidden>
   {`{
-  "@context": "https://schema.org",
-  "@graph": [
-  {
-    "@type": "WebPage",
-    "@id": "https://help.weavely.ai/developers/forms",
-    "url": "https://help.weavely.ai/developers/forms",
-    "name": "Forms API",
-    "description": "Endpoints for retrieving and managing forms.",
-    "inLanguage": "en",
-    "isPartOf": {
-      "@type": "WebSite",
-      "@id": "https://help.weavely.ai/#website",
-      "name": "Weavely Help Center"
+    "@context": "https://schema.org",
+    "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://help.weavely.ai/developers/forms",
+      "url": "https://help.weavely.ai/developers/forms",
+      "name": "Forms API",
+      "description": "Endpoints for retrieving and managing forms.",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://help.weavely.ai/#website",
+        "name": "Weavely Help Center"
+      },
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Developers", "item": "https://help.weavely.ai/developers" },
+          { "@type": "ListItem", "position": 2, "name": "Forms API", "item": "https://help.weavely.ai/developers/forms" }
+        ]
+      },
+      "publisher": { "@id": "https://www.weavely.ai/#org" }
     },
-    "breadcrumb": {
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Developers", "item": "https://help.weavely.ai/developers" },
-        { "@type": "ListItem", "position": 2, "name": "Forms API", "item": "https://help.weavely.ai/developers/forms" }
+    {
+      "@type": "TechArticle",
+      "headline": "Forms API",
+      "description": "API documentation for developers — learn how to generate and retrieve form data via Weavely’s endpoints.",
+      "inLanguage": "en",
+      "mainEntityOfPage": { "@id": "https://help.weavely.ai/developers/forms" },
+      "author": { "@id": "https://www.weavely.ai/#org" },
+      "publisher": { "@id": "https://www.weavely.ai/#org" }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://www.weavely.ai/#org",
+      "name": "WEAVE.LY BV",
+      "url": "https://www.weavely.ai",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Herbert Hooverlaan 141",
+        "addressLocality": "Schaarbeek",
+        "postalCode": "1030",
+        "addressCountry": "BE"
+      },
+      "identifier": "BE0773.878.569",
+      "sameAs": [
+        "https://www.instagram.com/weavely.ai/",
+        "https://www.linkedin.com/company/weave-ly/",
+        "https://www.youtube.com/@weavely"
       ]
-    },
-    "publisher": { "@id": "https://www.weavely.ai/#org" }
-  },
-  {
-    "@type": "TechArticle",
-    "headline": "Forms API",
-    "description": "API documentation for developers — learn how to generate and retrieve form data via Weavely's endpoints.",
-    "inLanguage": "en",
-    "mainEntityOfPage": { "@id": "https://help.weavely.ai/developers/forms" },
-    "author": { "@id": "https://www.weavely.ai/#org" },
-    "publisher": { "@id": "https://www.weavely.ai/#org" }
-  },
-  {
-    "@type": "Organization",
-    "@id": "https://www.weavely.ai/#org",
-    "name": "WEAVE.LY BV",
-    "url": "https://www.weavely.ai",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Herbert Hooverlaan 141",
-      "addressLocality": "Schaarbeek",
-      "postalCode": "1030",
-      "addressCountry": "BE"
-    },
-    "identifier": "BE0773.878.569",
-    "sameAs": [
-      "https://www.instagram.com/weavely.ai/",
-      "https://www.linkedin.com/company/weave-ly/",
-      "https://www.youtube.com/@weavely"
+    }
     ]
-  }
-  ]
-  }`}
+    }`}
 </span>
 
 ## Generate form
@@ -268,14 +268,14 @@ The request body is a complete form specification with the following structure:
       {
         "id": "string",
         "name": "string",
-        "type": "form-page" | "ending-page",
+        "type": "form-page" | "ending-page" | "score-outcome-page" | "match-outcome-page",
         "elements": [...]
       }
     ]
   }
   ```
 
-  See **Form Structure Reference** below for complete element types and configurations.
+  See **Form Structure Reference** below for page types, element types, and configurations.
 </ParamField>
 
 <ParamField body="themeJSON" type="object" required>
@@ -300,9 +300,15 @@ The request body is a complete form specification with the following structure:
 
   ```json
   {
-    "type": "quiz",
+    "type": "quiz" | "score" | "match" | "payment",
     "quiz": {
       "instantFeedback": boolean
+    },
+    "score": {
+      "outcomes": [...]
+    },
+    "match": {
+      "outcomes": [...]
     },
     "access": {
       "stopSubmissions": boolean
@@ -322,7 +328,7 @@ The request body is a complete form specification with the following structure:
   }
   ```
 
-  See **Quiz Mode Reference** below for quiz-specific settings. See **Internationalisation Reference** for supported language codes.
+  Omit `type` for universal form behaviour. See **Quiz Mode Reference**, **Score Mode Reference**, **Match Mode Reference**, and **Payment Mode Reference** below for mode-specific settings. See **Internationalisation Reference** for supported language codes.
 </ParamField>
 
 <ParamField body="logicRules" type="array">
@@ -360,7 +366,7 @@ The request body is a complete form specification with the following structure:
 </ResponseField>
 
 <ResponseField name="url" type="string">
-  Direct link to the form. Only valid if publish was set to true in request body
+  Direct link to the published form. **Only present when `publish` is set to `true`** in the request body.
 
   Format: `https://forms.weavely.ai/{formId}`
 </ResponseField>
@@ -458,33 +464,33 @@ All body parameters are optional. Only include the fields you want to update. Om
   Update the form structure containing pages and elements.
 
   ```json
-    {
-      "pages": [
-        {
-          "id": "string",
-          "name": "string",
-          "type": "form-page" | "ending-page",
-          "elements": [...]
-        }
-      ]
-    }
+  {
+    "pages": [
+      {
+        "id": "string",
+        "name": "string",
+        "type": "form-page" | "ending-page" | "score-outcome-page" | "match-outcome-page",
+        "elements": [...]
+      }
+    ]
+  }
   ```
 
-  See **Form Structure Reference** below for complete element types and configurations.
+  See **Form Structure Reference** below for page types, element types, and configurations.
 </ParamField>
 
 <ParamField body="themeJSON" type="object">
   Update the form's visual theme configuration.
 
   ```json
-    {
-      "name": "string",
-      "font": {...},
-      "logo": {...},
-      "colors": {...},
-      "layout": {...},
-      "visual": {...}
-    }
+  {
+    "name": "string",
+    "font": {...},
+    "logo": {...},
+    "colors": {...},
+    "layout": {...},
+    "visual": {...}
+  }
   ```
 
   See **Theme Configuration Reference** below for all available options.
@@ -494,20 +500,36 @@ All body parameters are optional. Only include the fields you want to update. Om
   Update form settings.
 
   ```json
-    {
-      "access": {
-        "stopSubmissions": boolean
-      },
-      "general": {
-        "showProgressBar": boolean,
-        "autoSaveProgress": boolean
-      },
-      "notifications": {
-        "submissionEmail": {...},
-        "confirmationEmail": {...}
-      }
+  {
+    "type": "quiz" | "score" | "match" | "payment",
+    "quiz": {
+      "instantFeedback": boolean
+    },
+    "score": {
+      "outcomes": [...]
+    },
+    "match": {
+      "outcomes": [...]
+    },
+    "access": {
+      "stopSubmissions": boolean
+    },
+    "general": {
+      "showProgressBar": boolean,
+      "autoSaveProgress": boolean,
+      "showValidationErrors": boolean
+    },
+    "notifications": {
+      "submissionEmail": {...},
+      "confirmationEmail": {...}
+    },
+    "i18n": {
+      "language": "string"
     }
+  }
   ```
+
+  Omit `type` for universal form behaviour. See **Quiz Mode Reference**, **Score Mode Reference**, **Match Mode Reference**, and **Payment Mode Reference** below for mode-specific settings. See **Internationalisation Reference** for supported language codes.
 </ParamField>
 
 <ParamField body="logicRules" type="array">
@@ -571,9 +593,51 @@ curl -X POST https://api.weavely.ai/v1/forms/e2fdec38-130c-4e2c-b0c7-4f238206c9c
 
 ## Form Structure Reference
 
+### Page Structure
+
+A form consists of one or more pages. Each page has the following structure:
+
+```json
+{
+  "id": "string (UUID)",
+  "name": "string",
+  "type": "form-page" | "ending-page" | "score-outcome-page" | "match-outcome-page",
+  "elements": [...]
+}
+```
+
+#### Page Types
+
+| Type | Description |
+| --- | --- |
+| `form-page` | A standard page in the form flow. Can contain any element type. Pages are shown in the order they appear in the `pages` array. |
+| `ending-page` | Shown after the form is submitted. Not part of the fillable flow. Used by universal forms and quizzes. |
+| `score-outcome-page` | Shown after submission of a **score form**, based on the respondent's total score. Used instead of ending pages — see **Score Mode Reference** below. |
+| `match-outcome-page` | Shown after submission of a **match form**, based on the respondent's best-matching outcome. Used instead of ending pages — see **Match Mode Reference** below. |
+
+#### Ending Pages
+
+**Every universal form and quiz must have at least one ending page.** Score and match forms use outcome pages instead (one per outcome).
+
+Ending pages and outcome pages can only contain **display elements**:
+
+- `heading`
+- `paragraph`
+- `image`
+- `lottie`
+- `embed-html`
+- `embed-audio`
+- `embed-video`
+
+A form can have **multiple ending pages**. By default, the first ending page is shown after submission. Use the `setEnding` logic rule action to conditionally direct respondents to a different ending page — for example, based on a quiz score or a specific answer (see **Logic Rules Reference** below).
+
+<Warning>
+  The API does not validate the presence of an ending page — forms can be created and even published without one. It is the responsibility of the API consumer to always include at least one ending page (or, for score and match forms, one outcome page per outcome) in `formJSON.pages`. The Weavely editor enforces this for forms built in the UI.
+</Warning>
+
 ### Element Types
 
-Weavely forms support 26 element types organized into categories:
+Weavely forms support 27 element types organized into categories:
 
 **Input Elements:**
 
@@ -608,6 +672,7 @@ Weavely forms support 26 element types organized into categories:
 - `heading` - Heading text
 - `paragraph` - Paragraph text
 - `image` - Image display
+- `lottie` - Lottie animation player
 - `embed-html` - Custom HTML embed
 - `embed-audio` - Audio player
 - `embed-video` - Video embed
@@ -1012,7 +1077,7 @@ Weavely forms support 26 element types organized into categories:
 </Accordion>
 
 <Accordion title="paragraph">
-  **`Paragraph text. Supports HTML markup and variable piping via {{variable_id}} syntax.`**
+  **Paragraph text. Supports HTML markup and variable piping via `{{variable_id}}` syntax.**
 
   ```json
   {
@@ -1030,6 +1095,20 @@ Weavely forms support 26 element types organized into categories:
     "type": "image",
     "settings": {
       "src": "string (URL)"
+    }
+  }
+  ```
+</Accordion>
+
+<Accordion title="lottie">
+  **Lottie animation player**
+
+  ```json
+  {
+    "type": "lottie",
+    "settings": {
+      "src": "string (URL to Lottie JSON file)",
+      "loop": boolean
     }
   }
   ```
@@ -1058,6 +1137,7 @@ Weavely forms support 26 element types organized into categories:
       "url": "string"
     }
   }
+  ```
 </Accordion>
 
 <Accordion title="embed-video">
@@ -1235,9 +1315,9 @@ The `variables` object uses CSS-like properties and defaults to `size: "cover"`,
 
 **Common combinations:**
 
-- Side image: `layout.type: "right"` (or `"left"`) + `visual.type: "image"` — displays a photo alongside the form
-- Background color: `layout.type: "under"` + `visual.type: "color"` — fills the page behind the form with a solid color
-- Background image: `layout.type: "under"` + `visual.type: "image"` — fills the page behind the form with an image
+- Side image: `layout.type: "right"` (or `"left"`) \+ `visual.type: "image"` — displays a photo alongside the form
+- Background color: `layout.type: "under"` \+ `visual.type: "color"` — fills the page behind the form with a solid color
+- Background image: `layout.type: "under"` \+ `visual.type: "image"` — fills the page behind the form with an image
 - No visual: `layout.type: "clean"` — form only, no visual element
 
 ### Components
@@ -1347,7 +1427,7 @@ Set `settings.type` to `"quiz"` and optionally configure quiz-specific settings:
 
 | Setting | Type | Description |
 | --- | --- | --- |
-| `type` | `"quiz"` | Activates quiz mode. Omit for standard form behaviour |
+| `type` | `"quiz"` | Activates quiz mode. Omit for universal form behaviour |
 | `quiz.instantFeedback` | boolean | When `true`, shows correct/incorrect feedback after each question rather than at the end |
 
 ### Quiz-Compatible Element Types
@@ -1437,6 +1517,191 @@ Pipe quiz variables into paragraph labels using `{{variable_id}}` syntax. Elemen
 
 ---
 
+## Score Mode Reference
+
+Score mode turns a form into a scored assessment that routes respondents to different outcome pages based on their total score — ideal for lead qualification, assessments, and personality-style tests.
+
+### Enabling Score Mode
+
+Set `settings.type` to `"score"` and define the outcomes:
+
+```json
+{
+  "settings": {
+    "type": "score",
+    "score": {
+      "outcomes": [
+        {
+          "id": "string (UUID)",
+          "name": "Cold Lead",
+          "pageId": "string (score-outcome-page UUID)",
+          "maxScore": 5
+        },
+        {
+          "id": "string (UUID)",
+          "name": "Warm Lead",
+          "pageId": "string (score-outcome-page UUID)",
+          "maxScore": 10
+        },
+        {
+          "id": "string (UUID)",
+          "name": "Hot Lead",
+          "pageId": "string (score-outcome-page UUID)"
+        }
+      ]
+    }
+  }
+}
+```
+
+### Outcomes
+
+Outcomes divide the total score into contiguous ranges. After submission, the respondent is shown the outcome page whose range their total score falls into.
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `id` | string (UUID) | Unique identifier for the outcome |
+| `name` | string | Outcome name. Exposed via the `score:outcome` variable |
+| `pageId` | string (UUID) | The `id` of the `score-outcome-page` to show for this outcome |
+| `maxScore` | number | Inclusive upper bound of the outcome's score range. Each range starts where the previous outcome's range ends. **Must be omitted on the last outcome**, which captures all higher scores |
+
+The example above produces the ranges: up to 5 → Cold Lead, 6 to 10 → Warm Lead, 11 or more → Hot Lead.
+
+### Outcome Pages
+
+Score forms use pages of type `score-outcome-page` **instead of** `ending-page`. Define one page per outcome and reference it via the outcome's `pageId`. Like ending pages, score outcome pages can only contain display elements (see **Page Structure** above).
+
+### Scoring Answers
+
+Points are assigned **per option** by adding a `score` property to options. The following element types support option scores:
+
+- `radio-buttons`
+- `checkbox-buttons`
+- `dropdown`
+
+```json
+{
+  "type": "radio-buttons",
+  "label": "How often do you typically wash your car?",
+  "settings": {
+    "required": true,
+    "options": [
+      { "label": "Once a week", "value": "Once a week", "score": 3 },
+      { "label": "Once a month", "value": "Once a month", "score": 2 },
+      { "label": "Rarely", "value": "Rarely", "score": 0 }
+    ]
+  }
+}
+```
+
+### Score Variables
+
+When score mode is active, two variables are automatically available:
+
+| Variable ID | Description |
+| --- | --- |
+| `score:total` | The respondent's total score (number) |
+| `score:outcome` | The name of the matched outcome (text) |
+
+Both can be used in logic rule conditions and piped into element labels using `{{variable_id}}` syntax, e.g. `Your score: {{score:total}}`.
+
+---
+
+## Match Mode Reference
+
+Match mode turns a form into a personality-style quiz that matches respondents to one of several outcomes based on weighted answers — ideal for "Which X are you?" quizzes and product recommenders.
+
+### Enabling Match Mode
+
+Set `settings.type` to `"match"` and define the outcomes:
+
+```json
+{
+  "settings": {
+    "type": "match",
+    "match": {
+      "outcomes": [
+        {
+          "id": "string (UUID)",
+          "name": "Sports Car",
+          "pageId": "string (match-outcome-page UUID)"
+        },
+        {
+          "id": "string (UUID)",
+          "name": "SUV",
+          "pageId": "string (match-outcome-page UUID)"
+        }
+      ]
+    }
+  }
+}
+```
+
+### Outcomes
+
+Unlike score mode, match outcomes have no score ranges. Each answer option contributes weighted points to one or more outcomes, and the outcome with the **highest accumulated total** is matched.
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `id` | string (UUID) | Unique identifier for the outcome. Referenced by option `weights` |
+| `name` | string | Outcome name. Exposed via the `match:outcome` variable |
+| `pageId` | string (UUID) | The `id` of the `match-outcome-page` to show when this outcome is matched |
+
+### Outcome Pages
+
+Match forms use pages of type `match-outcome-page` **instead of** `ending-page`. Define one page per outcome and reference it via the outcome's `pageId`. Like ending pages, match outcome pages can only contain display elements (see **Page Structure** above).
+
+### Weighting Answers
+
+Add a `weights` object to each option, mapping **outcome IDs to points**. A single option can contribute to multiple outcomes:
+
+```json
+{
+  "type": "radio-buttons",
+  "label": "What's your ideal weekend activity?",
+  "settings": {
+    "required": true,
+    "options": [
+      {
+        "label": "Racing or a track day",
+        "value": "Racing or a track day",
+        "weights": {
+          "{sports-car-outcome-id}": 3
+        }
+      },
+      {
+        "label": "Camping or off-roading",
+        "value": "Camping or off-roading",
+        "weights": {
+          "{pickup-truck-outcome-id}": 2,
+          "{suv-outcome-id}": 2
+        }
+      }
+    ]
+  }
+}
+```
+
+The following element types support option weights:
+
+- `radio-buttons`
+- `checkbox-buttons`
+- `dropdown`
+
+When the form is submitted, the weights of all selected options are added up per outcome. The respondent is shown the outcome page of the highest-scoring outcome.
+
+### Match Variables
+
+When match mode is active, one variable is automatically available:
+
+| Variable ID | Description |
+| --- | --- |
+| `match:outcome` | The name of the matched outcome (text) |
+
+It can be used in logic rule conditions and piped into element labels using `{{variable_id}}` syntax, e.g. `You are: {{match:outcome}}`.
+
+---
+
 ## Payment Mode Reference
 
 Payment mode turns a form into a payment collection form.
@@ -1453,15 +1718,15 @@ Set `settings.type` to `"payment"`:
 }
 ```
 
-| Setting | Type        | Description                                           |
-| ------- | ----------- | ----------------------------------------------------- |
-| `type`  | `"payment"` | Activates payment mode. Omit for standard form behaviour |
+| Setting | Type | Description |
+| --- | --- | --- |
+| `type` | `"payment"` | Activates payment mode. Omit for universal form behaviour |
 
 <Note>
   Payment forms require additional setup in the Weavely dashboard (Stripe integration, pricing, etc.) before they can accept payments. The API call only flags the form as a payment form — it does not configure the payment provider.
 </Note>
 
-***
+---
 
 ## Logic Rules Reference
 
