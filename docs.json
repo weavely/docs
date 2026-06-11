@@ -119,7 +119,8 @@
                   "integrations/airtable",
                   "integrations/hubspot",
                   "integrations/zoho",
-                  "integrations/mailchimp"
+                  "integrations/mailchimp",
+                  "integrations/active-campaign"
                 ]
               },
               {
