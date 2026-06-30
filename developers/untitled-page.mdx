@@ -1,0 +1,41 @@
+---
+title: "Submissions API"
+description: "API endpoints that allow you to query form submissions."
+---
+
+## Get form submission
+
+> GET api.weavely.ai/v1/form-submissions/:submissionId
+
+Retrieves a single form submission by its ID, including the values submitted for each field.
+
+### Request
+
+#### Headers
+
+<ParamField header="Authorization" type="string" required>
+  `Bearer <token>`\
+  Your personal token.
+</ParamField>
+
+#### Path Parameters
+
+<ParamField path="submissionId" type="string" required>
+  The unique identifier (UUID) of the submission.
+</ParamField>
+
+### Response
+
+<ResponseField name="id" type="string">
+  The submission's unique identifier (UUID).
+</ResponseField>
+
+<ResponseField name="data" type="object">
+  The values submitted for each field, keyed by `field:{elementId}`.
+
+  Values are typed according to the field's element type — strings for text/email/dropdown/radio answers, arrays for multi-select fields, URLs for file uploads and signatures, etc.
+</ResponseField>
+
+<ResponseField name="dateCreated" type="string">
+  The date and time the submission was created, in ISO 8601 format.
+</ResponseField>
