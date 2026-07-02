@@ -1,7 +1,71 @@
 ---
 title: "ActiveCampaign"
+description: "Send Weavely form responses straight into ActiveCampaign as contacts"
 ---
 
-<Warning>
-  Under construction, integration coming soon.
-</Warning>
+Connect Weavely to ActiveCampaign to automatically send form responses into your ActiveCampaign contacts. Once it's set up, every submission is added as a contact, with your form fields mapped to contact properties.
+
+<iframe src="https://www.youtube.com/embed/BLD5-AFeYJU" title="YouTube video player" frameborder="0" className="w-full aspect-video rounded-xl" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen />
+
+<Info>
+  **Before you start**, you'll need:
+
+  - A published Weavely form
+  - An ActiveCampaign account
+</Info>
+
+## Step 1: Generate a personal token in Weavely
+
+A personal token links your Weavely account to third-party tools like ActiveCampaign. if you don't know how to create one, head on over to the [dedicated tutorial](/integrations/personal-tokens) and come back afterwards (only takes a couple of seconds to complete).
+
+## Step 2: Add Weavely in ActiveCampaign
+
+<Steps>
+  <Step title="Open the app directory">
+    <Frame>
+      ![Screenshot showing where to find the integrations tab in ActiveCampaign](/images/Screenshot-2026-07-02-at-16.01.16.webp)
+    </Frame>
+
+    In ActiveCampaign, go to **Settings → Integrations** and click on the **app directory** hyperlink. 
+
+    <Warning>
+      Don't press "Add an integration", click on the **app directory** hyperlink instead
+    </Warning>
+  </Step>
+  <Step title="Find the Weavely app">
+    Search for **Weavely** and select the Weavely app.
+
+    <Frame>
+      ![Screenshot showing the Weavely app in ActiveCampaign](/images/Screenshot-2026-07-02-at-16.03.14.webp)
+    </Frame>
+  </Step>
+  <Step title="Add an account">
+    <Frame>
+      ![Screenshot showing how to add a Weavely account in ActiveCampaign](/images/Screenshot-2026-07-02-at-16.04.25.webp)
+    </Frame>
+
+    Click **Add an account**. When prompted for a **personal token**, paste the token you copied from Weavely.
+  </Step>
+</Steps>
+
+## Step 3: Choose your team and form
+
+<Frame>
+  ![Screenshot showing how to select a team and a from in ActiveCampaign](/images/Screenshot-2026-07-02-at-16.07.48.webp)
+</Frame>
+
+Once your token is accepted, Weavely and ActiveCampaign are connected. You can now select the team and the form that you want to synchronise with ActiveCampaign.
+
+## Step 4: Map your form fields
+
+Map each field on your form to an ActiveCampaign contact property. map your form's email field to the ActiveCampaign **Email** property. Other fields (like phone number, subject, or message) are optional. If you want to capture more data, create custom contact properties in ActiveCampaign first. They'll then be available to map to your form fields.
+
+<Frame>
+  ![Screenshot showing how to map Weavely form fields to ActiveCampaign contact properties.](/images/Screenshot-2026-07-02-at-16.08.50.webp)
+</Frame>
+
+When your mapping looks right, click **Finish**. Your integration is live once the status shows **Connected**.
+
+<Note>
+  Your responses are always stored in Weavely too. The integration adds ActiveCampaign as a destination, it doesn't replace Weavely's own response storage.
+</Note>
