@@ -132,6 +132,13 @@
                   "integrations/make",
                   "integrations/viasocket"
                 ]
+              },
+              {
+                "group": "Form Tracking",
+                "icon": "chart-area",
+                "pages": [
+                  "ga-4-and-gtm"
+                ]
               }
             ]
           },

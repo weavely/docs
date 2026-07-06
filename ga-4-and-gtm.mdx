@@ -1,0 +1,117 @@
+---
+title: "Track forms with Google Analytics & Google Tag Manager"
+sidebarTitle: "Google Analytics & GTM"
+description: "Measure form views, traffic, and submit-button clicks from your Weavely forms in GA4, using your Measurement ID and Google Tag Manager."
+---
+
+<iframe src="https://www.youtube.com/embed/gJvoTlepHjw" title="YouTube video player" frameborder="0" className="w-full aspect-video rounded-xl" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen />
+
+This guide shows you how to track two things on your Weavely forms with Google Analytics 4 (GA4):
+
+- **Form views and traffic**: how many people open your form, and where they came from.
+- **Form submissions**: when someone actually clicks the submit button. The first takes about a minute and just needs your GA4 Measurement ID. The second uses Google Tag Manager (GTM) to catch the submit click.
+
+<Info>
+  Tracking is available on the **free plan**, under **Settings → Tracking** (while editing a form). This guide assumes you already have a basic familiarity with Google Analytics and Google Tag Manager. It focuses on the Weavely-specific steps.
+</Info>
+
+{/* Optional: embed your walkthrough video. Replace VIDEO_ID with your YouTube ID. */}
+
+{/* <iframe width="100%" height="400" src="https://www.youtube.com/embed/VIDEO_ID" title="Track Weavely forms with GA4 and GTM" frameborder="0" allowfullscreen></iframe> */}
+
+## Part 1: Track form views with Google Analytics
+
+This connects your form directly to GA4 so you can see views and traffic sources. No Tag Manager needed.
+
+<Steps>
+  <Step title="Copy your GA4 Measurement ID">
+    In Google Analytics, go to **Admin → Data streams**, open your web stream, and copy the **Measurement ID** at the top. It always starts with `G-` (for example, `G-XXXXXXXXXX`).
+
+    <Warning>
+      The Measurement ID (`G-…`) is **not** the same as the Property ID (a plain number). Only the `G-` ID works here.
+    </Warning>
+  </Step>
+  <Step title="Paste it into Weavely">
+    <Frame>
+      ![Screenshot showing where to add a Google Analytics measurement ID to track form analytics in Weavely AI.](/images/Screenshot-2026-07-06-at-17.26.48.webp)
+    </Frame>
+
+    Open your form, go to **Settings → Tracking**, and paste the ID into the **Google Analytics** field.
+  </Step>
+  <Step title="Publish your form">
+    Hit **Publish**. Tracking only goes live on the published form, not the editor preview.
+  </Step>
+</Steps>
+
+<Note>
+  This tracks **views and traffic only**, not conversions. Submitting the form won't show up as anything special here. To track submissions, continue to Part 2.
+</Note>
+
+## Part 2: Track form submissions with Google Tag Manager
+
+Google Analytics can't detect your form's submit button on its own, so this part uses Google Tag Manager to listen for the click and send a `form_submit` event to GA4.
+
+Every Weavely submit button carries the CSS class `submit-form`, and that's the stable hook you'll listen for.
+
+<Steps>
+  <Step title="Enable the Click Classes variable">
+    <Frame>
+      <img
+        src="/images/Screenshot-2026-07-06-at-17.36.06.webp"
+        alt="Screenshot showing how to enable Click Classes in Google Tag Manager."
+        title="Screenshot 2026 07 06 At 17 36 06"
+        lightAlt="Screenshot showing how to enable Click "
+        darkAlt="Screenshot 2026 07 06 At 17 36 06"
+      />
+    </Frame>
+
+    In GTM, go to **Variables → Configure** and enable **Click Classes**. Without this, your trigger can't see the button's class.
+  </Step>
+  <Step title="Create the submit-button trigger">
+    <Frame>
+      ![Screenshot showing how to add a GTM trigger event for Weavely AI forms.](/images/Screenshot-2026-07-06-at-17.38.38.webp)
+    </Frame>
+
+    Go to **Triggers → New** and choose trigger type **Click – All Elements**. Set it to fire on **Some Clicks**, with the condition: **Click Classes** → **contains** → `submit-form`
+
+    Name it something like `Submit trigger` and save.
+
+    <Tip>
+      Match on the class `submit-form`, not the button's `id`, which is generated per form and isn't reliable.
+    </Tip>
+  </Step>
+  <Step title="Create the GA4 Event tag">
+    <Frame>
+      ![Screenshot showing how to create a GTM tag for Weavely AI forms.](/images/Screenshot-2026-07-06-at-17.40.47.webp)
+    </Frame>
+
+    Go to **Tags → New** and choose tag type **Google Analytics: GA4 Event**. Set:
+
+    - **Measurement ID**: your `G-` ID (the same one from Part 1)
+    - **Event Name**: `form_submit`
+    - **Triggering**: the `Submit trigger` you just made
+
+    Save the tag.
+
+    <Warning>
+      Do **not** add a "Google Tag" / GA4 Configuration tag in GTM. Weavely's Google Analytics field (Part 1) already loads GA4 on the page, and adding it again in GTM would count every pageview twice. GTM should hold **only** the event tag.
+    </Warning>
+  </Step>
+  <Step title="Add your GTM container to Weavely">
+    <Frame>
+      ![Screenshot showing where to add a Google Analytics measurement ID to track form analytics in Weavely AI.](/images/Screenshot-2026-07-06-at-17.26.48-1.webp)
+    </Frame>
+
+    Copy your **Container ID** from GTM (it looks like `GTM-XXXXXXX`). In Weavely, go to **Settings → Tracking**, paste it into the **Google Tag Manager** field, and **Publish** the form.
+  </Step>
+  <Step title="Test it in Preview">
+    In GTM, click **Preview**, paste your published form's URL, and submit the form with any dummy data. In the Tag Assistant panel you should see your event tag fire **once** when you press submit. For a second check, confirm the `form_submit` event lands in GA4 under **Admin → DebugView**.
+  </Step>
+  <Step title="Publish the container">
+    Back in GTM, click **Submit → Publish** to make the container live. Preview mode alone doesn't publish your changes.
+  </Step>
+</Steps>
+
+<Note>
+  This fires on the button **click**, not on a confirmed successful submission. That means clicks where a required field was empty can still count, so your `form_submit` number may run slightly high. It's a solid proxy for "roughly how many submissions"; just don't treat it as an exact count.
+</Note>
